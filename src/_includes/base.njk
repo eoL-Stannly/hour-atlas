@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }} · {{ site.name }}{% else %}{{ site.name }} · {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{{ description or site.description }}">
+<meta property="og:title" content="{% if title %}{{ title }} · {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:type" content="website">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Archivo:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><style>[data-reveal],[data-reveal-group]>*{opacity:1 !important}</style></noscript>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='9' fill='%23E8A05C'/></svg>">
+</head>
+<body class="{{ bodyClass }}" {% if d %}data-slug="{{ d.slug }}"{% endif %}>
+
+<div class="sky" aria-hidden="true">
+  <div class="sky__field"></div>
+  <div class="sky__sun"></div>
+  <div class="sky__grain"></div>
+</div>
+
+<header class="masthead">
+  <a class="masthead__mark" href="/">
+    <span class="masthead__disc" aria-hidden="true"></span>
+    {{ site.name }}
+  </a>
+  <p class="masthead__clock" aria-live="off">
+    <span class="clock__time" data-clock>00:14</span>
+    <span class="clock__place" data-clock-place>Lofoten</span>
+  </p>
+  <nav class="masthead__nav">
+    <a href="/stays/">Stays</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="foot">
+  <div class="foot__grid">
+    <div>
+      <p class="foot__wordmark">{{ site.name }}</p>
+      <p class="foot__line">{{ site.tagline }}</p>
+    </div>
+    <div>
+      <p class="label">Destinations</p>
+      <ul class="foot__list">
+        {%- for d in destinations %}
+        <li><a href="/destinations/{{ d.slug }}/">{{ d.name }} <span class="mono">{{ d.time }}</span></a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <p class="label">Elsewhere</p>
+      <ul class="foot__list">
+        <li><a href="/stays/">Every stay</a></li>
+        <li><a href="/about/">How this works</a></li>
+      </ul>
+      <p class="foot__note">A concept site. Places are real, listings are illustrative and not bookable.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+  window.ATLAS = {{ skyframes | dump | safe }};
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

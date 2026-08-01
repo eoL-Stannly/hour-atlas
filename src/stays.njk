@@ -1,0 +1,32 @@
+---
+layout: base.njk
+permalink: /stays/
+title: Every stay
+description: Twelve places to sleep across six destinations, from a Lofoten fishing cabin to an overwater villa in the Maldives.
+---
+
+<section class="pagehead">
+  <p class="label">Twelve rooms, six hours apart</p>
+  <h1 class="pagehead__title">Every stay</h1>
+  <p class="pagehead__lede">
+    Sorted by the hour of their destination rather than by price, so the list
+    reads as a single day. Nightly rates are for two people in high season
+    unless the sleeps count says otherwise.
+  </p>
+</section>
+
+<section class="section">
+  <div class="index-table" data-reveal>
+    {%- for d in destinations %}
+      {%- for s in d.stays %}
+      <a class="index-row" href="/destinations/{{ d.slug }}/#{{ s.name | slug }}">
+        <span class="index-row__time">{{ d.time }}</span>
+        <span class="index-row__name">{{ s.name }}</span>
+        <span class="index-row__place">{{ d.name }}, {{ d.country }}</span>
+        <span class="index-row__type">{{ s.type }}</span>
+        <span class="index-row__price">{{ s.price | money }}</span>
+      </a>
+      {%- endfor %}
+    {%- endfor %}
+  </div>
+</section>

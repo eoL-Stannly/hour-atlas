@@ -1,0 +1,97 @@
+---
+layout: base.njk
+bodyClass: home
+---
+
+<section class="hero">
+  <p class="hero__eyebrow">An atlas arranged by the clock, not the map</p>
+  <h1 class="hero__title">
+    <span class="line"><span>Six places,</span></span>
+    <span class="line"><span>one day</span></span>
+    <span class="line"><span><em>of light.</em></span></span>
+  </h1>
+  <div class="hero__foot">
+    <p class="hero__lede">
+      Every destination here is filed under the hour it is worth being there,
+      running from a Lofoten midnight to a Santorini sunset. Keep scrolling and
+      the sky above you keeps the same time.
+    </p>
+    <p class="hero__cue">Scroll</p>
+  </div>
+</section>
+
+<section class="ledger" aria-label="Contents">
+  <div class="ledger__rail">
+    {%- for d in destinations %}
+    <a class="ledger__cell" href="#{{ d.slug }}">
+      <span class="ledger__time">{{ d.time }}</span>
+      <span class="ledger__tick" aria-hidden="true"></span>
+      <span class="ledger__name">{{ d.name }}</span>
+      <span class="ledger__light">{{ d.light }}</span>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- for d in destinations %}
+<section class="place" id="{{ d.slug }}">
+
+  <div class="place__stage" data-stage="{{ d.slug }}">
+    <p class="place__meta">
+      <strong>{{ d.time }}</strong>
+      <span>{{ d.light }}</span>
+      <span class="mono">{{ d.coords }}</span>
+    </p>
+    <h2 class="place__name">
+      <a href="/destinations/{{ d.slug }}/">{{ d.name }}</a>
+      <span class="place__country">{{ d.country }}</span>
+    </h2>
+    <p class="place__kicker">{{ d.kicker }}</p>
+
+    <div class="horizon" aria-hidden="true">
+      <svg class="horizon__far" viewBox="0 0 1440 400" preserveAspectRatio="none">
+        <path d="{{ d.horizon.far }}"/>
+      </svg>
+      <svg class="horizon__near" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice">
+        {{ d.horizon.near | safe }}
+      </svg>
+    </div>
+  </div>
+
+  <div class="place__detail">
+    <div data-reveal>
+      <p class="place__body">{{ d.body }}</p>
+      <dl class="facts">
+        <div class="facts__row"><dt>Go</dt><dd>{{ d.season }}</dd></div>
+        <div class="facts__row"><dt>Getting there</dt><dd>{{ d.flight }}</dd></div>
+        <div class="facts__row"><dt>Position</dt><dd class="mono">{{ d.coords }}</dd></div>
+      </dl>
+    </div>
+
+    <div>
+      <p class="label">Where to stay</p>
+      <div class="stays" data-reveal-group>
+        {%- for s in d.stays %}
+        <a class="stay" href="/destinations/{{ d.slug }}/#{{ s.name | slug }}">
+          <span class="stay__head">
+            <span class="stay__type">{{ s.type }}</span>
+            <span>Sleeps {{ s.sleeps }}</span>
+          </span>
+          <h3 class="stay__name">{{ s.name }}</h3>
+          <p class="stay__note">{{ s.note }}</p>
+          <span class="stay__price"><b>{{ s.price | money }}</b> <span>per night</span></span>
+        </a>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+
+</section>
+{%- endfor %}
+
+<section class="nextup">
+  <p class="label" data-reveal>The whole list</p>
+  <a href="/stays/" data-reveal>
+    <span class="nextup__name">Twelve places to sleep</span>
+  </a>
+</section>
