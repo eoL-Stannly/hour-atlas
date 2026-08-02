@@ -134,14 +134,22 @@ Country coordinates live on each entry in `content/countries.js` (`lat`,
 `lng`). `atlas.js` projects them to a flat-map percentage position at build
 time; the globe projects the same numbers live, client-side, as it turns.
 
-One thing worth knowing about the globe's rendering: several of Natural
-Earth's landmasses (Africa+Eurasia, the Americas) are a single polygon each,
-spanning more longitude than any one hemisphere can show at once. The globe
-draws each contiguous *visible* run of a landmass's points as its own shape
-rather than requiring the whole polygon to be on-screen, so a supercontinent
-crossing the horizon still renders its visible portion instead of vanishing
-outright. This was checked by rasterising the exact projection math in
-Python before shipping it, at several rotations, rather than assumed.
+The globe draws land as a **scatter of points, not filled polygons**. This
+is the fix for a real problem rather than a style choice. An orthographic
+projection must clip every shape at the horizon, and closing a half-clipped
+polygon draws a chord straight across the face of the sphere — which showed
+up as diagonal streaks across the globe. Points have no edges to close, so
+the horizon takes care of itself, and the result reads as a cleaner, more
+modern globe besides.
+
+`worlddots.json` is a roughly equal-area scatter (longitude spacing widened
+by 1/cos(latitude) so dots do not bunch at the poles), tested against the
+full-resolution coastline with a ray-cast point-in-polygon check at build
+time. It ships flattened as `[lon, lat, lon, lat, ...]`, since brackets on
+4,000 nested pairs cost more than the coordinates.
+
+Depth is conveyed by bucketing points into five brightness bands by how
+directly they face the viewer, so the sphere reads as curved.
 
 ## Content
 

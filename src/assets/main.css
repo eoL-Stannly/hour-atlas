@@ -14,7 +14,7 @@
   --line: #cdd7c1;
   --sea: #2f6b4f;
   --sea-dark: #12291d;
-  --mark: #c4006a;
+  --mark: #e8266f;
   --shell: #fff;
 
   --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
@@ -747,9 +747,21 @@ img { display: block; max-width: 100%; }
 
 .globe {
   position: relative;
-  width: min(26rem, 84vw);
+  width: min(30rem, 88vw);
   margin: 0 auto;
   aspect-ratio: 1;
+  isolation: isolate;
+}
+
+/* Glow sitting behind the sphere. */
+.globe::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(110, 231, 168, 0.28), rgba(110, 231, 168, 0) 62%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .globe__canvas {
@@ -758,8 +770,8 @@ img { display: block; max-width: 100%; }
   height: 100%;
   border-radius: 50%;
   cursor: grab;
-  background: radial-gradient(circle at 34% 30%, #f5f8ee, #dbe4cb 70%);
   touch-action: none;
+  background: #08150f;
 }
 .globe__canvas.is-grabbing { cursor: grabbing; }
 
@@ -771,49 +783,93 @@ img { display: block; max-width: 100%; }
   transform: translate(-50%, -50%);
   pointer-events: auto;
   text-decoration: none;
+  z-index: 100;
 }
 
+/* A bright core, a ring, and an expanding pulse, so a mark reads clearly
+   against the dotted land beneath it. */
 .globe__dot {
   display: block;
-  width: 0.6rem;
-  height: 0.6rem;
+  position: relative;
+  width: 0.85rem;
+  height: 0.85rem;
   border-radius: 50%;
   background: var(--mark);
   border: 2px solid #fff;
-  box-shadow: 0 0 0 1px rgba(18, 41, 29, 0.25);
-  transition: transform 0.2s;
+  box-shadow: 0 0 0 2px rgba(232, 38, 111, 0.35), 0 0 14px 3px rgba(232, 38, 111, 0.75);
+  transition: transform 0.2s ease;
 }
-.globe__mark:hover .globe__dot,
-.globe__mark:focus-visible .globe__dot { transform: scale(1.25); }
+.globe__dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--mark);
+  animation: globePulse 2.6s ease-out infinite;
+}
 
+@keyframes globePulse {
+  0%   { transform: scale(0.7); opacity: 0.9; }
+  70%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.globe__mark:hover .globe__dot,
+.globe__mark:focus-visible .globe__dot { transform: scale(1.35); }
+
+/* Labels are always on, not hover-only: a mark you have to find first is
+   not much of a map. */
 .globe__label {
   position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 0.35rem;
-  padding: 0.2rem 0.5rem;
-  background: var(--ink);
-  color: #fff;
+  top: 50%;
+  left: calc(100% + 0.45rem);
+  transform: translateY(-50%);
+  padding: 0.16rem 0.44rem;
+  background: rgba(8, 21, 15, 0.82);
+  border: 1px solid rgba(110, 231, 168, 0.45);
+  color: #eaf7ee;
   font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   white-space: nowrap;
   border-radius: 3px;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 .globe__mark:hover .globe__label,
-.globe__mark:focus-visible .globe__label { opacity: 1; }
+.globe__mark:focus-visible .globe__label {
+  background: var(--mark);
+  border-color: var(--mark);
+  color: #fff;
+}
+
+.globe__hint {
+  margin: 1.4rem auto 0;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
 
 .globe__noscript {
   position: absolute;
-  inset: auto 0 -2.2rem 0;
+  inset: auto 0 -2.4rem 0;
   text-align: center;
   font-family: var(--sans);
   font-size: 0.78rem;
-  color: var(--ink-2);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 34rem) {
+  .globe__label { font-size: 0.58rem; padding: 0.12rem 0.34rem; }
+  .globe__dot { width: 0.7rem; height: 0.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe__dot::after { animation: none; }
 }
 
 /* ------------------------------------------------------------ worldmap */
