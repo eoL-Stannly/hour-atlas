@@ -8,6 +8,7 @@ import framesByRef from "./frames.js";
 const entries = [
   {
     slug: "orlando",
+    placeSlug: "orlando",
     place: "Orlando",
     region: "Florida",
     country: "United States",
@@ -32,6 +33,7 @@ const entries = [
 
   {
     slug: "baa-atoll",
+    placeSlug: "baa-atoll",
     place: "Baa Atoll",
     region: "Baa",
     country: "Maldives",
@@ -58,6 +60,7 @@ const entries = [
 
   {
     slug: "koh-lipe",
+    placeSlug: "koh-lipe",
     place: "Koh Lipe",
     region: "Satun",
     country: "Thailand",
@@ -84,6 +87,7 @@ const entries = [
 
   {
     slug: "praia-da-marinha",
+    placeSlug: "algarve",
     place: "Praia da Marinha",
     region: "Algarve",
     country: "Portugal",
@@ -110,6 +114,7 @@ const entries = [
 
   {
     slug: "fiordland",
+    placeSlug: "fiordland",
     place: "Fiordland",
     region: "Southland",
     country: "New Zealand",
@@ -136,6 +141,7 @@ const entries = [
 
   {
     slug: "erg-chebbi",
+    placeSlug: "erg-chebbi",
     place: "Erg Chebbi",
     region: "Merzouga",
     country: "Morocco",
@@ -162,6 +168,7 @@ const entries = [
 
   {
     slug: "munduk",
+    placeSlug: "munduk",
     place: "Munduk",
     region: "Bali",
     country: "Indonesia",

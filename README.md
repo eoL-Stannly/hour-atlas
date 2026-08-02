@@ -17,9 +17,30 @@ Live: https://fuiyoh.netlify.app
   layout never shifts while an image loads.
 - No framework, no CSS build step, no client-side routing.
 
+## Structure
+
+    /                                   journal feed
+    /journal/{entry}/                   a written entry with its frames
+    /destinations/                      all regions
+    /destinations/{region}/             countries in a region
+    /destinations/{region}/{country}/   country facts, places within it
+    /destinations/{region}/{country}/{place}/
+    /stays/                             all stay types
+    /stays/{type}/                      camping, hotel, rural, hot-tub,
+                                        sauna, forest, beach, pool
+    /stay/{slug}/                       one stay, reviewed
+    /contact-sheet/                     every frame
+
+Stay *types* live under `/stays/`, individual stays under `/stay/`. The
+singular and plural keep the two namespaces from colliding.
+
+The directory graph is assembled in `src/_data/atlas.js` from the plain
+content files in `content/`. Children carry their parents' names as strings
+rather than object references, so nothing in the graph is circular.
+
 ## Content
 
-Everything lives in two data files.
+Journal entries and frames live in two data files.
 
 `src/_data/entries.js` holds the journal. Each entry carries its place, dates,
 prose, verdict, score out of five, where I stayed, and the list of frame

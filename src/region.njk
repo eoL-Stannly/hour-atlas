@@ -1,0 +1,40 @@
+---
+layout: base.njk
+pagination:
+  data: atlas.regions
+  size: 1
+  alias: r
+permalink: "/destinations/{{ r.slug }}/"
+eleventyComputed:
+  title: "{{ r.name }}"
+  description: "{{ r.blurb }}"
+---
+<nav class="crumbs"><a href="/destinations/">Destinations</a> <span>/</span> <span aria-current="page">{{ r.name }}</span></nav>
+
+<section class="pagehead">
+  <p class="label">{{ r.countryCount }} countries · {{ r.stayCount }} stays</p>
+  <h1 class="pagehead__title">{{ r.name }}</h1>
+  <p class="pagehead__lede">{{ r.blurb }}</p>
+</section>
+
+<section class="listing">
+  {%- for c in r.countries %}
+  <article class="row" data-reveal>
+    <div class="row__main">
+      <h2 class="row__title"><a href="{{ c.url }}">{{ c.name }}</a></h2>
+      <p class="row__blurb">{{ c.blurb }}</p>
+      <ul class="chiplist chiplist--tight">
+        {%- for p in c.places %}
+        <li><a class="chip chip--quiet" href="{{ p.url }}">{{ p.name }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <dl class="row__facts">
+      <div><dt>Population</dt><dd>{{ c.population }}</dd></div>
+      <div><dt>Capital</dt><dd>{{ c.capital }}</dd></div>
+      <div><dt>Flight</dt><dd>{{ c.flight }}</dd></div>
+      <div><dt>Stays</dt><dd>{{ c.stayCount }}</dd></div>
+    </dl>
+  </article>
+  {%- endfor %}
+</section>

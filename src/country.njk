@@ -1,0 +1,54 @@
+---
+layout: base.njk
+pagination:
+  data: atlas.countries
+  size: 1
+  alias: c
+permalink: "/destinations/{{ c.region }}/{{ c.slug }}/"
+eleventyComputed:
+  title: "{{ c.name }}"
+  description: "{{ c.blurb }}"
+---
+{% from "frame.njk" import pending %}
+<nav class="crumbs">
+  <a href="/destinations/">Destinations</a> <span>/</span>
+  <a href="/destinations/{{ c.regionSlug }}/">{{ c.regionName }}</a> <span>/</span>
+  <span aria-current="page">{{ c.name }}</span>
+</nav>
+
+<section class="pagehead">
+  <p class="label">{{ c.regionName }}</p>
+  <h1 class="pagehead__title">{{ c.name }}</h1>
+  <p class="pagehead__lede">{{ c.blurb }}</p>
+</section>
+
+<section class="factsband">
+  <dl class="factsband__grid">
+    <div><dt>Population</dt><dd>{{ c.population }}</dd></div>
+    <div><dt>Capital</dt><dd>{{ c.capital }}</dd></div>
+    <div><dt>Currency</dt><dd>{{ c.currency }}</dd></div>
+    <div><dt>Language</dt><dd>{{ c.language }}</dd></div>
+    <div><dt>Time zone</dt><dd>{{ c.timezone }}</dd></div>
+    <div><dt>Getting there</dt><dd>{{ c.flight }}</dd></div>
+    <div><dt>When to go</dt><dd>{{ c.whenToGo }}</dd></div>
+    <div><dt>Places</dt><dd>{{ c.placeCount }}, with {{ c.stayCount }} stays</dd></div>
+  </dl>
+  <p class="factsband__note">Population is a rounded 2024 estimate.</p>
+</section>
+
+<section class="listing">
+  <p class="label" data-reveal>Places in {{ c.name }}</p>
+  {%- for p in c.places %}
+  <article class="row" data-reveal>
+    <div class="row__main">
+      <p class="row__kind mono">{{ p.kind }}</p>
+      <h2 class="row__title"><a href="{{ p.url }}">{{ p.name }}</a></h2>
+      <p class="row__blurb">{{ p.blurb }}</p>
+    </div>
+    <dl class="row__facts">
+      <div><dt>Best time</dt><dd>{{ p.bestTime }}</dd></div>
+      <div><dt>Stays</dt><dd>{% if p.fromPrice %}{{ p.stayCount }}, from {{ p.fromPrice | money }} a night{% else %}None yet{% endif %}</dd></div>
+    </dl>
+  </article>
+  {%- endfor %}
+</section>

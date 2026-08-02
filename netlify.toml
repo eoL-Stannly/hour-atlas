@@ -5,15 +5,36 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# The site began life as a destination guide. Keep the old URLs alive.
+# The site began life as a destination guide with flat URLs. Map the old
+# ones onto the places they became.
 [[redirects]]
-  from = "/destinations/*"
-  to = "/journal/:splat"
+  from = "/destinations/santorini"
+  to = "/destinations/europe/greece/santorini/"
   status = 301
 
 [[redirects]]
-  from = "/stays"
-  to = "/contact-sheet/"
+  from = "/destinations/lofoten"
+  to = "/destinations/europe/norway/lofoten/"
+  status = 301
+
+[[redirects]]
+  from = "/destinations/fiordland"
+  to = "/destinations/oceania/new-zealand/fiordland/"
+  status = 301
+
+[[redirects]]
+  from = "/destinations/male-atoll"
+  to = "/destinations/asia/maldives/baa-atoll/"
+  status = 301
+
+[[redirects]]
+  from = "/destinations/marrakech"
+  to = "/destinations/africa/morocco/erg-chebbi/"
+  status = 301
+
+[[redirects]]
+  from = "/destinations/kyoto"
+  to = "/destinations/"
   status = 301
 
 [[headers]]

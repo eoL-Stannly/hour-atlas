@@ -72,6 +72,27 @@ bodyClass: home
 </article>
 {%- endfor %}
 
+<section class="listing">
+  <p class="label" data-reveal>Or browse by where it is</p>
+  <div class="typegrid typegrid--two" data-reveal-group>
+    <a class="type" href="/destinations/">
+      <span class="type__name">Destinations</span>
+      <span class="type__blurb">{{ atlas.totals.countries }} countries and {{ atlas.totals.places }} places, filed by region. Population, currency, flight times and when to go for each.</span>
+      <span class="type__meta mono">{{ atlas.totals.regions }} regions</span>
+    </a>
+    <a class="type" href="/stays/">
+      <span class="type__name">Stays</span>
+      <span class="type__blurb">Every place I have actually slept, reviewed and scored. Browse by camping, hotels, rural, hot tubs, saunas, forest, beaches or pools.</span>
+      <span class="type__meta mono">{{ atlas.totals.stays }} stays · {{ atlas.totals.types }} types</span>
+    </a>
+    <a class="type" href="/contact-sheet/">
+      <span class="type__name">Contact sheet</span>
+      <span class="type__blurb">Every published frame in one grid, numbered the way the camera numbered it.</span>
+      <span class="type__meta mono">{{ frames | length }} frames</span>
+    </a>
+  </div>
+</section>
+
 <section class="closing">
   <p class="label" data-reveal>Everything at once</p>
   <a class="closing__link" href="/contact-sheet/" data-reveal>

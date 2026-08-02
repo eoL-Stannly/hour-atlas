@@ -1,0 +1,101 @@
+---
+layout: base.njk
+pagination:
+  data: atlas.stays
+  size: 1
+  alias: s
+permalink: "/stay/{{ s.slug }}/"
+bodyClass: stay
+eleventyComputed:
+  title: "{{ s.name }}"
+  description: "{{ s.summary }}"
+---
+{% from "frame.njk" import frame, pending %}
+
+<nav class="crumbs">
+  <a href="/destinations/">Destinations</a> <span>/</span>
+  <a href="{{ s.countryUrl }}">{{ s.countryName }}</a> <span>/</span>
+  <a href="{{ s.placeUrl }}">{{ s.placeName }}</a> <span>/</span>
+  <span aria-current="page">{{ s.name }}</span>
+</nav>
+
+<section class="stayhead">
+  <p class="label">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
+  <h1 class="pagehead__title">{{ s.name }}</h1>
+  <p class="pagehead__lede">{{ s.summary }}</p>
+  <ul class="chiplist">
+    {%- for t in s.typeObjects %}<li><a class="chip" href="{{ t.url }}">{{ t.name }}</a></li>{% endfor %}
+  </ul>
+</section>
+
+<div class="stay__hero">
+  {%- if s.frames.length %}
+    {{ frame(frames[s.frames[0]], "100vw", "frame--bleed", true) }}
+  {%- else %}
+    {{ pending("No photograph yet", 1.9, true) }}
+  {%- endif %}
+</div>
+
+<div class="post__body">
+  <aside class="post__meta">
+    <dl class="score score--stack">
+      <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ s.rating }}" aria-hidden="true"></span> <span class="mono">{{ s.rating }}/5</span></dd></div>
+      <div><dt>Stayed</dt><dd>{{ s.stayed }}, {{ s.nights }} nights</dd></div>
+      <div><dt>Sleeps</dt><dd>{{ s.sleeps }}</dd></div>
+      <div><dt>From</dt><dd class="mono">{{ s.price | money }} a night</dd></div>
+      <div><dt>Where</dt><dd><a href="{{ s.placeUrl }}">{{ s.placeName }}</a>, <a href="{{ s.countryUrl }}">{{ s.countryName }}</a></dd></div>
+    </dl>
+  </aside>
+
+  <div class="post__prose">
+    {%- for para in s.review %}
+    <p data-reveal>{{ para }}</p>
+    {%- endfor %}
+
+    <div class="pros" data-reveal>
+      <div class="pros__col">
+        <p class="label">What works</p>
+        <ul class="ticks">{% for g in s.good %}<li>{{ g }}</li>{% endfor %}</ul>
+      </div>
+      <div class="pros__col pros__col--bad">
+        <p class="label">What does not</p>
+        <ul class="ticks">{% for b in s.bad %}<li>{{ b }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+
+    <div class="post__verdict" data-reveal>
+      <p class="label">The verdict</p>
+      <p>{{ s.verdict }}</p>
+    </div>
+  </div>
+</div>
+
+<section class="post__frames">
+  <p class="label" data-reveal>Gallery</p>
+  {%- if s.frames.length > 1 %}
+    <div class="gallery">
+    {%- for ref in s.frames %}{% if not loop.first %}{{ frame(frames[ref], "(min-width: 60rem) 40vw, 100vw") }}{% endif %}{% endfor %}
+    </div>
+  {%- else %}
+    <div class="gallery" data-reveal-group>
+      {{ pending("Awaiting frame 01", 1.5) }}
+      {{ pending("Awaiting frame 02", 0.75) }}
+      {{ pending("Awaiting frame 03", 1.5) }}
+    </div>
+    <p class="gallery__note">
+      Photographs for this stay have not been published yet. Add frame
+      references to this entry and the slots fill in.
+    </p>
+  {%- endif %}
+</section>
+
+<nav class="post__nav">
+  <a class="post__nav-link" href="{{ s.placeUrl }}">
+    <span class="label">More in</span>
+    <span class="post__nav-name">{{ s.placeName }}</span>
+  </a>
+  <a class="post__nav-link post__nav-link--next" href="/stays/">
+    <span class="label">Browse</span>
+    <span class="post__nav-name">All stays</span>
+  </a>
+</nav>

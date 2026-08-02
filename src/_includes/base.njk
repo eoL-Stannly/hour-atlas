@@ -26,7 +26,8 @@
   <a class="masthead__mark" href="/">{{ site.name }}</a>
   <nav class="masthead__nav">
     <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Journal</a>
-    <a href="/contact-sheet/" {% if page.url == "/contact-sheet/" %}aria-current="page"{% endif %}>Contact sheet</a>
+    <a href="/destinations/" {% if "/destinations/" in page.url %}aria-current="page"{% endif %}>Destinations</a>
+    <a href="/stays/" {% if "/stay" in page.url %}aria-current="page"{% endif %}>Stays</a>
     <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
   </nav>
   <p class="masthead__count"><span class="rebate__ref">{{ frames | length }}</span> frames</p>

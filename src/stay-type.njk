@@ -1,0 +1,47 @@
+---
+layout: base.njk
+pagination:
+  data: atlas.types
+  size: 1
+  alias: t
+permalink: "/stays/{{ t.slug }}/"
+eleventyComputed:
+  title: "{{ t.name }}"
+  description: "{{ t.blurb }}"
+---
+<nav class="crumbs"><a href="/stays/">Stays</a> <span>/</span> <span aria-current="page">{{ t.name }}</span></nav>
+
+<section class="pagehead">
+  <p class="label">{{ t.stayCount }} stays{% if t.fromPrice %} · from {{ t.fromPrice | money }} a night{% endif %}</p>
+  <h1 class="pagehead__title">{{ t.name }}</h1>
+  <p class="pagehead__lede">{{ t.blurb }}</p>
+</section>
+
+<section class="listing">
+  {%- for s in t.stays %}
+  <article class="row row--stay" data-reveal>
+    <div class="row__main">
+      <p class="row__kind mono">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
+      <h2 class="row__title"><a href="{{ s.url }}">{{ s.name }}</a></h2>
+      <p class="row__blurb">{{ s.summary }}</p>
+      <ul class="chiplist chiplist--tight">
+        {%- for o in s.typeObjects %}<li><a class="chip{% if o.slug == t.slug %} chip--on{% else %} chip--quiet{% endif %}" href="{{ o.url }}">{{ o.name }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    <dl class="row__facts">
+      <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ s.rating }}" aria-hidden="true"></span> <span class="mono">{{ s.rating }}/5</span></dd></div>
+      <div><dt>Sleeps</dt><dd>{{ s.sleeps }}</dd></div>
+      <div><dt>From</dt><dd class="mono">{{ s.price | money }} a night</dd></div>
+    </dl>
+  </article>
+  {%- endfor %}
+</section>
+
+<section class="closing">
+  <p class="label" data-reveal>Other types</p>
+  <ul class="chiplist" data-reveal>
+    {%- for o in atlas.types %}{% if o.slug != t.slug %}
+    <li><a class="chip" href="{{ o.url }}">{{ o.name }} <span class="mono">{{ o.stayCount }}</span></a></li>
+    {%- endif %}{% endfor %}
+  </ul>
+</section>

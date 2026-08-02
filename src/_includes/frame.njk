@@ -28,3 +28,12 @@
 </figure>
 {%- endif %}
 {% endmacro %}
+
+{% macro pending(label = "Frame pending", ratio = 1.5, tall = false) %}
+<figure class="frame frame--pending">
+  <div class="pending{% if tall %} pending--tall{% endif %}" style="--ratio: {{ ratio }}">
+    <span class="pending__mark" aria-hidden="true"></span>
+    <span class="pending__label">{{ label }}</span>
+  </div>
+</figure>
+{% endmacro %}
