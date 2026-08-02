@@ -1,5 +1,10 @@
-/* Every stay gets a review page at /stay/{slug}/. `frames` is a list of
-   frame refs; leave it empty and the page renders pending slots instead. */
+/* Every stay gets one review page, nested under the first type in its
+   `types` list: /stays/{first-type}/{slug}/. That URL is the only one used
+   anywhere on the site, so a stay tagged with four types still has a single
+   canonical address. Order `types` with the defining feature first.
+
+   `frames` is a list of frame refs; leave it empty and the page renders
+   pending slots instead. */
 export default [
   { slug: "cave-house-imerovigli", name: "Cave House, Imerovigli", place: "santorini",
     kind: "Airbnb", types: ["pool", "beach"], sleeps: 4, price: 290, rating: 4,
@@ -54,7 +59,7 @@ export default [
     bad: ["Pool is shared", "Steep walk back up from the beach", "Very quiet out of season, which cuts both ways"] },
 
   { slug: "rorbu-14-reine", name: "Rorbu 14, Reine", place: "lofoten",
-    kind: "Airbnb", types: ["rural", "sauna"], sleeps: 4, price: 210, rating: 5,
+    kind: "Airbnb", types: ["sauna", "rural"], sleeps: 4, price: 210, rating: 5,
     stayed: "June 2024", nights: 4, frames: [],
     summary: "Restored 1940s fishing cabin in red pine, with a ladder into the fjord.",
     review: [
@@ -80,7 +85,7 @@ export default [
     bad: ["Expensive if you self-guide", "Feels like a hotel, not a cabin", "Books up a year ahead in winter"] },
 
   { slug: "shepherds-hut-trevose", name: "The Shepherd's Hut, Trevose Head", place: "cornwall",
-    kind: "Shepherd's hut", types: ["rural", "hot-tub"], sleeps: 2, price: 145, rating: 4,
+    kind: "Shepherd's hut", types: ["hot-tub", "rural"], sleeps: 2, price: 145, rating: 4,
     stayed: "May 2025", nights: 3, frames: [],
     summary: "One field back from the coast path, wood-fired tub facing the sea.",
     review: [

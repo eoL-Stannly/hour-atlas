@@ -28,11 +28,18 @@ Live: https://fuiyoh.netlify.app
     /stays/                             all stay types
     /stays/{type}/                      camping, hotel, rural, hot-tub,
                                         sauna, forest, beach, pool
-    /stay/{slug}/                       one stay, reviewed
+    /stays/{type}/{stay}/               one stay, reviewed
     /contact-sheet/                     every frame
 
-Stay *types* live under `/stays/`, individual stays under `/stay/`. The
-singular and plural keep the two namespaces from colliding.
+A stay is nested under the **first** entry in its `types` list, and that is
+the only URL it ever has. A stay tagged `["forest", "hot-tub", "rural"]`
+lives at `/stays/forest/{slug}/` and is listed on all three type pages and
+on its place page, every one of them linking to that same address. Nothing
+is duplicated across facets, so there is one canonical per stay and no
+parameter or cross-listing variants to manage.
+
+To move a stay, reorder its `types` array. Old addresses are redirected
+from the generated `_redirects` file.
 
 The directory graph is assembled in `src/_data/atlas.js` from the plain
 content files in `content/`. Children carry their parents' names as strings

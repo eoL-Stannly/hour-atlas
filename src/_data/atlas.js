@@ -26,9 +26,14 @@ const placeUrl = (p) => {
 const stays = rawStays.map((s) => {
   const place = placesBySlug[s.place];
   const country = countriesBySlug[place.country];
+  // The first type owns the URL. Every other type page links to this one
+  // rather than minting a duplicate of its own.
+  const primary = typesBySlug[s.types[0]];
   return {
     ...s,
-    url: `/stay/${s.slug}/`,
+    primaryType: primary.slug,
+    primaryTypeName: primary.name,
+    url: `/stays/${primary.slug}/${s.slug}/`,
     placeName: place.name,
     placeUrl: placeUrl(place),
     countryName: country.name,

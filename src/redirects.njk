@@ -1,0 +1,17 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+# Generated at build time. Do not edit by hand.
+
+# Stays used to sit at /stay/{slug}/ before they were nested under type.
+{% for s in atlas.stays -%}
+/stay/{{ s.slug }}    {{ s.url }}    301
+{% endfor %}
+# The first version of the site used flat destination URLs.
+/destinations/santorini    /destinations/europe/greece/santorini/    301
+/destinations/lofoten      /destinations/europe/norway/lofoten/      301
+/destinations/fiordland    /destinations/oceania/new-zealand/fiordland/    301
+/destinations/male-atoll   /destinations/asia/maldives/baa-atoll/    301
+/destinations/marrakech    /destinations/africa/morocco/erg-chebbi/  301
+/destinations/kyoto        /destinations/                            301
