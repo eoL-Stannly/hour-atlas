@@ -1,0 +1,322 @@
+{
+ "place-santorini": {
+  "src": "/assets/plates/place-santorini",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Santorini: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoUAA0APu1kqU2ppaOiMAgBMB2JYgCw7CHW4d7OEUg+3AAA/rxzOFJin9BBbxI/Bfya4+zRM70Y7mxdCltibRtmQ6kPTD3CUiJ0nTsQQAAAAA=="
+ },
+ "place-naxos": {
+  "src": "/assets/plates/place-naxos",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Naxos: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoUAA0APu1iqU2ppaQiMAgBMB2JZgCdMoADSTFoGd3nZA/rwAD+JprgVpo9r5VBVLTmN7VP5OtqfpZbTuL9ThfdLRn/KxOrifF3knOcGUpLYATHwPZfX2nUqGN0YBm6AW/irYfQsEnQAA=="
+ },
+ "place-algarve": {
+  "src": "/assets/plates/place-algarve",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Algarve: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JYgCdIP8CuFM6EJYDHGLAAP674qzSjjMLwpu0S5+XoZpDZNmekQWDoUtpvg8w1TjgHIcY3wSUURkUDRUyAAAA"
+ },
+ "place-lofoten": {
+  "src": "/assets/plates/place-lofoten",
+  "w": 1400,
+  "h": 875,
+  "scene": "fjord",
+  "alt": "Placeholder plate for Lofoten: a drawn fjord scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoUAA0APu1kqk4ppaQiMAgBMB2JZQCdACHNxPcpEJIQwQAA/rxydcY+UlxCFL2+ns1AgYBTODf3gwgdFSHov60DxkvURwdhxklenyiqhM6GREw2+NotBi+AAAA="
+ },
+ "place-cornwall": {
+  "src": "/assets/plates/place-cornwall",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Cornwall: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JQBOgA2x8/rMTIG+AAP526iuHXcLpldtPVoTxG9Ro6MEsjWW2v3TzQKiQuTtPhRQwaAAA"
+ },
+ "place-eryri": {
+  "src": "/assets/plates/place-eryri",
+  "w": 1400,
+  "h": 875,
+  "scene": "mountain",
+  "alt": "Placeholder plate for Eryri: a drawn mountain scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoUAA0APu1kqk4ppaQiMAgBMB2JYwCdACHcgLZWOM+VoAD+ojcdAXBYM005tssDWj5OBQqh/xh7Iogi6EvOaVG+RDzNVcIdx/PFtxTgAAA="
+ },
+ "place-cairngorms": {
+  "src": "/assets/plates/place-cairngorms",
+  "w": 1400,
+  "h": 875,
+  "scene": "mountain",
+  "alt": "Placeholder plate for Cairngorms: a drawn mountain scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JZQCo9CHgj7dtn5TYAAD+wCkGE/GgJJ8E1Za0v+4BHjXBhWpui6f5kHkqLKSHciqEAA=="
+ },
+ "place-lake-district": {
+  "src": "/assets/plates/place-lake-district",
+  "w": 1400,
+  "h": 875,
+  "scene": "mountain",
+  "alt": "Placeholder plate for Lake District: a drawn mountain scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JYwCw7CG0pjGQP4dAAP7N5S8zmorG+3rSNlWHjLjr9f7zYTNM5OX/Hrxlx2mxvbjKfRrZZgAAAA=="
+ },
+ "place-orlando": {
+  "src": "/assets/plates/place-orlando",
+  "w": 1400,
+  "h": 875,
+  "scene": "city",
+  "alt": "Placeholder plate for Orlando: a drawn city scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoUAA0APu1kqU4ppaOiMAgBMB2JYwC2yCHdEADyHGIkHuAA/u7Wf5mXgYlMNre6lg2J/3SZpskzKMfqhx/l/PK2R0lGbv1hk0U8gpnRCgAAAA=="
+ },
+ "place-koh-lipe": {
+  "src": "/assets/plates/place-koh-lipe",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Koh Lipe: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JZgCdMoADUEuV8nlA+ywAAP4mldsJpkgtV+jdqoxIrrq91rTrvIg6+I5uGPaA5wdhoSNqoD67Iy/GtpZpD2VGZSyUhYHd64ZOM4pRUPvsadxzd/Io4AAA"
+ },
+ "place-munduk": {
+  "src": "/assets/plates/place-munduk",
+  "w": 1400,
+  "h": 875,
+  "scene": "forest",
+  "alt": "Placeholder plate for Munduk: a drawn forest scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JZQCdACEuks6uwxua33iAAP6h0gTg3HrQfVETOp6WbbvtHAIIj2G5lCzbhNrhQyAda54WVYgLGVAA"
+ },
+ "place-baa-atoll": {
+  "src": "/assets/plates/place-baa-atoll",
+  "w": 1400,
+  "h": 875,
+  "scene": "atoll",
+  "alt": "Placeholder plate for Baa Atoll: a drawn atoll scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JZgCdABQu0Lpk2GbpwAD6k8rJq7oSn6jwIN6/+xVyH5E3iOj6oH1N6nPLM/e4YG/Hr7y4FVFMZ0B0jMzoeLVr/8qgT2yW2Beu3cKj+VjectQAAAA="
+ },
+ "place-erg-chebbi": {
+  "src": "/assets/plates/place-erg-chebbi",
+  "w": 1400,
+  "h": 875,
+  "scene": "dune",
+  "alt": "Placeholder plate for Erg Chebbi: a drawn dune scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQBACdASoUAA0APu1orU6ppiSiMAgBMB2JQBOmUGVsiTNF502jBhnzpgD+eLxlwC6zGGY5f3UnUItWK4EaAL7l+FRcEZl8wMrhlZz5aRSROdgAAAA="
+ },
+ "place-fiordland": {
+  "src": "/assets/plates/place-fiordland",
+  "w": 1400,
+  "h": 875,
+  "scene": "mountain",
+  "alt": "Placeholder plate for Fiordland: a drawn mountain scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JZQC/OCIi+PzhIAtAAAD+zUl8tfwkZYdVqMpQVHEJBN1oCDlYR7t7MKu1aPxDFH1F+0yIAAA="
+ },
+ "type-camping": {
+  "src": "/assets/plates/type-camping",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for Camping: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JYwCdABtjhDxJspU/AAD2LQ1TX+y91w8Rtc0mVCAPHZ85zW7HKG5RLUfrmNzK1CejC8KMYAA="
+ },
+ "type-hotel": {
+  "src": "/assets/plates/type-hotel",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Hotels: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoUAA0APu1iqU2ppaQiMAgBMB2JZgCdMoADT4GQEjXVtL09AAD+JpXbgkq5VzTsqDZ5ZvytLMThPVcsiw+/YgYWN0k4ZpqsGjVFzovj0td4ZqhPBUTIhJ+v/+3utYQ/TEZ/NNQAAAA="
+ },
+ "type-rural": {
+  "src": "/assets/plates/type-rural",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for Rural: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoUAA0APu1kq04ppaQiMAgBMB2JZQCdABSD2Y88PiET8FAA/ru5a/TN2Oyuqr/aO51DwXvfjGDKP6n2qIuFvXDHi553rSDAAAA="
+ },
+ "type-hot-tub": {
+  "src": "/assets/plates/type-hot-tub",
+  "w": 1400,
+  "h": 875,
+  "scene": "forest",
+  "alt": "Placeholder plate for Hot tubs: a drawn forest scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoUAA0APu1kqU2ppaQiMAgBMB2JZQCdACHae04nYI4mKYAA/ruzZDmLZHKOE7wpzd+HhcesV0IeK/FlJedfmmRGWLgqucnFhLMNaAAA"
+ },
+ "type-sauna": {
+  "src": "/assets/plates/type-sauna",
+  "w": 1400,
+  "h": 875,
+  "scene": "fjord",
+  "alt": "Placeholder plate for Saunas: a drawn fjord scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAwCdASoUAA0APu1kqk4ppaQiMAgBMB2JZQCdMoAC/C0L4JHBv27AAP7kIf2R2YEMyq5dVkBHWVJmeh+UXM8iuePC2U7jrIiBr9DC5plCd5jlYT6rSjvTAAA="
+ },
+ "type-forest": {
+  "src": "/assets/plates/type-forest",
+  "w": 1400,
+  "h": 875,
+  "scene": "forest",
+  "alt": "Placeholder plate for Forest: a drawn forest scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JZQCdAB3+Rw0aE+T0AAAA97DOwTGpQMdtggsvluCXSs3ipehaC1MBsIkFn+DNbeTEvs65aTAAAA=="
+ },
+ "type-beach": {
+  "src": "/assets/plates/type-beach",
+  "w": 1400,
+  "h": 875,
+  "scene": "atoll",
+  "alt": "Placeholder plate for Beaches: a drawn atoll scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JZgCw7BsjYq64XLHyIAD7kmgROQ4aBIGsiUaKYi6Gk3p7499BGI4VW6KzdYT8FpFT2H7lC0XyymiBC+SApZbd0nzC/AtpGKleOq44AAA="
+ },
+ "type-pool": {
+  "src": "/assets/plates/type-pool",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Swimming pools: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JYwCdMoAC9+MzQM1cAAD+qY1aErSrnHW2oX3x4saK/Nuu+UeFiIP72DhMhBnNOPmw5iRKMSAAAA=="
+ },
+ "stay-cave-house-imerovigli": {
+  "src": "/assets/plates/stay-cave-house-imerovigli",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Cave House, Imerovigli: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JYwCdMoACrVtiPn6KAAD+g0KC0RqUxXKK+lZ6jAAVhADZSo8LEQeuMR4m+jOpxdSCHQAA"
+ },
+ "stay-canaves-epitome": {
+  "src": "/assets/plates/stay-canaves-epitome",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Canaves Epitome: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JQBOmUABdVOuZM6iXMgAA/qmNWhK0q5fcykpejRm0hn5odstnzj7GZ5NDuJLWz5E0gAAA"
+ },
+ "stay-plaka-beach-rooms": {
+  "src": "/assets/plates/stay-plaka-beach-rooms",
+  "w": 1400,
+  "h": 875,
+  "scene": "atoll",
+  "alt": "Placeholder plate for Plaka Beach Rooms: a drawn atoll scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADQAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JZgCw7BuKxd8lwfql6oAA+5JoETkOGgSBDZ587s5IGQcftgLmAtgw2nS2JtkWT2H7lC0Xyymh9WakjwaFEHrdNja1SDsstNS8DXNaCAA="
+ },
+ "stay-casa-do-carrasco": {
+  "src": "/assets/plates/stay-casa-do-carrasco",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Casa do Carrasco, Carvoeiro: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAwCdASoUAA0APu1kqU2ppaQiMAgBMB2JYwCdMoAC+QViHagAgMAA/qmNWhK0q8+X+3YlxBHzlqEb4NSHbLZ8pd9gVexZ0Sz2T4nQlTwAAA=="
+ },
+ "stay-rorbu-14-reine": {
+  "src": "/assets/plates/stay-rorbu-14-reine",
+  "w": 1400,
+  "h": 875,
+  "scene": "fjord",
+  "alt": "Placeholder plate for Rorbu 14, Reine: a drawn fjord scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoUAA0APu1kqk4ppaQiMAgBMB2JZQCdACHh21D2wlEa+AD+2r8SuieNjxjLuDbuszcp6UP7FAfB1fiiDYmfx7P040hZ7L3QzFbzhAB4oE7xQiHgQAA="
+ },
+ "stay-hattvika-lodge": {
+  "src": "/assets/plates/stay-hattvika-lodge",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Hattvika Lodge: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAA0APu1kqU2ppaQiMAgBMB2JQBYdg2yAiPfSJ8sAAP6pjVoStKuzmLxAH237KtXtrWYNtsix83WFBQSqKTfAPYTdeZ+qRqOwAA=="
+ },
+ "stay-shepherds-hut-trevose": {
+  "src": "/assets/plates/stay-shepherds-hut-trevose",
+  "w": 1400,
+  "h": 875,
+  "scene": "forest",
+  "alt": "Placeholder plate for The Shepherd's Hut, Trevose Head: a drawn forest scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoUAA0APu1kqU4ppaOiMAgBMB2JZQCw7BuO1x3P2TZToAD+qY0/9iU301Fa5jTqXjBBf+1vR+BHgcUs+Z/hOKqpOJHIAA=="
+ },
+ "stay-bedruthan-hotel": {
+  "src": "/assets/plates/stay-bedruthan-hotel",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Bedruthan Hotel: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABQAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JQBWAA2wDS2MbAAD+qY1aErSpnMXiAPtvzzMrQstFdd40EJMaIa84Mv9V0fcAQlaAAA=="
+ },
+ "stay-coed-y-nant": {
+  "src": "/assets/plates/stay-coed-y-nant",
+  "w": 1400,
+  "h": 875,
+  "scene": "forest",
+  "alt": "Placeholder plate for Coed y Nant Cabin: a drawn forest scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoUAA0APu1iqU2ppaQiMAgBMB2JZwCdABbCrXug/JtgbAAA97DO8ndjOa96OEoTQUQEI27vnRSzM+k/9XehQhlgbbd/chdAVjZZk4AA"
+ },
+ "stay-llyn-gwynant": {
+  "src": "/assets/plates/stay-llyn-gwynant",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for Llyn Gwynant Campsite: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JYwCdAB5uWMwKk2GZyAD7noKcIGUwL9nbMKkwyx1L1TyBcIL/PsLG+ZWooBzomGe7A9VZAAA="
+ },
+ "stay-bothy-glen-feshie": {
+  "src": "/assets/plates/stay-bothy-glen-feshie",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for The Bothy at Glen Feshie: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoUAA0APu1kqU2ppaQiMAgBMB2JZQCdABX9B9c0lxU3wAD+oj4lsnF5mp/Y3SJMyjVZ/KJswxW36OxPcyerb2ngIXNvSP3/+AA="
+ },
+ "stay-bark-house-grizedale": {
+  "src": "/assets/plates/stay-bark-house-grizedale",
+  "w": 1400,
+  "h": 875,
+  "scene": "forest",
+  "alt": "Placeholder plate for Bark House, Grizedale: a drawn forest scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoUAA0APu1kqk4ppaQiMAgBMB2JZQCw7Btrm+AbQELfMAAA/qmZk+aCxHJglBJV+zuPLJi7fQtY1XfIXNuDuaEgT4WnmloCAAA="
+ },
+ "stay-kissimmee-vacation-home": {
+  "src": "/assets/plates/stay-kissimmee-vacation-home",
+  "w": 1400,
+  "h": 875,
+  "scene": "coast",
+  "alt": "Placeholder plate for Vacation home, Kissimmee: a drawn coast scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACQAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JYgCdAB6GFOKaQgeaAP674qzSlHJasa8Z1vdHOX0xBjJg9iBJ/qJr6IdsB00mkVBAeiA7AfllIDfsbAAAAA=="
+ },
+ "stay-bundhaya-beachfront": {
+  "src": "/assets/plates/stay-bundhaya-beachfront",
+  "w": 1400,
+  "h": 875,
+  "scene": "atoll",
+  "alt": "Placeholder plate for Bundhaya Beachfront: a drawn atoll scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JZgCdMoAC6xckmAXLPdgA/ULLwfYdcX5SISB0j9aYW61AvAsVsyf1vC5YwmOGphT6+1QBdiCiQipEwL50pDVrb24fSIEH8fr8d3s+KnAAAA=="
+ },
+ "stay-munduk-ridge-villa": {
+  "src": "/assets/plates/stay-munduk-ridge-villa",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for Munduk Ridge Villa: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoUAA0APu1kq04ppaQiMAgBMB2JZQCdABMuEL2YwqdQKAAA/rvieDt87HZS0/c97bI+w6RDK4V8Mm/2MRqFhw1Noiutn/NnmAA="
+ },
+ "stay-fehendhoo-beach-house": {
+  "src": "/assets/plates/stay-fehendhoo-beach-house",
+  "w": 1400,
+  "h": 875,
+  "scene": "atoll",
+  "alt": "Placeholder plate for Fehendhoo Beach House: a drawn atoll scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoUAA0APu1kqU2ppaOiMAgBMB2JZgCdA3wAhyRRDY3AauCAAP1Ff//PblJ+cz0unJSB6669SNjdFgDceV82ZvB26CLzh3oaPFgaComJCDMAkENMvSshyJDZ/yYQlFaAQrqAAZQAAAA="
+ },
+ "stay-erg-chebbi-camp": {
+  "src": "/assets/plates/stay-erg-chebbi-camp",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for Desert camp, Erg Chebbi: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACQAwCdASoUAA0APu1orU6ppiSiMAgBMB2JYwCdABti2cNp/H6AAPuSJ0DS/d/elQsQjd1a4nCI/U5t9ja72YzEFchfMQ86goEFPiOT4AA="
+ },
+ "stay-hut-at-hollyford": {
+  "src": "/assets/plates/stay-hut-at-hollyford",
+  "w": 1400,
+  "h": 875,
+  "scene": "moor",
+  "alt": "Placeholder plate for The Hut at Hollyford: a drawn moor scene, not a photograph.",
+  "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAA0APu1kq04ppaQiMAgBMB2JZQCdABZLLEsIT7dAAP674ngoyjEVIY1i5yIfMOiSM6Ha5KRdmTUe5bP+bPMAAAA="
+ }
+}

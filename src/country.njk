@@ -7,6 +7,7 @@ eleventyComputed:
   description: "{{ c.blurb }}"
 ---
 {% from "rec.njk" import rec %}
+{% from "plate.njk" import plate %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/destinations/">Destinations</a>
@@ -19,6 +20,10 @@ eleventyComputed:
   <h1 class="head__title">{{ c.name }}</h1>
   <p class="head__lede">{{ c.blurb }}</p>
 </header>
+
+<section class="band">
+  {{ plate(c.plate, true) }}
+</section>
 
 <section class="band">
   <div class="band__head"><h2 class="band__title">The country in eight lines</h2></div>

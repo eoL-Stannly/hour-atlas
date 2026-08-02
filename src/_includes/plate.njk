@@ -1,0 +1,19 @@
+{% macro plate(p, eager = false, sizes = "(min-width: 68rem) 62rem, 92vw") %}
+{%- if p %}
+<figure class="plate">
+  <img src="{{ p.src }}.webp"
+       srcset="{{ p.src }}-700.webp 700w, {{ p.src }}.webp {{ p.w }}w"
+       sizes="{{ sizes }}"
+       width="{{ p.w }}" height="{{ p.h }}"
+       alt="{{ p.alt }}"
+       style="background-image:url({{ p.lqip }});background-size:cover"
+       {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+       decoding="async">
+  <figcaption class="plate__cap">
+    <span class="flag">Plate</span>
+    <span>Drawn placeholder, not a photograph</span>
+    <span class="plate__scene">{{ p.scene }}</span>
+  </figcaption>
+</figure>
+{%- endif %}
+{% endmacro %}

@@ -4,6 +4,17 @@ import rawPlaces from "../../content/places.js";
 import rawTypes from "../../content/stay-types.js";
 import rawStays from "../../content/stays.js";
 import entries from "./entries.js";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const plates = JSON.parse(
+  fs.readFileSync(
+    path.join(path.dirname(fileURLToPath(import.meta.url)), "plates.json"),
+    "utf8"
+  )
+);
+const plate = (key) => plates[key] || null;
 
 /* Builds the directory graph once, at build time. Children carry their
    parents' names as plain strings rather than object references, so
@@ -31,6 +42,7 @@ const stays = rawStays.map((s) => {
   const primary = typesBySlug[s.types[0]];
   return {
     ...s,
+    plate: plate("stay-" + s.slug),
     primaryType: primary.slug,
     primaryTypeName: primary.name,
     url: `/stays/${primary.slug}/${s.slug}/`,
@@ -56,6 +68,7 @@ const places = rawPlaces.map((p) => {
   const own = staysForPlace(p.slug);
   return {
     ...p,
+    plate: plate("place-" + p.slug),
     url: placeUrl(p),
     countryName: country.name,
     countryUrl: countryUrl(country),
@@ -78,6 +91,7 @@ const countries = rawCountries.map((c) => {
   const stayCount = own.reduce((n, p) => n + p.stayCount, 0);
   return {
     ...c,
+    plate: own.length ? plate("place-" + own[0].slug) : null,
     url: countryUrl(c),
     regionSlug: c.region,
     regionName: regionsBySlug[c.region].name,
@@ -105,6 +119,7 @@ const types = rawTypes.map((t) => {
   const own = stays.filter((s) => s.types.includes(t.slug));
   return {
     ...t,
+    plate: plate("type-" + t.slug),
     url: `/stays/${t.slug}/`,
     stays: own,
     stayCount: own.length,

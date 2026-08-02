@@ -1,0 +1,242 @@
+[
+ {
+  "key": "place-santorini",
+  "scene": "coast",
+  "seed": 1710693220,
+  "label": "Santorini"
+ },
+ {
+  "key": "place-naxos",
+  "scene": "coast",
+  "seed": 123636270,
+  "label": "Naxos"
+ },
+ {
+  "key": "place-algarve",
+  "scene": "coast",
+  "seed": 267710899,
+  "label": "Algarve"
+ },
+ {
+  "key": "place-lofoten",
+  "scene": "fjord",
+  "seed": 1641744934,
+  "label": "Lofoten"
+ },
+ {
+  "key": "place-cornwall",
+  "scene": "coast",
+  "seed": 247497815,
+  "label": "Cornwall"
+ },
+ {
+  "key": "place-eryri",
+  "scene": "mountain",
+  "seed": 617424612,
+  "label": "Eryri"
+ },
+ {
+  "key": "place-cairngorms",
+  "scene": "mountain",
+  "seed": 1876718272,
+  "label": "Cairngorms"
+ },
+ {
+  "key": "place-lake-district",
+  "scene": "mountain",
+  "seed": 272149269,
+  "label": "Lake District"
+ },
+ {
+  "key": "place-orlando",
+  "scene": "city",
+  "seed": 1153989722,
+  "label": "Orlando"
+ },
+ {
+  "key": "place-koh-lipe",
+  "scene": "coast",
+  "seed": 718963560,
+  "label": "Koh Lipe"
+ },
+ {
+  "key": "place-munduk",
+  "scene": "forest",
+  "seed": 843068327,
+  "label": "Munduk"
+ },
+ {
+  "key": "place-baa-atoll",
+  "scene": "atoll",
+  "seed": 102363876,
+  "label": "Baa Atoll"
+ },
+ {
+  "key": "place-erg-chebbi",
+  "scene": "dune",
+  "seed": 1476443083,
+  "label": "Erg Chebbi"
+ },
+ {
+  "key": "place-fiordland",
+  "scene": "mountain",
+  "seed": 1350954950,
+  "label": "Fiordland"
+ },
+ {
+  "key": "type-camping",
+  "scene": "moor",
+  "seed": 2001567570,
+  "label": "Camping"
+ },
+ {
+  "key": "type-hotel",
+  "scene": "coast",
+  "seed": 147691293,
+  "label": "Hotels"
+ },
+ {
+  "key": "type-rural",
+  "scene": "moor",
+  "seed": 627483677,
+  "label": "Rural"
+ },
+ {
+  "key": "type-hot-tub",
+  "scene": "forest",
+  "seed": 434237696,
+  "label": "Hot tubs"
+ },
+ {
+  "key": "type-sauna",
+  "scene": "fjord",
+  "seed": 1611434879,
+  "label": "Saunas"
+ },
+ {
+  "key": "type-forest",
+  "scene": "forest",
+  "seed": 784357410,
+  "label": "Forest"
+ },
+ {
+  "key": "type-beach",
+  "scene": "atoll",
+  "seed": 242502098,
+  "label": "Beaches"
+ },
+ {
+  "key": "type-pool",
+  "scene": "coast",
+  "seed": 1143515567,
+  "label": "Swimming pools"
+ },
+ {
+  "key": "stay-cave-house-imerovigli",
+  "scene": "coast",
+  "seed": 1949095262,
+  "label": "Cave House, Imerovigli"
+ },
+ {
+  "key": "stay-canaves-epitome",
+  "scene": "coast",
+  "seed": 882439589,
+  "label": "Canaves Epitome"
+ },
+ {
+  "key": "stay-plaka-beach-rooms",
+  "scene": "atoll",
+  "seed": 1952799362,
+  "label": "Plaka Beach Rooms"
+ },
+ {
+  "key": "stay-casa-do-carrasco",
+  "scene": "coast",
+  "seed": 1823559911,
+  "label": "Casa do Carrasco, Carvoeiro"
+ },
+ {
+  "key": "stay-rorbu-14-reine",
+  "scene": "fjord",
+  "seed": 417933122,
+  "label": "Rorbu 14, Reine"
+ },
+ {
+  "key": "stay-hattvika-lodge",
+  "scene": "coast",
+  "seed": 1834323890,
+  "label": "Hattvika Lodge"
+ },
+ {
+  "key": "stay-shepherds-hut-trevose",
+  "scene": "forest",
+  "seed": 1299987499,
+  "label": "The Shepherd's Hut, Trevose Head"
+ },
+ {
+  "key": "stay-bedruthan-hotel",
+  "scene": "coast",
+  "seed": 261743312,
+  "label": "Bedruthan Hotel"
+ },
+ {
+  "key": "stay-coed-y-nant",
+  "scene": "forest",
+  "seed": 1134283731,
+  "label": "Coed y Nant Cabin"
+ },
+ {
+  "key": "stay-llyn-gwynant",
+  "scene": "moor",
+  "seed": 732551550,
+  "label": "Llyn Gwynant Campsite"
+ },
+ {
+  "key": "stay-bothy-glen-feshie",
+  "scene": "moor",
+  "seed": 2014718594,
+  "label": "The Bothy at Glen Feshie"
+ },
+ {
+  "key": "stay-bark-house-grizedale",
+  "scene": "forest",
+  "seed": 1953202171,
+  "label": "Bark House, Grizedale"
+ },
+ {
+  "key": "stay-kissimmee-vacation-home",
+  "scene": "coast",
+  "seed": 1302124867,
+  "label": "Vacation home, Kissimmee"
+ },
+ {
+  "key": "stay-bundhaya-beachfront",
+  "scene": "atoll",
+  "seed": 1858516785,
+  "label": "Bundhaya Beachfront"
+ },
+ {
+  "key": "stay-munduk-ridge-villa",
+  "scene": "moor",
+  "seed": 560159363,
+  "label": "Munduk Ridge Villa"
+ },
+ {
+  "key": "stay-fehendhoo-beach-house",
+  "scene": "atoll",
+  "seed": 1849514319,
+  "label": "Fehendhoo Beach House"
+ },
+ {
+  "key": "stay-erg-chebbi-camp",
+  "scene": "moor",
+  "seed": 1554225762,
+  "label": "Desert camp, Erg Chebbi"
+ },
+ {
+  "key": "stay-hut-at-hollyford",
+  "scene": "moor",
+  "seed": 1141244795,
+  "label": "The Hut at Hollyford"
+ }
+]

@@ -8,6 +8,7 @@ eleventyComputed:
   ogType: article
 ---
 {% from "rec.njk" import rec %}
+{% from "plate.njk" import plate %}
 
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/journal/">Journal</a><span aria-current="page">{{ e.place }}</span></nav>
 
@@ -16,6 +17,10 @@ eleventyComputed:
   <h1 class="head__title">{{ e.place }}</h1>
   <p class="head__lede">{{ e.kicker }}</p>
 </header>
+
+{%- for p in atlas.places %}{% if p.slug == e.placeSlug %}
+<section class="band">{{ plate(p.plate, true) }}</section>
+{%- endif %}{% endfor %}
 
 <section class="band">
   <div class="prose prose--lead">

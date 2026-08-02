@@ -8,6 +8,7 @@ eleventyComputed:
   ogType: article
 ---
 {% from "rec.njk" import rec %}
+{% from "plate.njk" import plate %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/stays/">Stays</a>
@@ -20,6 +21,10 @@ eleventyComputed:
   <h1 class="head__title">{{ s.name }}</h1>
   <p class="head__lede">{{ s.summary }}</p>
 </header>
+
+<section class="band">
+  {{ plate(s.plate, true) }}
+</section>
 
 <section class="band">
   <div class="card">

@@ -553,3 +553,32 @@ ul { padding: 0; list-style: none; }
   .rec__leader::after { display: none; }
   a { text-decoration: none; }
 }
+
+/* -------------------------------------------------------------- plates */
+
+.plate { margin: 0; }
+
+.plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background-position: center;
+}
+
+.plate__cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.8rem;
+  margin-top: 0.6rem;
+  font-family: var(--util);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.plate__scene { margin-left: auto; color: var(--rule); }
+
+@media print { .plate { display: none; } }
