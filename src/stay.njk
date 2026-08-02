@@ -7,8 +7,7 @@ eleventyComputed:
   description: "{{ s.summary }}"
   ogType: article
 ---
-{% from "rec.njk" import rec %}
-{% from "plate.njk" import plate %}
+{% from "plate.njk" import img, card, tile, stamp %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/stays/">Stays</a>
@@ -16,26 +15,25 @@ eleventyComputed:
   <span aria-current="page">{{ s.name }}</span>
 </nav>
 
-<header class="head">
-  <p class="mini">{{ s.kind }} · <a class="tlink" href="{{ s.placeUrl }}">{{ s.placeName }}</a>, <a class="tlink" href="{{ s.countryUrl }}">{{ s.countryName }}</a></p>
-  <h1 class="head__title">{{ s.name }}</h1>
-  <p class="head__lede">{{ s.summary }}</p>
-</header>
-
-<section class="band">
-  {{ plate(s.plate, true) }}
+<section class="hero">
+  {{ img(s.plate, "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
+    <h1 class="hero__title">{{ s.name }}</h1>
+    <p class="hero__lede">{{ s.summary }}</p>
+  </div>
 </section>
 
-<section class="band">
-  <div class="card">
-    <p class="card__score"><span class="card__num">{{ s.rating }}</span><span class="card__den">/5</span></p>
-    <dl class="card__facts">
-      <div><dt>Stayed</dt><dd>{{ s.stayed }}, {{ s.nights }} {{ "night" if s.nights == 1 else "nights" }}</dd></div>
-      <div><dt>Sleeps</dt><dd>{{ s.sleeps }}</dd></div>
-      <div><dt>From</dt><dd>{{ s.price | money }} a night</dd></div>
-      <div><dt>Filed under</dt><dd>{{ s.primaryTypeName }}</dd></div>
-    </dl>
-  </div>
+<section class="sec">
+  <dl class="facts">
+    <div><dt>Score</dt><dd>{{ s.rating }} out of 5</dd></div>
+    <div><dt>Stayed</dt><dd>{{ s.stayed }}, {{ s.nights }} {{ "night" if s.nights == 1 else "nights" }}</dd></div>
+    <div><dt>Sleeps</dt><dd>{{ s.sleeps }}</dd></div>
+    <div><dt>From</dt><dd>{{ s.price | money }} a night</dd></div>
+    <div><dt>Where</dt><dd><a href="{{ s.placeUrl }}">{{ s.placeName }}</a>, <a href="{{ s.countryUrl }}">{{ s.countryName }}</a></dd></div>
+  </dl>
   <ul class="tags">
     {%- for t in s.typeObjects %}
     <li><a class="tag{% if t.slug == s.primaryType %} tag--on{% endif %}" href="{{ t.url }}">{{ t.name }}</a></li>
@@ -43,37 +41,38 @@ eleventyComputed:
   </ul>
 </section>
 
-<section class="band">
-  <div class="prose">
+<section class="sec" style="padding-top:0">
+  <div class="prose prose--lead">
     {%- for para in s.review %}<p>{{ para }}</p>{% endfor %}
   </div>
-</section>
 
-<section class="band">
   <div class="split">
     <div>
-      <h2 class="mini">What works</h2>
+      <h2 class="kicker">What works</h2>
       <ul class="pts pts--good">{% for g in s.good %}<li>{{ g }}</li>{% endfor %}</ul>
     </div>
     <div>
-      <h2 class="mini">What does not</h2>
+      <h2 class="kicker">What does not</h2>
       <ul class="pts pts--bad">{% for b in s.bad %}<li>{{ b }}</li>{% endfor %}</ul>
     </div>
   </div>
-</section>
 
-<section class="band">
-  <blockquote class="verdict">
-    <p class="mini">The verdict</p>
+  <div class="pullbox">
+    <p class="kicker">The verdict</p>
     <p>{{ s.verdict }}</p>
-  </blockquote>
+  </div>
 </section>
 
-<section class="band">
-  <div class="band__head"><h2 class="band__title">Elsewhere in {{ s.placeName }}</h2></div>
-  <div class="recs">
-    {{ rec("All stays in " ~ s.placeName, s.placeUrl, s.countryName, "") }}
-    {{ rec("More " ~ (s.primaryTypeName | lower), "/stays/" ~ s.primaryType ~ "/", "By type", "") }}
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Nearby</p>
+    <h2 class="sec__title">More <em>{{ s.primaryTypeName | lower }}</em></h2>
+  </div>
+  <div class="cards">
+    {%- for o in atlas.types | findBySlug(s.primaryType) | attr("stays") | sortByRating | limit(3) %}
+    {%- if o.slug != s.slug %}
+    {{ card(o.plate, o.url, o.placeName ~ ", " ~ o.countryName ~ " · " ~ (o.price | money), o.name, o.summary, "Read the review", o.rating) }}
+    {%- endif %}{% endfor %}
   </div>
 </section>
 

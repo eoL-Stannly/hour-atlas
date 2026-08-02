@@ -2,22 +2,38 @@
 layout: base.njk
 permalink: /about/
 title: About
-description: Who writes this, how the scoring works, and why there are no photographs.
+description: Who writes this, how the scoring works, and why the pictures are drawn rather than photographed.
 ---
-<header class="head">
-  <p class="mini">About</p>
-  <h1 class="head__title">One person,<br>no sponsors,<br><em>no pretending.</em></h1>
-</header>
+{% from "plate.njk" import img %}
 
-<section class="band">
-  <div class="prose prose--lead">
-    <p>
-      This is a gazetteer rather than a magazine. Every country, place and stay
-      on it has a record, every record says the same things in the same order,
-      and the whole thing is meant to be scanned rather than read start to
-      finish.
-    </p>
+<section class="hero hero--short">
+  {{ img(atlas.places | findBySlug("fiordland") | attr("plate"), "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">About</p>
+    <h1 class="hero__title">Hi, I'm <em>Ali</em></h1>
+  </div>
+</section>
 
+<section class="sec">
+  <div class="duo">
+    <div>{{ img(atlas.places | findBySlug("eryri") | attr("plate"), "port", false, "(min-width:64rem) 38vw, 92vw") }}</div>
+    <div class="duo__text">
+      <p class="kicker">The short version</p>
+      <h2 class="sec__title">I pay for <em>every night</em> I write about</h2>
+      <p class="sec__sub">
+        Nobody sponsors this and there are no affiliate links anywhere on it,
+        which is the only reason some of the write-ups are lukewarm. If a place
+        was crowded, overpriced or simply worse than the one an hour down the
+        road, that is what the review says.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tint">
+  <div class="prose">
     <h2>How the scoring works</h2>
     <p>
       Five points, answering one question: would I tell someone else to go? It
@@ -28,12 +44,11 @@ description: Who writes this, how the scoring works, and why there are no photog
 
     <h2>About the pictures</h2>
     <p>
-      Every image on this site is a <span class="flag">Plate</span>: a drawn
+      Every image here is a <span class="flag">Plate</span>: a drawn
       placeholder, generated rather than photographed, standing in for a
-      picture that has not been taken yet. None of them show the place they
-      sit next to and none of them pretend to. They are captioned as
-      placeholders on every page they appear on, and each one is replaced the
-      moment there is a real frame to put there.
+      picture that has not been taken yet. None of them show the place they sit
+      beside and none of them pretend to. They are labelled on every page they
+      appear on, and each is replaced the moment there is a real frame for it.
     </p>
 
     <h2>Placeholders</h2>
@@ -45,9 +60,9 @@ description: Who writes this, how the scoring works, and why there are no photog
 
     <h2>How it is built</h2>
     <p>
-      Static HTML, one small stylesheet, and no JavaScript at all. No web
-      fonts, no analytics, no third-party requests of any kind. Every page is
-      readable the moment the HTML arrives.
+      Static HTML, one stylesheet, and no JavaScript at all. No web fonts, no
+      analytics, no third-party requests of any kind. Every page is readable
+      the moment the HTML arrives.
     </p>
   </div>
 </section>

@@ -6,8 +6,7 @@ eleventyComputed:
   title: "{{ c.name }}"
   description: "{{ c.blurb }}"
 ---
-{% from "rec.njk" import rec %}
-{% from "plate.njk" import plate %}
+{% from "plate.njk" import img, card, tile %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/destinations/">Destinations</a>
@@ -15,19 +14,23 @@ eleventyComputed:
   <span aria-current="page">{{ c.name }}</span>
 </nav>
 
-<header class="head">
-  <p class="mini">{{ c.regionName }}</p>
-  <h1 class="head__title">{{ c.name }}</h1>
-  <p class="head__lede">{{ c.blurb }}</p>
-</header>
-
-<section class="band">
-  {{ plate(c.plate, true) }}
+<section class="hero hero--short">
+  {{ img(c.plate, "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ c.regionName }}</p>
+    <h1 class="hero__title">{{ c.name }}</h1>
+    <p class="hero__lede">{{ c.blurb }}</p>
+  </div>
 </section>
 
-<section class="band">
-  <div class="band__head"><h2 class="band__title">The country in eight lines</h2></div>
-  <dl class="facts facts--wide">
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">The basics</p>
+    <h2 class="sec__title">{{ c.name }} in <em>eight lines</em></h2>
+  </div>
+  <dl class="facts">
     <div><dt>Population</dt><dd>{{ c.population }}</dd></div>
     <div><dt>Capital</dt><dd>{{ c.capital }}</dd></div>
     <div><dt>Currency</dt><dd>{{ c.currency }}</dd></div>
@@ -37,17 +40,17 @@ eleventyComputed:
     <div><dt>When to go</dt><dd>{{ c.whenToGo }}</dd></div>
     <div><dt>On file</dt><dd>{{ c.placeCount | pl("place") }}, {{ c.stayCount | pl("stay") }}</dd></div>
   </dl>
-  <p class="footnote">Population is a rounded 2024 estimate, kept for scale rather than precision.</p>
+  <p class="notice">Population is a rounded 2024 estimate, kept for scale rather than precision.</p>
 </section>
 
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title">Places in {{ c.name }}</h2>
-    <p class="band__note">{{ c.placeCount | pl("place") }} on file</p>
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">{{ c.placeCount | pl("place") }}</p>
+    <h2 class="sec__title">Where to go in <em>{{ c.name }}</em></h2>
   </div>
-  <div class="recs">
+  <div class="cards">
     {%- for p in c.places %}
-    {{ rec(p.name, p.url, p.kind, (p.stayCount | pl("stay")) if p.stayCount else "No stays yet", p.blurb) }}
+    {{ card(p.plate, p.url, p.kind ~ (" · from " ~ (p.fromPrice | money) if p.fromPrice else ""), p.name, p.blurb, "See " ~ p.name) }}
     {%- endfor %}
   </div>
 </section>

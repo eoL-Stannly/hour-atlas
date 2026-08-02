@@ -2,25 +2,30 @@
 layout: base.njk
 permalink: /destinations/
 title: Destinations
-description: Every country and place on the site, filed by region, with population, currency, flight times and when to go.
+description: Every country and place on the site, filed by continent, with population, currency, flight times and when to go.
 ---
-{% from "rec.njk" import rec %}
+{% from "plate.njk" import img, card, tile %}
 
-<header class="head">
-  <p class="mini">{{ atlas.totals.regions | pl("region") }} · {{ atlas.totals.countries | pl("country","countries") }} · {{ atlas.totals.places | pl("place") }}</p>
-  <h1 class="head__title">Destinations</h1>
-  <p class="head__lede">Sorted by where things are rather than when I went. Pick a region, then a country, then a place.</p>
-</header>
+<section class="hero hero--short">
+  {{ img(atlas.places | findBySlug("santorini") | attr("plate"), "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ atlas.totals.countries | pl("country","countries") }} · {{ atlas.totals.places | pl("place") }}</p>
+    <h1 class="hero__title">Where to <em>go</em></h1>
+  </div>
+</section>
 
 {%- for r in atlas.regions %}
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title"><a class="tlink" href="{{ r.url }}">{{ r.name }}</a></h2>
-    <p class="band__note">{{ r.blurb }}</p>
+<section class="sec{% if loop.index0 % 2 %} sec--tint{% endif %}">
+  <div class="sec__head">
+    <p class="kicker">{{ r.countryCount | pl("country","countries") }} · {{ r.stayCount | pl("stay") }}</p>
+    <h2 class="sec__title"><a style="text-decoration:none" href="{{ r.url }}">{{ r.name }}</a></h2>
+    <p class="sec__sub">{{ r.blurb }}</p>
   </div>
-  <div class="recs">
+  <div class="tiles">
     {%- for c in r.countries %}
-    {{ rec(c.name, c.url, c.population ~ " people", c.placeCount | pl("place")) }}
+    {{ tile(c.plate, c.url, c.name, c.placeCount | pl("place")) }}
     {%- endfor %}
   </div>
 </section>

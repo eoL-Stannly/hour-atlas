@@ -4,31 +4,40 @@ permalink: /stays/
 title: Stays
 description: "Every place I have slept, browsable by what you want from it. Camping, hotels, rural boltholes, hot tubs, saunas, forest cabins, beaches and pools."
 ---
-{% from "rec.njk" import rec %}
+{% from "plate.njk" import img, card, tile %}
 
-<header class="head">
-  <p class="mini">{{ atlas.totals.stays | pl("stay") }} · {{ atlas.totals.types | pl("type") }}</p>
-  <h1 class="head__title">Stays</h1>
-  <p class="head__lede">Browse by what you actually want out of a place rather than by which country it happens to be in.</p>
-</header>
+<section class="hero hero--short">
+  {{ img(atlas.types | findBySlug("hot-tub") | attr("plate"), "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ atlas.totals.stays | pl("stay") }} · {{ atlas.totals.types | pl("type") }}</p>
+    <h1 class="hero__title">Where to <em>sleep</em></h1>
+    <p class="hero__lede">Browse by what you want out of a place rather than by which country it happens to be in.</p>
+  </div>
+</section>
 
-<section class="band">
-  <div class="band__head"><h2 class="band__title">By type</h2></div>
-  <div class="recs">
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">By type</p>
+    <h2 class="sec__title">Pick your <em>kind</em> of night</h2>
+  </div>
+  <div class="tiles">
     {%- for t in atlas.types %}
-    {{ rec(t.name, t.url, t.stayCount | pl("stay"), "from " ~ (t.fromPrice | money), t.blurb) }}
+    {{ tile(t.plate, t.url, t.name, t.stayCount | pl("stay") ~ " · from " ~ (t.fromPrice | money)) }}
     {%- endfor %}
   </div>
 </section>
 
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title">Everything, best first</h2>
-    <p class="band__note">Scored out of five on one question: would I tell someone else to go?</p>
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">All {{ atlas.totals.stays }}</p>
+    <h2 class="sec__title">Everything, <em>best first</em></h2>
+    <p class="sec__sub">Scored on one question: would I tell someone else to go?</p>
   </div>
-  <div class="recs">
+  <div class="cards">
     {%- for s in atlas.stays | sortByRating %}
-    {{ rec(s.name, s.url, s.placeName ~ ", " ~ s.countryName, s.price | money, "", s.rating ~ "/5") }}
+    {{ card(s.plate, s.url, s.placeName ~ ", " ~ s.countryName ~ " · " ~ (s.price | money), s.name, s.summary, "Read the review", s.rating) }}
     {%- endfor %}
   </div>
 </section>

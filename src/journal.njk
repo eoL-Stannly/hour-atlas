@@ -7,39 +7,51 @@ eleventyComputed:
   description: "{{ e.kicker }}"
   ogType: article
 ---
-{% from "rec.njk" import rec %}
-{% from "plate.njk" import plate %}
+{% from "plate.njk" import img, card, stamp %}
+{% set p = atlas.places | findBySlug(e.placeSlug) %}
 
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/journal/">Journal</a><span aria-current="page">{{ e.place }}</span></nav>
 
-<header class="head">
-  <p class="mini">{{ e.dates }} · {{ e.region }}, {{ e.country }}{% if e.placeholder %} · <span class="flag">Placeholder</span>{% endif %}</p>
-  <h1 class="head__title">{{ e.place }}</h1>
-  <p class="head__lede">{{ e.kicker }}</p>
-</header>
+<section class="hero">
+  {{ img(p.plate, "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ e.dates }} · {{ e.region }}, {{ e.country }}{% if e.placeholder %} · <span class="flag">Placeholder</span>{% endif %}</p>
+    <h1 class="hero__title">{{ e.place }}</h1>
+    <p class="hero__lede">{{ e.kicker }}</p>
+  </div>
+</section>
 
-{%- for p in atlas.places %}{% if p.slug == e.placeSlug %}
-<section class="band">{{ plate(p.plate, true) }}</section>
-{%- endif %}{% endfor %}
+<section class="sec">
+  <dl class="facts">
+    <div><dt>Score</dt><dd>{{ e.rating }} out of 5</dd></div>
+    <div><dt>Went</dt><dd>{{ e.dates }}</dd></div>
+    <div><dt>Again?</dt><dd>{{ e.again }}</dd></div>
+    <div><dt>Where</dt><dd><a href="{{ p.url }}">{{ p.name }}</a>, {{ p.countryName }}</dd></div>
+  </dl>
+</section>
 
-<section class="band">
+<section class="sec" style="padding-top:0">
   <div class="prose prose--lead">
     {%- for para in e.body %}<p>{{ para }}</p>{% endfor %}
   </div>
-</section>
-
-<section class="band">
-  <blockquote class="verdict">
-    <p class="mini">The verdict · {{ e.rating }}/5 · would go again: {{ e.again | lower }}</p>
+  <div class="pullbox">
+    <p class="kicker">The verdict</p>
     <p>{{ e.verdict }}</p>
-  </blockquote>
-</section>
-
-<section class="band">
-  <div class="band__head"><h2 class="band__title">The directory entry</h2></div>
-  <div class="recs">
-    {%- for p in atlas.places %}{% if p.slug == e.placeSlug %}
-    {{ rec(p.name, p.url, p.countryName, p.stayCount | pl("stay")) }}
-    {%- endif %}{% endfor %}
   </div>
 </section>
+
+{%- if p.stays.length %}
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">While you are there</p>
+    <h2 class="sec__title">Where to <em>stay</em> in {{ p.name }}</h2>
+  </div>
+  <div class="cards">
+    {%- for s in p.stays %}
+    {{ card(s.plate, s.url, s.kind ~ " · " ~ (s.price | money), s.name, s.summary, "Read the review", s.rating) }}
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}

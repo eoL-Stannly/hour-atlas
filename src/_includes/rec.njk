@@ -1,9 +1,0 @@
-{% macro rec(name, href, meta, value, note = "", flag = "") %}
-<a class="rec" href="{{ href }}">
-  <span class="rec__name">{{ name }}{% if flag %} <span class="flag">{{ flag }}</span>{% endif %}</span>
-  <span class="rec__leader" aria-hidden="true"></span>
-  {%- if meta %}<span class="rec__meta">{{ meta }}</span>{% endif %}
-  {%- if value %}<span class="rec__value">{{ value }}</span>{% endif %}
-  {%- if note %}<span class="rec__note">{{ note }}</span>{% endif %}
-</a>
-{% endmacro %}

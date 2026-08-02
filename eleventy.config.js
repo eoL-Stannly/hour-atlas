@@ -10,6 +10,14 @@ export default function (eleventyConfig) {
     `${n} ${Number(n) === 1 ? one : many || one + "s"}`
   );
 
+  eleventyConfig.addFilter("limit", (list, n) => list.slice(0, n));
+
+  eleventyConfig.addFilter("findBySlug", (list, slug) =>
+    list.find((x) => x.slug === slug)
+  );
+
+  eleventyConfig.addFilter("attr", (obj, key) => (obj ? obj[key] : null));
+
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
 
   // Collapse the whitespace Nunjucks leaves behind. Safe here because the

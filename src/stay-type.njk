@@ -6,34 +6,37 @@ eleventyComputed:
   title: "{{ t.name }}"
   description: "{{ t.blurb }}"
 ---
-{% from "rec.njk" import rec %}
-{% from "plate.njk" import plate %}
+{% from "plate.njk" import img, card, tile %}
 
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/stays/">Stays</a><span aria-current="page">{{ t.name }}</span></nav>
 
-<header class="head">
-  <p class="mini">{{ t.stayCount | pl("stay") }}{% if t.fromPrice %} · from {{ t.fromPrice | money }} a night{% endif %}</p>
-  <h1 class="head__title">{{ t.name }}</h1>
-  <p class="head__lede">{{ t.blurb }}</p>
-</header>
-
-<section class="band">
-  {{ plate(t.plate, true) }}
+<section class="hero hero--short">
+  {{ img(t.plate, "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ t.stayCount | pl("stay") }}{% if t.fromPrice %} · from {{ t.fromPrice | money }} a night{% endif %}</p>
+    <h1 class="hero__title">{{ t.name }}</h1>
+    <p class="hero__lede">{{ t.blurb }}</p>
+  </div>
 </section>
 
-<section class="band">
-  <div class="recs">
+<section class="sec">
+  <div class="cards">
     {%- for s in t.stays | sortByRating %}
-    {{ rec(s.name, s.url, s.placeName ~ ", " ~ s.countryName, s.price | money, s.summary, s.rating ~ "/5") }}
+    {{ card(s.plate, s.url, s.placeName ~ ", " ~ s.countryName ~ " · " ~ (s.price | money), s.name, s.summary, "Read the review", s.rating) }}
     {%- endfor %}
   </div>
 </section>
 
-<section class="band">
-  <div class="band__head"><h2 class="band__title">Other types</h2></div>
-  <div class="recs">
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Or try</p>
+    <h2 class="sec__title">Another <em>kind</em> of night</h2>
+  </div>
+  <div class="tiles">
     {%- for o in atlas.types %}{% if o.slug != t.slug %}
-    {{ rec(o.name, o.url, o.stayCount | pl("stay"), "from " ~ (o.fromPrice | money)) }}
+    {{ tile(o.plate, o.url, o.name, o.stayCount | pl("stay")) }}
     {%- endif %}{% endfor %}
   </div>
 </section>

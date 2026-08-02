@@ -1,19 +1,38 @@
-{% macro plate(p, eager = false, sizes = "(min-width: 68rem) 62rem, 92vw") %}
-{%- if p %}
-<figure class="plate">
-  <img src="{{ p.src }}.webp"
-       srcset="{{ p.src }}-700.webp 700w, {{ p.src }}.webp {{ p.w }}w"
-       sizes="{{ sizes }}"
-       width="{{ p.w }}" height="{{ p.h }}"
-       alt="{{ p.alt }}"
-       style="background-image:url({{ p.lqip }});background-size:cover"
-       {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
-       decoding="async">
-  <figcaption class="plate__cap">
-    <span class="flag">Plate</span>
-    <span>Drawn placeholder, not a photograph</span>
-    <span class="plate__scene">{{ p.scene }}</span>
-  </figcaption>
-</figure>
+{% macro img(p, shape = "wide", eager = false, sizes = "100vw") %}
+{%- if p %}{% set s = p[shape] %}
+<img class="pl" src="{{ s.src }}.webp"
+     srcset="{{ s.src }}-sm.webp {{ s.sw }}w, {{ s.src }}.webp {{ s.w }}w"
+     sizes="{{ sizes }}" width="{{ s.w }}" height="{{ s.h }}" alt="{{ p.alt }}"
+     style="background-image:url({{ s.lqip }});background-size:cover"
+     {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
 {%- endif %}
+{% endmacro %}
+
+{% macro stamp(score) %}
+<span class="stamp" aria-label="Scored {{ score }} out of 5">
+  <span class="stamp__n">{{ score }}</span><span class="stamp__d">/5</span>
+</span>
+{% endmacro %}
+
+{% macro card(p, href, kicker, title, blurb, cta, score = 0, shape = "port") %}
+<article class="card">
+  <a class="card__img" href="{{ href }}">
+    {{ img(p, shape, false, "(min-width:64rem) 30vw, (min-width:40rem) 45vw, 92vw") }}
+    {%- if score %}{{ stamp(score) }}{% endif %}
+  </a>
+  <p class="kicker">{{ kicker }}</p>
+  <h3 class="card__title"><a href="{{ href }}">{{ title }}</a></h3>
+  {%- if blurb %}<p class="card__blurb">{{ blurb }}</p>{% endif %}
+  <a class="cta" href="{{ href }}">{{ cta }}</a>
+</article>
+{% endmacro %}
+
+{% macro tile(p, href, label, meta, shape = "sq") %}
+<a class="tile" href="{{ href }}">
+  {{ img(p, shape, false, "(min-width:64rem) 24vw, 46vw") }}
+  <span class="tile__body">
+    <span class="tile__label">{{ label }}</span>
+    {%- if meta %}<span class="tile__meta">{{ meta }}</span>{% endif %}
+  </span>
+</a>
 {% endmacro %}

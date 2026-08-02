@@ -23,13 +23,15 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="bar">
-  <a class="bar__mark" href="/">{{ site.name }}</a>
+ <div class="bar__inner">
+  <a class="bar__mark" href="/">Ali <em>Cook</em></a>
   <nav class="bar__nav" aria-label="Primary">
     <a href="/destinations/"{% if "/destinations/" in page.url %} aria-current="page"{% endif %}>Destinations</a>
     <a href="/stays/"{% if "/stays/" in page.url %} aria-current="page"{% endif %}>Stays</a>
     <a href="/journal/"{% if "/journal/" in page.url %} aria-current="page"{% endif %}>Journal</a>
     <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
   </nav>
+ </div>
 </header>
 
 <main id="main">
@@ -39,19 +41,19 @@
 <footer class="foot">
   <div class="foot__inner">
     <div class="foot__brand">
-      <p class="foot__mark">{{ site.name }}</p>
+      <p class="foot__mark">Ali <em>Cook</em></p>
       <p class="foot__line">{{ site.tagline }}</p>
     </div>
     <nav class="foot__col" aria-label="Regions">
-      <h2 class="mini">Regions</h2>
+      <h2>Regions</h2>
       <ul>{% for r in atlas.regions %}<li><a href="{{ r.url }}">{{ r.name }}</a></li>{% endfor %}</ul>
     </nav>
     <nav class="foot__col" aria-label="Stay types">
-      <h2 class="mini">Stay types</h2>
+      <h2>Stay types</h2>
       <ul>{% for t in atlas.types %}<li><a href="{{ t.url }}">{{ t.name }}</a></li>{% endfor %}</ul>
     </nav>
     <nav class="foot__col" aria-label="More">
-      <h2 class="mini">More</h2>
+      <h2>More</h2>
       <ul>
         <li><a href="/journal/">Journal</a></li>
         <li><a href="/about/">About</a></li>

@@ -1,68 +1,122 @@
 ---
 layout: base.njk
 ---
-{% from "rec.njk" import rec %}
+{% from "plate.njk" import img, card, tile, stamp %}
+{% set best = atlas.stays | sortByRating %}
+{% set opener = atlas.places | findBySlug("cornwall") %}
 
-<section class="thesis">
-  <h1 class="thesis__title">Ali Cook's:<br>Places worth<br><em>going to.</em></h1>
-  <p class="thesis__lede">
-    {{ atlas.totals.countries }} countries, {{ atlas.totals.places }} places and
-    {{ atlas.totals.stays }} places to sleep, each one written up by somebody who
-    paid for the night and has no reason to be polite about it.
-  </p>
-  <dl class="tally">
-    <div><dt>Regions</dt><dd>{{ atlas.totals.regions }}</dd></div>
-    <div><dt>Countries</dt><dd>{{ atlas.totals.countries }}</dd></div>
-    <div><dt>Places</dt><dd>{{ atlas.totals.places }}</dd></div>
-    <div><dt>Stays</dt><dd>{{ atlas.totals.stays }}</dd></div>
-    <div><dt>Written up</dt><dd>{{ entries | length }}</dd></div>
-  </dl>
-</section>
-
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title">Best of the file</h2>
-    <p class="band__note">Everything scored five out of five.</p>
-  </div>
-  <div class="recs">
-    {%- for s in atlas.stays %}{% if s.rating == 5 %}
-    {{ rec(s.name, s.url, s.primaryTypeName ~ " · " ~ s.placeName, s.price | money, "", s.rating ~ "/5") }}
-    {%- endif %}{% endfor %}
+<section class="hero">
+  {{ img(opener.plate, "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">Ali Cook's travel journal</p>
+    <h1 class="hero__title">Places worth <em>going to</em>, and places worth sleeping in.</h1>
+    <p class="hero__lede">
+      {{ atlas.totals.countries }} countries, {{ atlas.totals.places }} places
+      and {{ atlas.totals.stays }} beds, every one paid for and scored out of
+      five by somebody with no reason to be polite about it.
+    </p>
+    <p class="hero__cta">
+      <a class="btn" href="/destinations/">Start exploring</a>
+      <a class="btn btn--ghost" href="/about/">About me</a>
+    </p>
   </div>
 </section>
 
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title">By where it is</h2>
-    <p class="band__note"><a class="tlink" href="/destinations/">All destinations</a></p>
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Featured</p>
+    <h2 class="sec__title">The <em>very best</em> of the file</h2>
+    <p class="sec__sub">Three places I would send anyone to without a second thought.</p>
   </div>
-  <div class="recs">
-    {%- for r in atlas.regions %}
-    {{ rec(r.name, r.url, r.countryCount | pl("country","countries"), r.stayCount | pl("stay")) }}
+  <div class="cards">
+    {%- for s in best | limit(3) %}
+    {{ card(s.plate, s.url, s.placeName ~ ", " ~ s.countryName, s.name, s.summary, "Read the review", s.rating) }}
     {%- endfor %}
   </div>
 </section>
 
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title">By what you want from it</h2>
-    <p class="band__note"><a class="tlink" href="/stays/">All stays</a></p>
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Browse</p>
+    <h2 class="sec__title">What do you want <em>out of it?</em></h2>
+    <p class="sec__sub">A hot tub in the rain and a tent on a lake shore are not the same holiday.</p>
   </div>
-  <div class="recs">
+  <div class="tiles">
     {%- for t in atlas.types %}
-    {{ rec(t.name, t.url, t.stayCount | pl("stay"), "from " ~ (t.fromPrice | money)) }}
+    {{ tile(t.plate, t.url, t.name, t.stayCount | pl("stay") ~ " · from " ~ (t.fromPrice | money)) }}
     {%- endfor %}
   </div>
 </section>
 
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title">Written up at length</h2>
-    <p class="band__note"><a class="tlink" href="/journal/">All journal entries</a></p>
+<section class="sec">
+  <div class="duo">
+    <div>{{ img(atlas.places | findBySlug("lofoten") | attr("plate"), "port", false, "(min-width:64rem) 38vw, 92vw") }}</div>
+    <div class="duo__text">
+      <p class="kicker">About</p>
+      <h2 class="sec__title">Hi, I'm <em>Ali</em></h2>
+      <p class="sec__sub">
+        I pay for every night I write about, take nothing from anybody, and
+        score places out of five on one question only: would I tell someone
+        else to go? That is why some of the write-ups are lukewarm.
+      </p>
+      <a class="cta" href="/about/">Read the full story</a>
+    </div>
   </div>
-  <div class="recs">
-    {%- for e in entries %}
-    {{ rec(e.place, "/journal/" ~ e.slug ~ "/", e.country, e.month, "", "Placeholder" if e.placeholder else "") }}
+</section>
+
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Where to</p>
+    <h2 class="sec__title">Browse by <em>continent</em></h2>
+  </div>
+  <div class="tiles">
+    {%- for r in atlas.regions %}
+    {{ tile(r.countries[0].plate, r.url, r.name, r.countryCount | pl("country", "countries") ~ " · " ~ (r.placeCount | pl("place"))) }}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">From the journal</p>
+    <h2 class="sec__title">Longer <em>write-ups</em></h2>
+    <p class="sec__sub">Single trips, at length, where a directory entry only gets a paragraph.</p>
+  </div>
+  <div class="cards">
+    {%- for e in entries | limit(3) %}
+    {%- set p = atlas.places | findBySlug(e.placeSlug) %}
+    {{ card(p.plate, "/journal/" ~ e.slug ~ "/", e.month ~ " · " ~ e.country, e.place, e.kicker, "Read the entry") }}
+    {%- endfor %}
+  </div>
+  <p class="notice"><a class="cta" href="/journal/">All {{ entries | length }} entries</a></p>
+</section>
+
+<section class="sec sec--deep">
+  <div class="signup">
+    <p class="kicker">No spam, no sponsors</p>
+    <h2 class="sec__title">Get the <em>next one</em> first</h2>
+    <p class="sec__sub">One email when a new place goes up. Nothing else, ever.</p>
+    <form class="signup__form" name="subscribe" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
+      <input type="hidden" name="form-name" value="subscribe">
+      <p class="signup__hp"><label>Leave this empty <input name="bot-field"></label></p>
+      <label class="signup__hp" for="email">Email address</label>
+      <input id="email" type="email" name="email" placeholder="you@example.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+    <p class="signup__small">Unsubscribe in one click. Your address goes nowhere else.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Recently added</p>
+    <h2 class="sec__title">The <em>latest</em> places on file</h2>
+  </div>
+  <div class="tiles">
+    {%- for p in atlas.places | limit(8) %}
+    {{ tile(p.plate, p.url, p.name, p.countryName) }}
     {%- endfor %}
   </div>
 </section>

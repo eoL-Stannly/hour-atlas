@@ -19,8 +19,15 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 OUT = "src/assets/plates"
-WIDE, TALL = 1400, 875          # 1.6:1
-THUMB = 700
+
+# Three shapes, because the layout uses plates as banners, as square tiles
+# and as portrait cards. Each is drawn at its own aspect rather than cropped,
+# so the horizon and the composition sit correctly in every one.
+RATIOS = {
+    "wide": [(1600, 900), (800, 450)],
+    "sq":   [(1100, 1100), (550, 550)],
+    "port": [(900, 1200), (450, 600)],
+}
 os.makedirs(OUT, exist_ok=True)
 
 
@@ -246,13 +253,12 @@ BODIES = {"coast": body_coast, "atoll": body_atoll, "fjord": body_fjord,
           "dune": body_dune, "city": body_city}
 
 
-def draw(scene, seed):
+def draw(scene, seed, w, h):
     rng = np.random.default_rng(seed)
     prng = random.Random(seed)
     pals = PALETTES[scene]
     sky_c, sea_c, ink, horizon, sun = pals[seed % len(pals)]
 
-    w, h = WIDE, TALL
     arr = vgrad(w, h, [(0.0, sky_c[0]), (0.42, sky_c[1]), (max(0.5, horizon), sky_c[2])])
 
     cx, cy, col, strength = sun
@@ -290,22 +296,26 @@ jobs = json.load(open("tools/plate-jobs.json"))
 manifest = {}
 
 for job in jobs:
-    img = draw(job["scene"], job["seed"])
-    img.save(f"{OUT}/{job['key']}.webp", "WEBP", quality=76, method=6)
-    small = img.copy()
-    small.thumbnail((THUMB, THUMB), Image.LANCZOS)
-    small.save(f"{OUT}/{job['key']}-{THUMB}.webp", "WEBP", quality=72, method=6)
-
-    tiny = img.copy()
-    tiny.thumbnail((20, 20), Image.LANCZOS)
-    buf = io.BytesIO()
-    tiny.save(buf, "WEBP", quality=40)
-    manifest[job["key"]] = {
-        "src": f"/assets/plates/{job['key']}",
-        "w": WIDE, "h": TALL, "scene": job["scene"],
+    entry = {
+        "scene": job["scene"],
         "alt": f"Placeholder plate for {job['label']}: a drawn {job['scene']} scene, not a photograph.",
-        "lqip": "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode(),
     }
+    for shape, sizes in RATIOS.items():
+        big_w, big_h = sizes[0]
+        img = draw(job["scene"], job["seed"], big_w, big_h)
+        img.save(f"{OUT}/{job['key']}-{shape}.webp", "WEBP", quality=74, method=6)
+        sw, sh = sizes[1]
+        img.resize((sw, sh), Image.LANCZOS).save(
+            f"{OUT}/{job['key']}-{shape}-sm.webp", "WEBP", quality=70, method=6)
+
+        tiny = img.copy(); tiny.thumbnail((20, 20), Image.LANCZOS)
+        buf = io.BytesIO(); tiny.save(buf, "WEBP", quality=40)
+        entry[shape] = {
+            "src": f"/assets/plates/{job['key']}-{shape}",
+            "w": big_w, "h": big_h, "sw": sw,
+            "lqip": "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode(),
+        }
+    manifest[job["key"]] = entry
 
 json.dump(manifest, open("src/_data/plates.json", "w"), indent=1)
 print("drew", len(manifest), "plates")

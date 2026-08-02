@@ -6,32 +6,29 @@ eleventyComputed:
   title: "{{ r.name }}"
   description: "{{ r.blurb }}"
 ---
-{% from "rec.njk" import rec %}
+{% from "plate.njk" import img, card, tile %}
 
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/destinations/">Destinations</a><span aria-current="page">{{ r.name }}</span></nav>
 
-<header class="head">
-  <p class="mini">{{ r.countryCount | pl("country","countries") }} · {{ r.placeCount | pl("place") }} · {{ r.stayCount | pl("stay") }}</p>
-  <h1 class="head__title">{{ r.name }}</h1>
-  <p class="head__lede">{{ r.blurb }}</p>
-</header>
-
-{%- for c in r.countries %}
-<section class="band">
-  <div class="band__head">
-    <h2 class="band__title"><a class="tlink" href="{{ c.url }}">{{ c.name }}</a></h2>
-    <p class="band__note">{{ c.blurb }}</p>
+<section class="hero hero--short">
+  {{ img(r.countries[0].plate, "wide", true) }}
+  <span class="hero__scrim"></span>
+  <span class="hero__note">Drawn plate, not a photograph</span>
+  <div class="hero__body">
+    <p class="kicker hero__kicker">{{ r.countryCount | pl("country","countries") }} · {{ r.placeCount | pl("place") }} · {{ r.stayCount | pl("stay") }}</p>
+    <h1 class="hero__title">{{ r.name }}</h1>
+    <p class="hero__lede">{{ r.blurb }}</p>
   </div>
-  <dl class="facts">
-    <div><dt>Population</dt><dd>{{ c.population }}</dd></div>
-    <div><dt>Capital</dt><dd>{{ c.capital }}</dd></div>
-    <div><dt>Getting there</dt><dd>{{ c.flight }}</dd></div>
-    <div><dt>When to go</dt><dd>{{ c.whenToGo }}</dd></div>
-  </dl>
-  <div class="recs">
-    {%- for p in c.places %}
-    {{ rec(p.name, p.url, p.kind, (p.stayCount | pl("stay")) if p.stayCount else "No stays yet") }}
+</section>
+
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">Countries</p>
+    <h2 class="sec__title">Everywhere in <em>{{ r.name }}</em></h2>
+  </div>
+  <div class="cards">
+    {%- for c in r.countries %}
+    {{ card(c.plate, c.url, c.population ~ " people · " ~ c.capital, c.name, c.blurb, "Explore " ~ c.name) }}
     {%- endfor %}
   </div>
 </section>
-{%- endfor %}
