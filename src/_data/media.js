@@ -10,4 +10,7 @@ const read = (f) => JSON.parse(fs.readFileSync(path.join(here, f), "utf8"));
 const plates = read("plates.json");
 const photos = read("photos.json");
 
-export default { ...plates, ...photos };
+const media = { ...plates, ...photos };
+for (const [key, entry] of Object.entries(media)) entry.key = key;
+
+export default media;

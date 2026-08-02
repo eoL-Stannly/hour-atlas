@@ -29,8 +29,8 @@ layout: base.njk
 <section class="sec">
   <div class="sec__head sec__head--center">
     <p class="kicker">Just added</p>
-    <h2 class="sec__title">Two places I have <em>actually stayed</em></h2>
-    <p class="sec__sub">The two newest reviews on the site, photographed rather than illustrated.</p>
+    <h2 class="sec__title">Two <em>recent</em> stays</h2>
+    <p class="sec__sub">The newest reviews on the site.</p>
   </div>
   <div class="cards cards--two">
     {{ card(stayB.plate, stayB.url, stayB.placeName ~ ", " ~ stayB.countryName ~ " · " ~ (stayB.price | money), stayB.name, stayB.summary, "Read the review", stayB.rating) }}

@@ -75,6 +75,24 @@ for reading copy, the platform monospace for data. Nothing is downloaded.
 The stylesheet URL carries a content hash so it can be cached for a year and
 still update the moment it changes.
 
+## JavaScript
+
+The site is no longer zero-script. Two small, dependency-free vanilla JS
+files were added, both written for this site rather than pulled from a CDN:
+
+- `assets/js/lightbox.js` (site-wide) — click any photograph tagged
+  `data-lightbox="group"` to expand it, with keyboard, on-screen and swipe
+  navigation between every other image sharing that group. Everything still
+  works without it; images are ordinary `<img>` tags in the document flow.
+- `assets/js/globe.js` (destinations index only) — a canvas-drawn rotating
+  globe using plain orthographic projection maths, no WebGL and no library.
+  Auto-rotates, drag to spin, click a mark to visit that country. The marks
+  are real `<a>` elements the script only repositions, so they stay
+  keyboard-reachable, and a flat, always-clickable 2D map sits underneath as
+  a fallback that needs no script at all.
+
+Still true: no web fonts, no analytics, no CDN, no third-party requests.
+
 ## Structure
 
     /                                    front page
@@ -100,6 +118,30 @@ add the old address to the redirect list.
 `sitemap.xml` and `robots.txt` are both generated. robots disallows nothing
 and points at the sitemap. Every page declares `hreflang` for `en-gb` and
 `x-default`, in the head and in the sitemap.
+
+## The map and globe
+
+`tools/build_world_map.py` fetches Natural Earth's 110m land polygons at
+build time (not at runtime — nothing is fetched by a visitor's browser),
+decimates them for size, and writes two files:
+
+- `src/_data/worldrings.json` — simplified `[lon, lat]` rings, embedded only
+  on the destinations page for the globe to project live as it rotates.
+- `src/_data/worldpath.json` — the same coastline pre-projected to a flat
+  equirectangular SVG path, for the static 2D map. No JavaScript involved.
+
+Country coordinates live on each entry in `content/countries.js` (`lat`,
+`lng`). `atlas.js` projects them to a flat-map percentage position at build
+time; the globe projects the same numbers live, client-side, as it turns.
+
+One thing worth knowing about the globe's rendering: several of Natural
+Earth's landmasses (Africa+Eurasia, the Americas) are a single polygon each,
+spanning more longitude than any one hemisphere can show at once. The globe
+draws each contiguous *visible* run of a landmass's points as its own shape
+rather than requiring the whole polygon to be on-screen, so a supercontinent
+crossing the horizon still renders its visible portion instead of vanishing
+outright. This was checked by rasterising the exact projection math in
+Python before shipping it, at several rotations, rather than assumed.
 
 ## Content
 

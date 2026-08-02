@@ -1,9 +1,10 @@
-{% macro img(p, shape = "wide", eager = false, sizes = "100vw") %}
+{% macro img(p, shape = "wide", eager = false, sizes = "100vw", lightbox = false, group = "g") %}
 {%- if p %}{% set s = p[shape] %}
-<img class="pl" src="{{ s.src }}.webp"
+<img class="pl{% if lightbox %} pl--zoom{% endif %}" src="{{ s.src }}.webp"
      srcset="{{ s.src }}-sm.webp {{ s.sw }}w, {{ s.src }}.webp {{ s.w }}w"
      sizes="{{ sizes }}" width="{{ s.w }}" height="{{ s.h }}" alt="{{ p.alt }}"
      style="background-image:url({{ s.lqip }});background-size:cover"
+     {% if lightbox %}data-lightbox="{{ group }}" data-full="{{ s.src }}.webp" data-caption="{{ p.caption }}" tabindex="0" role="button" aria-label="Expand photograph: {{ p.alt }}"{% endif %}
      {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
 {%- endif %}
 {% endmacro %}
@@ -41,12 +42,12 @@
 {%- if p and not p.photo %}<span class="hero__note">Drawn plate, not a photograph</span>{% endif %}
 {% endmacro %}
 
-{% macro gallery(items, shape = "sq", sizes = "(min-width:64rem) 30vw, 46vw") %}
+{% macro gallery(items, shape = "sq", sizes = "(min-width:64rem) 30vw, 46vw", group = "g") %}
 {%- if items and items.length %}
 <div class="gal">
   {%- for g in items %}
   <figure class="gal__item">
-    {{ img(g, shape, false, sizes) }}
+    {{ img(g, shape, false, sizes, true, group) }}
     {%- if g.caption %}<figcaption class="gal__cap">{{ g.caption }}</figcaption>{% endif %}
   </figure>
   {%- endfor %}

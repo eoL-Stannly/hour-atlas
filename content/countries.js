@@ -3,6 +3,7 @@
 export default [
   {
     slug: "greece", region: "europe", name: "Greece",
+    lat: 37.98, lng: 23.73,
     capital: "Athens", population: "10.4 million", currency: "Euro (EUR)",
     language: "Greek", timezone: "EET, UTC+2", flight: "3h 45m from London",
     blurb: "Six thousand islands, about two hundred of them inhabited, and a mainland most visitors never leave Athens to see. The islands split into groups that barely resemble each other.",
@@ -10,6 +11,7 @@ export default [
   },
   {
     slug: "portugal", region: "europe", name: "Portugal",
+    lat: 38.72, lng: -9.14,
     capital: "Lisbon", population: "10.6 million", currency: "Euro (EUR)",
     language: "Portuguese", timezone: "WET, UTC+0", flight: "2h 40m from London",
     blurb: "A long Atlantic coast with a different character every hundred miles, from the surf beaches of the north to the limestone cliffs of the Algarve.",
@@ -17,6 +19,7 @@ export default [
   },
   {
     slug: "norway", region: "europe", name: "Norway",
+    lat: 60.47, lng: 8.47,
     capital: "Oslo", population: "5.6 million", currency: "Norwegian krone (NOK)",
     language: "Norwegian", timezone: "CET, UTC+1", flight: "2h 10m from London to Oslo",
     blurb: "Expensive, empty and worth it. A third of the country sits above the Arctic Circle, which is where the light does things it does nowhere else.",
@@ -24,6 +27,7 @@ export default [
   },
   {
     slug: "united-kingdom", region: "europe", name: "United Kingdom",
+    lat: 52.36, lng: -1.17,
     capital: "London", population: "68.3 million", currency: "Pound sterling (GBP)",
     language: "English", timezone: "GMT, UTC+0", flight: "No flight required",
     blurb: "Three national parks within four hours of most of the population, a coastline nobody is more than seventy miles from, and weather that makes planning pointless. The best-value week on this site.",
@@ -31,6 +35,7 @@ export default [
   },
   {
     slug: "thailand", region: "asia", name: "Thailand",
+    lat: 15.87, lng: 100.99,
     capital: "Bangkok", population: "71.7 million", currency: "Thai baht (THB)",
     language: "Thai", timezone: "ICT, UTC+7", flight: "11h 30m from London",
     blurb: "Two coasts with opposite weather, so there is always one side of the country worth being on. The Andaman side has the limestone, the Gulf side has the calmer water.",
@@ -38,6 +43,7 @@ export default [
   },
   {
     slug: "indonesia", region: "asia", name: "Indonesia",
+    lat: -2.5, lng: 118.0,
     capital: "Jakarta", population: "281 million", currency: "Indonesian rupiah (IDR)",
     language: "Indonesian", timezone: "WIB to WIT, UTC+7 to UTC+9", flight: "16h from London to Denpasar",
     blurb: "Seventeen thousand islands, and most visitors see one of them. Even on Bali, two hours inland is a different place entirely.",
@@ -45,6 +51,7 @@ export default [
   },
   {
     slug: "maldives", region: "asia", name: "Maldives",
+    lat: 3.2, lng: 73.22,
     capital: "Malé", population: "525,000", currency: "Maldivian rufiyaa (MVR)",
     language: "Dhivehi", timezone: "MVT, UTC+5", flight: "10h 30m from London",
     blurb: "Twenty-six atolls, about two hundred inhabited islands, and roughly the same number given over entirely to resorts. Staying on a local island costs a tenth as much and the reef is the same reef.",
@@ -52,6 +59,7 @@ export default [
   },
   {
     slug: "morocco", region: "africa", name: "Morocco",
+    lat: 31.79, lng: -7.09,
     capital: "Rabat", population: "37.5 million", currency: "Moroccan dirham (MAD)",
     language: "Arabic and Amazigh", timezone: "UTC+1", flight: "3h 30m from London",
     blurb: "Coast, mountains and desert inside a country you can cross in a day, and the shortest flight on this site to somewhere that feels genuinely far away.",
@@ -59,6 +67,7 @@ export default [
   },
   {
     slug: "united-states", region: "americas", name: "United States",
+    lat: 28.54, lng: -81.38,
     capital: "Washington, D.C.", population: "335 million", currency: "US dollar (USD)",
     language: "English", timezone: "UTC-5 to UTC-10", flight: "8h 30m from London to Orlando",
     blurb: "Too big to generalise about. The only sensible approach is to pick one state, or one road, and ignore the rest.",
@@ -66,6 +75,7 @@ export default [
   },
   {
     slug: "new-zealand", region: "oceania", name: "New Zealand",
+    lat: -42.0, lng: 174.0,
     capital: "Wellington", population: "5.3 million", currency: "New Zealand dollar (NZD)",
     language: "English and te reo Māori", timezone: "NZST, UTC+12",
     flight: "24h from London, minimum one stop",

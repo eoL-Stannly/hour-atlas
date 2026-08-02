@@ -4,25 +4,7 @@ import rawPlaces from "../../content/places.js";
 import rawTypes from "../../content/stay-types.js";
 import rawStays from "../../content/stays.js";
 import entries from "./entries.js";
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const media = JSON.parse(
-  fs.readFileSync(
-    path.join(path.dirname(fileURLToPath(import.meta.url)), "plates.json"),
-    "utf8"
-  )
-);
-Object.assign(
-  media,
-  JSON.parse(
-    fs.readFileSync(
-      path.join(path.dirname(fileURLToPath(import.meta.url)), "photos.json"),
-      "utf8"
-    )
-  )
-);
+import media from "./media.js";
 
 const plate = (key) => media[key] || null;
 // A hand-picked photograph beats the generated plate for that slug.
@@ -113,6 +95,10 @@ const countries = rawCountries.map((c) => {
     places: own,
     placeCount: own.length,
     stayCount,
+    // Percent position on the flat equirectangular map; the globe
+    // projects the raw lat/lng live instead, as it rotates.
+    mapX: ((c.lng + 180) / 360) * 100,
+    mapY: ((90 - c.lat) / 180) * 100,
   };
 });
 

@@ -14,11 +14,11 @@ eleventyComputed:
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/journal/">Journal</a><span aria-current="page">{{ e.place }}</span></nav>
 
 <section class="hero">
-  {{ img(hero, "wide", true) }}
+  {{ img(hero, "wide", true, "100vw", true, "journal-" ~ e.slug) }}
   <span class="hero__scrim"></span>
   {{ note(hero) }}
   <div class="hero__body">
-    <p class="kicker hero__kicker">{{ e.dates }} · {{ e.region }}, {{ e.country }}{% if e.placeholder %} · <span class="flag">Placeholder</span>{% endif %}</p>
+    <p class="kicker hero__kicker">{{ e.dates }} · {{ e.region }}, {{ e.country }}</p>
     <h1 class="hero__title">{{ e.place }}</h1>
     <p class="hero__lede">{{ e.kicker }}</p>
   </div>
@@ -49,7 +49,7 @@ eleventyComputed:
     <p class="kicker">{{ e.gallery.length }} photographs</p>
     <h2 class="sec__title">The <em>whole set</em></h2>
   </div>
-  <div class="wrap">{{ gallery(e.gallery) }}</div>
+  <div class="wrap">{{ gallery(e.gallery | rejectByKey(hero.key), "sq", "(min-width:64rem) 30vw, 46vw", "journal-" ~ e.slug) }}</div>
 </section>
 {%- endif %}
 

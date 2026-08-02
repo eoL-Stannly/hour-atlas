@@ -7,7 +7,9 @@ eleventyComputed:
   description: "{{ s.summary }}"
   ogType: article
 ---
-{% from "plate.njk" import img, card, tile, stamp, note, gallery %}
+{% from "plate.njk" import img, card, note, gallery %}
+{% set lbGroup = "stay-" ~ s.slug %}
+{% set restOfGallery = s.gallery | rejectByKey(s.plate.key) %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/stays/">Stays</a>
@@ -15,15 +17,20 @@ eleventyComputed:
   <span aria-current="page">{{ s.name }}</span>
 </nav>
 
-<section class="hero">
-  {{ img(s.plate, "wide", true) }}
-  <span class="hero__scrim"></span>
-  {{ note(s.plate) }}
-  <div class="hero__body">
-    <p class="kicker hero__kicker">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
-    <h1 class="hero__title">{{ s.name }}</h1>
-    <p class="hero__lede">{{ s.summary }}</p>
+<header class="stayhead">
+  <p class="kicker">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
+  <h1 class="stayhead__title">{{ s.name }}</h1>
+  <p class="stayhead__lede">{{ s.summary }}</p>
+</header>
+
+<section class="stayshots">
+  <div class="stayshots__hero">
+    {{ img(s.plate, "wide", true, "100vw", true, lbGroup) }}
+    {{ note(s.plate) }}
   </div>
+  {%- if restOfGallery.length %}
+  <div class="wrap">{{ gallery(restOfGallery, "sq", "(min-width:64rem) 30vw, 46vw", lbGroup) }}</div>
+  {%- endif %}
 </section>
 
 <section class="sec">
@@ -63,17 +70,7 @@ eleventyComputed:
   </div>
 </section>
 
-{%- if s.gallery.length > 1 %}
 <section class="sec sec--tint">
-  <div class="sec__head sec__head--center">
-    <p class="kicker">{{ s.gallery.length }} photographs</p>
-    <h2 class="sec__title">The <em>whole set</em></h2>
-  </div>
-  <div class="wrap">{{ gallery(s.gallery) }}</div>
-</section>
-{%- endif %}
-
-<section class="sec">
   <div class="sec__head sec__head--center">
     <p class="kicker">Nearby</p>
     <h2 class="sec__title">More <em>{{ s.primaryTypeName | lower }}</em></h2>

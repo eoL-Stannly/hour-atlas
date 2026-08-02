@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /destinations/
 title: Destinations
-description: Every country and place on the site, filed by continent, with population, currency, flight times and when to go.
+description: Every country and place on the site, filed by continent, with an interactive globe and map to browse by.
 ---
 {% from "plate.njk" import img, card, tile, note %}
 {% set heroPlate = atlas.places | findBySlug("santorini") | attr("plate") %}
@@ -14,6 +14,48 @@ description: Every country and place on the site, filed by continent, with popul
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ atlas.totals.countries | pl("country","countries") }} · {{ atlas.totals.places | pl("place") }}</p>
     <h1 class="hero__title">Where to <em>go</em></h1>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">{{ atlas.totals.countries }} on the map</p>
+    <h2 class="sec__title">Spin the <em>globe</em></h2>
+    <p class="sec__sub">Drag to turn it, click a mark to visit. It rotates on its own if you leave it alone.</p>
+  </div>
+  <div class="globe" id="globe">
+    <canvas class="globe__canvas" width="640" height="640"></canvas>
+    <div class="globe__marks">
+      {%- for c in atlas.countries %}
+      <a class="globe__mark" href="{{ c.url }}" data-lat="{{ c.lat }}" data-lng="{{ c.lng }}">
+        <span class="globe__dot" aria-hidden="true"></span>
+        <span class="globe__label">{{ c.name }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+    <noscript><p class="globe__noscript">The globe needs JavaScript to turn. Every country is listed below regardless.</p></noscript>
+  </div>
+</section>
+
+<section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">The same {{ atlas.totals.countries }}, flat</p>
+    <h2 class="sec__title">Or the <em>whole map</em> at once</h2>
+    <p class="sec__sub">No dragging required. Every mark below is a link.</p>
+  </div>
+  <div class="worldmap">
+    <svg class="worldmap__svg" viewBox="0 0 {{ worldpath.w }} {{ worldpath.h }}" role="img" aria-label="World map showing every country on the site">
+      <rect class="worldmap__sea" width="{{ worldpath.w }}" height="{{ worldpath.h }}"/>
+      <path class="worldmap__land" d="{{ worldpath.d }}"/>
+    </svg>
+    <div class="worldmap__marks">
+      {%- for c in atlas.countries %}
+      <a class="worldmap__mark" href="{{ c.url }}" style="left:{{ c.mapX }}%; top:{{ c.mapY }}%">
+        <span class="worldmap__dot" aria-hidden="true"></span>
+        <span class="worldmap__label">{{ c.name }}</span>
+      </a>
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
@@ -31,3 +73,6 @@ description: Every country and place on the site, filed by continent, with popul
   </div>
 </section>
 {%- endfor %}
+
+<script>window.WORLD_RINGS = {{ worldrings | dump | safe }};</script>
+<script src="/assets/js/globe.js" defer></script>

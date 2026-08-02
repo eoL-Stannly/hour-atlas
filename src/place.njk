@@ -16,7 +16,7 @@ eleventyComputed:
 </nav>
 
 <section class="hero">
-  {{ img(p.plate, "wide", true) }}
+  {{ img(p.plate, "wide", true, "100vw", true, "place-" ~ p.slug) }}
   <span class="hero__scrim"></span>
   {{ note(p.plate) }}
   <div class="hero__body">
@@ -40,7 +40,7 @@ eleventyComputed:
     <p class="kicker">{{ p.gallery.length }} photographs</p>
     <h2 class="sec__title">{{ p.name }} <em>as it looks</em></h2>
   </div>
-  <div class="wrap">{{ gallery(p.gallery) }}</div>
+  <div class="wrap">{{ gallery(p.gallery | rejectByKey(p.plate.key), "sq", "(min-width:64rem) 30vw, 46vw", "place-" ~ p.slug) }}</div>
 </section>
 {%- endif %}
 

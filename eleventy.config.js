@@ -12,6 +12,11 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("limit", (list, n) => list.slice(0, n));
 
+  // Keeps the hero photo from repeating a second time in the gallery grid.
+  eleventyConfig.addFilter("rejectByKey", (list, key) =>
+    (list || []).filter((item) => item.key !== key)
+  );
+
   eleventyConfig.addFilter("findBySlug", (list, slug) =>
     list.find((x) => x.slug === slug)
   );
