@@ -8,13 +8,26 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const plates = JSON.parse(
+const media = JSON.parse(
   fs.readFileSync(
     path.join(path.dirname(fileURLToPath(import.meta.url)), "plates.json"),
     "utf8"
   )
 );
-const plate = (key) => plates[key] || null;
+Object.assign(
+  media,
+  JSON.parse(
+    fs.readFileSync(
+      path.join(path.dirname(fileURLToPath(import.meta.url)), "photos.json"),
+      "utf8"
+    )
+  )
+);
+
+const plate = (key) => media[key] || null;
+// A hand-picked photograph beats the generated plate for that slug.
+const pick = (chosen, fallback) => (chosen && media[chosen]) || plate(fallback);
+const galleryOf = (keys) => (keys || []).map((k) => media[k]).filter(Boolean);
 
 /* Builds the directory graph once, at build time. Children carry their
    parents' names as plain strings rather than object references, so
@@ -42,7 +55,8 @@ const stays = rawStays.map((s) => {
   const primary = typesBySlug[s.types[0]];
   return {
     ...s,
-    plate: plate("stay-" + s.slug),
+    plate: pick(s.image, "stay-" + s.slug),
+    gallery: galleryOf(s.gallery),
     primaryType: primary.slug,
     primaryTypeName: primary.name,
     url: `/stays/${primary.slug}/${s.slug}/`,
@@ -68,7 +82,8 @@ const places = rawPlaces.map((p) => {
   const own = staysForPlace(p.slug);
   return {
     ...p,
-    plate: plate("place-" + p.slug),
+    plate: pick(p.image, "place-" + p.slug),
+    gallery: galleryOf(p.gallery),
     url: placeUrl(p),
     countryName: country.name,
     countryUrl: countryUrl(country),

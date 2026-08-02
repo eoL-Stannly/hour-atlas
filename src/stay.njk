@@ -7,7 +7,7 @@ eleventyComputed:
   description: "{{ s.summary }}"
   ogType: article
 ---
-{% from "plate.njk" import img, card, tile, stamp %}
+{% from "plate.njk" import img, card, tile, stamp, note, gallery %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/stays/">Stays</a>
@@ -18,7 +18,7 @@ eleventyComputed:
 <section class="hero">
   {{ img(s.plate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(s.plate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
     <h1 class="hero__title">{{ s.name }}</h1>
@@ -63,7 +63,17 @@ eleventyComputed:
   </div>
 </section>
 
+{%- if s.gallery.length > 1 %}
 <section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">{{ s.gallery.length }} photographs</p>
+    <h2 class="sec__title">The <em>whole set</em></h2>
+  </div>
+  <div class="wrap">{{ gallery(s.gallery) }}</div>
+</section>
+{%- endif %}
+
+<section class="sec">
   <div class="sec__head sec__head--center">
     <p class="kicker">Nearby</p>
     <h2 class="sec__title">More <em>{{ s.primaryTypeName | lower }}</em></h2>

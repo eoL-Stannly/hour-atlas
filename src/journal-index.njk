@@ -4,12 +4,13 @@ permalink: /journal/
 title: Journal
 description: Longer write-ups of individual trips, in the order they happened.
 ---
-{% from "plate.njk" import img, card %}
+{% from "plate.njk" import img, card, note %}
+{% set heroPlate = atlas.places | findBySlug("orlando") | attr("plate") %}
 
 <section class="hero hero--short">
-  {{ img(atlas.places | findBySlug("orlando") | attr("plate"), "wide", true) }}
+  {{ img(heroPlate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(heroPlate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ entries | length | pl("entry","entries") }}</p>
     <h1 class="hero__title">The <em>journal</em></h1>

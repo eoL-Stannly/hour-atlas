@@ -1,0 +1,461 @@
+{
+ "boathouse-exterior": {
+  "alt": "A timber boathouse on brick piers standing over a lake, with a pantiled roof, a rustic pole balustrade along its deck and two children on the lawn in front of it.",
+  "caption": "The whole building stands over the water on brick piers.",
+  "photo": true,
+  "file": "IMG_2635.jpeg",
+  "wide": {
+   "src": "/assets/photos/boathouse-exterior-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JaAC7AB03FejbnIefpkKAAP5IobKzVjOvmL28iULCpV0GCnD+BRe9YCgsgrqaRBiQSg5gslzCpWBdCVwRF+3z8c2AOm23f7rpaykqwagG7cTtWA4QS3SC3hhc/bnpjvEvFFp+4XBiGzAAAAA="
+  },
+  "sq": {
+   "src": "/assets/photos/boathouse-exterior-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADQBACdASoUABQAPu1ur1IppiQiqAgBMB2JQAAE/zuJd2t6aQNV7L9xJrPfGH1IAAD2HBQF9E+PLPduxS/UDV5plyg4jsR0L4PVjMAMhWjmmhbVfILREIjoXMa7Jqx3j4vD/oPLC9lKyFQBk1TE5dwB3x+S00JhkTGrV07sun58xM8isV1zUyMy66CfaBxrt8Ec5Icims8fkbWvDb6yrVfsL8mgeX2IbVWbwAAA"
+  },
+  "port": {
+   "src": "/assets/photos/boathouse-exterior-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoPABQAPu1iqU2ppaOiMAgBMB2JZACdMoAC2O+HMkvOHYgcJFwA99JJsnIHjJjz9D1mUNQCMXt7N1g3BPeyVbrsMTYiULnz7VsS5a9xxieX1YRRN7hReMwhOLAtXFQqg54ugf34BsNxJJy0BZwsRQMFjbfV6x7VXv6ZoAAA"
+  }
+ },
+ "boathouse-deck-dusk": {
+  "alt": "Dusk over a lily-covered lake seen from inside a boathouse, framed by the dark curve of a timber arch and a rustic balustrade.",
+  "caption": "The arch does the framing for you. This is straight out of the door.",
+  "photo": true,
+  "file": "IMG_2639.jpeg",
+  "wide": {
+   "src": "/assets/photos/boathouse-deck-dusk-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JZQDG9B4FxeNMN5dq944AAP4KjVBeyL7MUFVURavyB7DqaoueddYf2jb/fg+W8ES8xrOUkPOUCbdoH8LGB+BUg2B8vxVLxca+MsmCLZg9vYmObAAAAA=="
+  },
+  "sq": {
+   "src": "/assets/photos/boathouse-deck-dusk-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACwBACdASoUABQAPu1ur1KppiQiqAgBMB2JZQDM0A21ua48lvzJ8LtUsSeCMy+AAP7sMevR4rpietBYHpY+sdd1fVZ9yd29wXOlnBnIRr/3RJpz8FejZmznaptpdsGLMrvRqp4CCEZJQXPTcbLAMrvyrSE7H2UlFNxop3wwF2OWOfv/fpsam511HXR9kjKWYq0truIRBy5HvoeWOukgJwjHlg2hxQrxZ09FVQEDeBbSr3zbSh0nAAAA"
+  },
+  "port": {
+   "src": "/assets/photos/boathouse-deck-dusk-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQAwCdASoPABQAPu1iqU2ppaOiMAgBMB2JZwDE2CPv/+QA4WsX4dAA/vFTb3YeHNj7boTHHBsZd2Wq+xn6sWo05KprmkHXNJIu3DXjnJj9hCZXNPbCYGHDNpPlTgmajUPreCf9UhA010zmDheRnYOeq92yH/zkWfTzlvbOmAA="
+  }
+ },
+ "boathouse-watching": {
+  "alt": "Two children in silhouette leaning on a boathouse balustrade, watching a pink and orange sunset over a still lake.",
+  "caption": "Seven in the evening and nobody suggested going inside.",
+  "photo": true,
+  "file": "IMG_2638.jpeg",
+  "wide": {
+   "src": "/assets/photos/boathouse-watching-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JYwC7AB7G1WzSEIE8MGeAAP7SpdUr5a/gEvn1ha00JzVPfscdyu3YzbX+hFazZQ7dn9X/Srn36rtjc8r9xobLndeJgSZp//qDLTDx8Rys+bDH2Cvl8mgonVLb6Rm/o0tjib6xCjmhFYAA"
+  },
+  "sq": {
+   "src": "/assets/photos/boathouse-watching-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAADQBACdASoUABQAPu1ur1IppiQiqAgBMB2JZQDDkSABc26qVdIrxEDnQ3LjvNRSWADOM2VZa0UuZpVEIQAQR3QdY0GprALwPs1+xPSEjP5DNWcUJKVVTCy66joyk9yTR9FWF3ITwG7ygEvBTNvbHgXa7lq3uxrP33F5n/4j0slZ21BYjUXafrKBuliNiH8L2/E8qgWPthpjqiwHFjF2Az6BDCeNPzKqW29Qh/cJbe0EdD+NK9Pf6FQDbJqvzMKZ4B0gAA=="
+  },
+  "port": {
+   "src": "/assets/photos/boathouse-watching-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAwCdASoPABQAPu1iqU2ppaOiMAgBMB2JZwAAUp2cnQ0qnhLONigA/r6PzwL+Fy8J6c9FwqIdojE5YyBOr/VovXBhITj1xGVHbvEy+zPYSkPhStF2cj9ImyIrQyHNN6G9qo3p+lco+D9YMamAqe9zug5Kk5C1fsMvkbGDzXtezCQmOLodoQgA"
+  }
+ },
+ "boathouse-living": {
+  "alt": "The interior of a boathouse with a high vaulted ceiling of dark timber trusses, a brick and oak fireplace with a wood burner, and pale sofas.",
+  "caption": "The roof is the room. Trusses right up to the ridge.",
+  "photo": true,
+  "file": "IMG_2637.jpeg",
+  "wide": {
+   "src": "/assets/photos/boathouse-living-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQAwCdASoUAAsAPu1iqU2ppaQiMAgBMB2JQBOmUABRhNXtDf/OOuAA/sBo1UlOIKzHNGwFXJo6mfGSm06ieZamcvcsS0BaCQB6uKT/95FFVSVubNgaZTlZJcaB74PXQtH5Ax+WY8q3Wv2uar7atUNpL4y+byt0hneLBdBFG6XW3PzHY01BLlNIon93+XH5ZwxDAAAA"
+  },
+  "sq": {
+   "src": "/assets/photos/boathouse-living-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4INgAAACQBQCdASoUABQAPu1ur1IppiQiqAgBMB2JYwCdM1kChsAnRAkpnE0W39A/QDbTVhhyT6U0CAD+5Rq8WCKGz0DK8byQXAgEe+CO7pFZ9ORKAgWWdW5w/TqTFuO3/gWudp3+PCRbBCTFsCdk12BvFmSdmhgPkCHbQmhwSxf19YStzZ+Xfw3JUxVylW/V3sskCuCPLI6a9c6kh2J3QeIC8x/nZjxMoDtaSxpcYR+Tn0Ujh5UCFlMRi9AObDKRPAVhitAzuyxg2+7nH1XtwtnX0I0dDDMgJC3sAAA="
+  },
+  "port": {
+   "src": "/assets/photos/boathouse-living-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JYwCdAB3FsMasSnT6ssi4AAD+7AEO+v5kA+HfSudGNbVju1YxHwJMaU2w899jArGhvOr0eB03HM3AnD42V6OFTHRUS+Mf1x6gAbIhnpv4KCukl1JuphApdXwhBozmPOZ6sgewx2JZNHfP+bRcSNW+Qn6AAA=="
+  }
+ },
+ "boathouse-through": {
+  "alt": "A dark boathouse interior looking out through open doors to a bright deck with a folding chair and table, and the lake beyond.",
+  "caption": "Inside is dark on purpose, which makes the doorway do all the work.",
+  "photo": true,
+  "file": "IMG_2636.jpeg",
+  "wide": {
+   "src": "/assets/photos/boathouse-through-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoUAAsAPu1mqk4ppaOiMAgBMB2JZwAAW+vci2aYQxJwAAD+9Bv9qiIsrRC5vrARz7j+9OopZkATU2GfJnofnrkMwZPmE36Aya152AXVMi8qK6wA"
+  },
+  "sq": {
+   "src": "/assets/photos/boathouse-through-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwBACdASoUABQAPu1mq0+ppSOiMBgIATAdiWcAzfwQ3OfP6Q5EDeN1ez8BePwAAP70JxB/H/rARCuoQU6MsmRy3UAjeOh0mmjoN+wQlQHQvEYZdOiLjKLZbp9YiqE8vSL3K9VdUtJEQeEnq5/Cag3h+Ci+8ac3tuJ+AA=="
+  },
+  "port": {
+   "src": "/assets/photos/boathouse-through-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoPABQAPu1iqU2ppaOiMAgBMB2JZwAAXK+GxVw+mVtgdGAgAP70JU2uzU33ZnqMht0Hb0SL5emnMyDjGS8T4l7N19r9mKLQrQu/yZBGcJDn+H+ukyAXi4AA"
+  }
+ },
+ "boathouse-lake": {
+  "alt": "A still lake at sunset with an orange band on the horizon, dark treeline either side and a tower on the hill to the right.",
+  "caption": "The lake at its best, about twenty minutes after the sun goes.",
+  "photo": true,
+  "file": "IMG_2633.png",
+  "wide": {
+   "src": "/assets/photos/boathouse-lake-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JQBdgBFKCWhmKACX0l1CgAP5PnkDt0RznMbgOwwWSvfzb8X4uru+w9yG/Sg2tLv65mknuNxO4qQuPrkX+O0fkuULVkm/7bVAAAA=="
+  },
+  "sq": {
+   "src": "/assets/photos/boathouse-lake-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoUABQAPu1ur1KppiQjqAgBMB2JQBjegjFFkWard9LSR/d11UAA/eMSuA/t3RB4j8dmqcoweVMcVX2oARm+2Bq2oBwCvO4kNlPy+vfhe+jITOzfA0Bftz8/hq6Ng4Y+t5uqjb0vQ6yax2bPDuxSYOJ+aav6+DLgAAA="
+  },
+  "port": {
+   "src": "/assets/photos/boathouse-lake-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQAwCdASoPABQAPu1iqU2ppaQiMAgBMB2JYgAAXeOARDnGxy0AAP5a/4S2i+QIqG6T1Pj8gAblnagddeC98VUmOQtcU/L/HbLCMHvgg+yTB/Cthi38Nl4/DCAAAA=="
+  }
+ },
+ "helidona-pool": {
+  "alt": "A blue tiled swimming pool with a dolphin mosaic on the floor, a vine-covered pergola to one side, a chocolate labrador on the edge and hills running down to a bay behind.",
+  "caption": "The pool, the pergola, the bay, and the dog that comes with the house.",
+  "photo": true,
+  "file": "IMG_1520.jpeg",
+  "wide": {
+   "src": "/assets/photos/helidona-pool-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAQBACdASoUAAsAPu1iqU2ppaQiMAgBMB2JbACw7Ytyzl/maBOo/HdDAAD+ovGYgD82VziSAyDFm18i/eefl3XkGjkFtC5xZ5AGY7HCtO1EBCzAqQLWhRbcAdySywgWsHPQRdQt2uO2GEl3gEEvDrnf1T3oVLM+esMIxlvQ8+3i+hmtB3cmfwFQUaFjiPuDkI6jhBAA"
+  },
+  "sq": {
+   "src": "/assets/photos/helidona-pool-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAAAwBQCdASoUABQAPu1qq1EppaOiqAqpMB2JagCdMsvCtv2AGO0coBHygdsLRkUqkrV8AAD9UrV/B8c05Wlta+52L77cwL1/B/ywqYbjGmNDF5wB1O9bFc0xrGXfg47vY3pZi1nZ3a+fzEIfjK8Oy4iDTVzfQLBpk/Wa8P2zONxhVrIqCMOEcNH1QS17Mplkzb3H5QxWiq6gXDohyioOSBwQ8ghOXJgzzShXkim4AMzALGcAMh8IYAAA"
+  },
+  "port": {
+   "src": "/assets/photos/helidona-pool-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JbACdMoR3ACofM4kPBXdMLmYAAOJa0Hg/d8MeQ9Tow9bO/Hd5GvdnQ6R1BxJeyoNnvAioDq9y4dJ4da+PnVOZFjHARPz/1ODOBjLgZKSNPVEdX97Ttim9DdsJRAAA"
+  }
+ },
+ "nydri-harbour": {
+  "alt": "Nydri harbour with speedboats and yachts moored along the front, a palm tree in the foreground and a steep green mountain rising behind the town.",
+  "caption": "Nydri harbour. Every one of these boats is available by the day.",
+  "photo": true,
+  "file": "IMG_1725.jpeg",
+  "wide": {
+   "src": "/assets/photos/nydri-harbour-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAAsAPu1iqU2ppaQiMAgBMB2JQBadAjYYQAc0bcOMgADiAyErfdVhu1BukYmWP5++rd47IjOEIKHhyLI/F4J7M2itHkLGnDBUL1B5K/iDEm0+4etP+z+AAAA="
+  },
+  "sq": {
+   "src": "/assets/photos/nydri-harbour-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoUABQAPu1wsFIppiSiqAgBMB2JYwDE2BGZ0yjLhynm4qzsrjrFzipwAP7oIWlcDyjN54efV2ab0K/JIiKUJFpp9f0pBLKs3+hMcguUXENjcHXWQKww8ut7BPrYfh7cak2HcjRuMY9Dond+Qbox/xobjsLPteDWOuslktP9ckjf1gwk7BxN7C2viUdb/8nkgAA="
+  },
+  "port": {
+   "src": "/assets/photos/nydri-harbour-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JYgCdMoAC/M6XJDVqVznTJUUAAP7KNTA9tXCXOmIlUVxcd6I+c8y2nh2dycb+k5nIiORaUwE28OvsjPr6gNZIUDXvk2Ym76QzHIZfXvkK/J5Sk348AA=="
+  }
+ },
+ "lefkada-cove": {
+  "alt": "A turquoise cove with completely clear water over pale pebbles, a steep scrub-covered headland on the left and open sea beyond.",
+  "caption": "The water really is this colour, and this is an ordinary phone photograph.",
+  "photo": true,
+  "file": "IMG_1558.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-cove-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JaACdABwpzVk1NzIOQAD+q0N9Ma4E7fuNgfnvnZ6UFGFmv1Eb8Md6HiEHRDF0smLnsdM/6lTG8J3nG5waUWHb64Dog6GcD9aCaSdTAAA="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-cove-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQBACdASoUABQAPu1mq08ppaOiKA1RMB2JZACsMyGAmAkgbEoVMPub7Ju5kttaAAD+qdkdw7kFgyCufzSczXGNPJEKTZUbTZxPrNdR/R2YJcGt1U0bRzf5Y4jDp+Ppsc3q3ycTSt+ao9mEseCWYe4s13TgfdgwQGfKI6IyIHdoO44A"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-cove-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoPABQAPu1iqU2ppaQiMAgBMB2JbACdMoR3ABo/KQdfdP98nwAA/Y0dXXbLEBX9w+eiWmSmJUnWOyYYVv6tP+uxtrnQl3+gXpZGDkSP5xNkzjykmU6QSwZ/JEb0abIoAAA="
+  }
+ },
+ "lefkada-beach-above": {
+  "alt": "A white pebble beach with rows of coloured sunloungers seen from a steep path above, backed by cliffs and turquoise water.",
+  "caption": "The walk down is the price of admission.",
+  "photo": true,
+  "file": "IMG_1550.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-beach-above-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JZQDCgBe7rF9UaPrRdowAAP6lHkF13Ddu/FUCI36lBYKJwhyjA9Q9IOV2TPUwnrglixYRRI0F/tKgwMTuCp6Ad04x9nydwEiKG+E3R4AAAA=="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-beach-above-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBQCdASoUABQAPu1ur1IppiQiqAgBMB2JQBihZDAePV0n0ztTIiN4yLf3riwl4HUoAP7prXFDe4uQ1vtiDttpqwNXO3VD+bFUCI2BnCWIi/UjvUkxm9xruCCfkCdhjpaKeJvJYEKfFO6ftcpuHLrDFL/UN4CVMJ3pdTzkfxhbpK36IVY0lTECdnX3wCr5C2HYYCGPf7Z6NwFeIY+WDeHIDpwAAA=="
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-beach-above-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoPABQAPu1iqU2ppaOiMAgBMB2JZACdACIKvJRYx9ufV80AAP7my+HX0O08oipcrPVHSJUei+YQjgqCNkH8j28hiI57QdOlu10gMIkweNP0rKVT2q/+P+OzA12kWTnwUhBbxhZqxQ/NEwsQrbbkou9esvh73zjddt7SK+QziYrQbFM3bdkKP8XwAAA="
+  }
+ },
+ "lefkada-beachclub": {
+  "alt": "A beach club with a white canopy, sunloungers on grass, palm trees and a line of umbrellas along the sand, with a mountain behind and windsurfers offshore.",
+  "caption": "Vasiliki, an hour south, where the wind comes up every afternoon.",
+  "photo": true,
+  "file": "IMG_1700.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-beachclub-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoUAAsAPu1iqU2ppaOiMAgBMB2JQBOmUABr+GnCVHA9tcOvAtAA/ltKGkXJhopMdaGkO9ypXQ4VyDsh0Wvjb5uWecRsl3Wej1Cv2HCDFolVSHTK+WlAIKF1XhaDRMzyfU5JZOgwPmIzYp6i7KyLXBSKKAA="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-beachclub-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAABQBQCdASoUABQAPu1urlKppiQiqAgBMB2JQBOmYjb8BKrQQ/m0r4jUYUpSsp5IYVsvhAAA/tN7qGh4y1swao12mIUSbm2C7UJNPMbVl/ncclNlgGCpJzG5Ou9/5M2OakFn5ZH8gv/StZl++qWuVfHOOU2QrpNQJuCF7LXjyJB3aeunyeyiRivrdcg+hsaxyNkBGU+Mw7aB+xPTGFKWOfDsm+tim9YXEVP+q+VKkggKqoYMWZaPbwgA"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-beachclub-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JQBOgBAtZ6Yoo1eVsiKLgAAD+xCyW1Z9Jyn5lgERi6kOuqMhuE66I3vc5+kQHxZjc/DqDUeUGJGEKdtR82DOMIcG9Dgmatdt13vtHY9YBsH5EOX6GWdD7yCLmvXKzkrVazO329cyMcbrlNrxTGAAA"
+  }
+ },
+ "lefkada-boat": {
+  "alt": "The bow of an inflatable boat crossing flat blue water towards green islands, with a child leaning over the side watching the water.",
+  "caption": "Hire a boat. It is the single best thing to do on this island.",
+  "photo": true,
+  "file": "IMG_1585.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-boat-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBACdASoUAAsAPu1iqk2ppaQiMAgBMB2JYgCdMoABpu89BLBnRw/UAAD+AACe68ycAuLaRXpOHidRPrlBo7VWkfaOlvRaMeO0cS0ZMfUGj6yf0cWZSCdNWsEXEE8In2Qbi5dzlcI37eeJRGfwnUFVfN0nOpkjOulztiKfogeAAA=="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-boat-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACwBQCdASoUABQAPu1oqVAppiOiqA1RMB2JQBWGcdy2wVoUl7pKTmaGs5RXfHBjf6KUZqfQgmAA9x67hwTylP/muFEqmdhx+xVJqkmuJx1rnWqX58zwHooVSvf64YEn5q6hMH9TmhhjUpVZBp9TJurer2g2HOk+VvAT6/5/gmCIieI+r2vgH7IMwJM90MhRocPZEVfcS8AXNa5w8BYL8VE0+9j8tBAA"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-boat-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JYgCdMoMxgEKFtRnttV/cc6hgAPxaUq31wMUpSZyDzS5UBWce7xVY3yeMPzDelQK7L2CFyTeA7asIpkN3otao3JO3vjMTqgT2kEEKbmhDa3FxnnxOIHh6ia5degjB9VI/ab71yNtKiKPpzgMAAA=="
+  }
+ },
+ "lefkada-taverna": {
+  "alt": "A narrow Greek alley with a taverna's tables laid under a huge canopy of bright pink bougainvillea, a chalkboard sign in the foreground.",
+  "caption": "Lefkada town at five, before anyone sits down to eat.",
+  "photo": true,
+  "file": "IMG_2510.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-taverna-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAwBACdASoUAAsAPu1iqU2ppaOiMAgBMB2JQBOmUI4AA/II1nh2zeIYCY4AzjwhMoPHvvaxDMy96+76EzD1CLI9MM+CeeiZFTQcNvyLEGImOsRu+pUyHf0eNfWteEhE3ResTup6mjZNXbwJAVhxbXdyiRYyGti4CrHjTl63UcyAAA=="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-taverna-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAADwBACdASoUABQAPu1oqk+ppiOiKA1RMB2JZgDCgBI3j+VKbwk140G0fdX6Mp6JtAAA9pcIdFNDOJlj3Kw6eqp0cqr7jtB2n+Qh0BibaN8VEiegqGLaEm2ioZcQwYrqJTttznOTUsVG5k5rVIrSIQfA9ZJPpbw3lmdLv6CC9MmJDJsqCfJirECJGptogobZG962RmZt9fF0TWvhSD2l0E2eXlQ6ky5CTtWbr94vwwKFAAAA"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-taverna-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoPABQAPu1iqU2ppaOiMAgBMB2JagC7AA7zgTZpfPq+QAD6Ce2ZHVG7gaXOekcM2RXlZLuaCrfz9djFdxdxElVz1VUhnD2hbxK2wqqyw2w+mYTWuinfN5tGcsuTre7WBaEqhafexoUwQ0I6G0AAAA=="
+  }
+ },
+ "lefkada-sunset-sea": {
+  "alt": "A wide sandy beach at sunset with the sun low over the sea, two children in pink rings at the water's edge in silhouette.",
+  "caption": "West coast, so the sun goes down into the water rather than behind a hill.",
+  "photo": true,
+  "file": "IMG_2512.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-sunset-sea-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAwCdASoUAAsAPu1mqk4ppaOiMAgBMB2JQBdgAru0KLQuYj/oAPGx0/XOEBr0q0DVx56PY2Nud0y3st72IrfWcY7D5OjAZCVwHC9OdyOiawAA"
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-sunset-sea-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACQBACdASoUABQAPu1kqE2ppaOiMAgBMB2JQBbZAu53smBoWEMolyearPVBQGAA+bd6KBQRjVizLIDAjNyF+wFA8DW9upuGJcLtUqTcC7QBxwBQaGX7wBV9wsBIpPyGASLXFuIBjmWK2QAA"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-sunset-sea-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwBACdASoPABQAPu1iqU2ppaOiMAgBMB2JYgCdMoACsfrDXn4J80ILsAAA+mbpQoS1L5U730Yk2ZR8T/HIUNFGpxiYvfHeC4zOTpCb6eKN30TzkRAAAA=="
+  }
+ },
+ "lefkada-terrace-night": {
+  "alt": "A restaurant terrace after dark, tables lit by small lamps, an infinity pool glowing blue and the last band of orange on the horizon over the sea.",
+  "caption": "Worth booking the second sitting for this rather than the first.",
+  "photo": true,
+  "file": "310A5310.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-terrace-night-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQBACdASoUAAsAPu1iqU2ppaOiMAgBMB2JYgC1A1/AWIAqlBE7XO52QAD+8MQV7cnjsgpap/wIMjegoKPzMXLp7IRcediG1dwZZ5iJI6LBzLZ1OT+8H53T7VWQwnCdXAAAAA=="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-terrace-night-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABwBACdASoUABQAPu1kq02ppaQiMAgBMB2JQBfnBDv1SaefydVB7XKOVnAPHAD+8Mm1OS7vK6zvvswTW5qoQ02vv9k+wu5aVuFwSAtRkf8bOmIxigTN9MeX/Xt1DM2giv12iQGhfIkhCcL4sVILs/iQypIOrkrByxxsJrP42TjjCH4gRjfYOa24AAA="
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-terrace-night-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoPABQAPu1krU6ppaSiMAgBMB2JQBOgP4AZKCfplirLmoAA/vDV0GPyl9lJuev27iZY8cpAkYdNEE8v0nO2pRB3X+ImrveQ+pvaK9t18AKIsenbOxJ+pEvCCUfYkz6vkiTWf/ECQAA="
+  }
+ },
+ "lefkada-terrace-sun": {
+  "alt": "A busy restaurant terrace at sunset, diners in silhouette against a low sun over the sea, a waiter carrying a tray and a musician at a keyboard.",
+  "caption": "Everybody stops eating for about four minutes when the sun hits the water.",
+  "photo": true,
+  "file": "56c9684b-2cb2-4f08-b1b5-8ac0b47539d6.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-terrace-sun-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JZgCdABtjc+e8zSKmwKMAAPpg0jrSBzNwjRTmZwsYrI6aQ8xbmYkD+txFvlCI6DFZTfMkBWWJ1FtoSJ8NXWQ1sI17XgAA"
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-terrace-sun-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBQCdASoUABQAPu1iqk2ppaQiMBgMATAdiUAXZmX4L/Lsyn6qy818zIeLt8qemx6SoAD+cQGLrcdnAYx3qxNZoSyZ450PUoJp2Si5o9lA7C4OK+oDkc3BNQX47FJzso64g97OO4rYaxd0yFcvS76c4Pmfj8AA"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-terrace-sun-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoPABQAPu1iqk2ppaQiMAgBMB2JQBYdhDrdy+fxuxiUl26AAP6hm4nzsRZxUxuyPfvl/PU1T2CRTqGkisdKLo9CWp9wg1CbQIEsk0Gp3bBVEzAA"
+  }
+ },
+ "lefkada-dinner": {
+  "alt": "A steak on a white plate with basil and burrata, lit warm by a table lamp, with a hazy sunset over the sea behind.",
+  "caption": "Thirty euros, and the view is free.",
+  "photo": true,
+  "file": "IMG_1791.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-dinner-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoUAAsAPu1iqU2ppaOiMAgBMB2JaACsIMgC4YncYUnTp1VChgAA+p+aYJQ38J0jTZcTepyuWNiuuyoGdtWvSnPZAU++TIcRq9/CZE2afBV+/xwxlx2r+42bF2flEaw2IuMXgF2aBN1mWnv26rlEM3gDgcJc8CLg3RWzjQAA"
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-dinner-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAAAwBQCdASoUABQAPu1urlIppiQiqAgBMB2JYgDCr8FrABcGxmMT6uW5FNvfkgL4tl7iAAD+xXrpum+HbMmoKQvPWf0dNpv6dx8fHbs5GVrrcJ0jQbIkmEhdPS0lpODaA2EYEWCdIyHC9nodgwOXCjjycxN3w/yC3SZpW9W19MgNyMxuSJwuvIIEg4bZr7zNNlScETYY3JoJvQsHl3LPKaEJ1RjDOD4czJifuwzExVTcMTBNyXzuZATXCoVDuU9e28Iw2JvJ36l8cdLU0AA="
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-dinner-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JZACdLwAVfWjKNsDHmG1XB5QAAP6xk4ZPCy76yOV4dhOyJ/O4nsvHnovBpMkFDfleB/COMhxv77N65tOr/F8BIsU48yNJhJbIUlEhZ5vwxIjVLQHSkyJ6lVe63e//9rqqz6/IlbrvOoeOgYwxBp1W5csFFmtXq4FF7ppNDUOAlQQOeTtx8AAA"
+  }
+ }
+}

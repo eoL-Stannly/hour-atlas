@@ -6,7 +6,7 @@ eleventyComputed:
   title: "{{ c.name }}"
   description: "{{ c.blurb }}"
 ---
-{% from "plate.njk" import img, card, tile %}
+{% from "plate.njk" import img, card, tile, note, gallery %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/destinations/">Destinations</a>
@@ -17,7 +17,7 @@ eleventyComputed:
 <section class="hero hero--short">
   {{ img(c.plate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(c.plate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ c.regionName }}</p>
     <h1 class="hero__title">{{ c.name }}</h1>

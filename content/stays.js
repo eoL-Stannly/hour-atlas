@@ -31,6 +31,22 @@ export default [
     good: ["Heated private pool", "Dinner on the terrace is worth booking", "Staff anticipate everything"],
     bad: ["Oia is very busy from five o'clock", "Awkward luggage walk", "Breakfast is an extra"] },
 
+  { slug: "villa-helidona", name: "Villa Helidona", place: "nydri",
+    kind: "Villa", types: ["pool", "rural"], sleeps: 8, price: 210, rating: 5,
+    stayed: "June 2025", nights: 10,
+    image: "helidona-pool",
+    gallery: ["helidona-pool"],
+    summary: "Up the hill behind Nydri, with a private pool, a vine pergola and the whole bay laid out below.",
+    review: [
+      "It is fifteen minutes above the town on a road that gets narrower than you would like, and that climb is the entire reason the place works. The bay is spread out underneath you, the noise of the harbour does not reach, and the temperature at eight in the evening is about four degrees cooler than down at sea level.",
+      "The pool is a proper length rather than a plunge, with a dolphin mosaic on the floor that the children were unreasonably invested in. There is a vine-covered pergola along one side that gives you shade from about eleven onwards, which matters more than the pool does in July.",
+      "A chocolate labrador belongs to the owners and considers the pool terrace hers. Nobody mentioned this in advance and it turned out to be the best thing about the week. If you do not want a dog around, this is not your villa.",
+      "The road down into Nydri is the one real drawback. It is fine in daylight and unpleasant after dinner and two glasses of wine, so work out who is driving before you go out.",
+    ],
+    verdict: "The best value villa I have booked anywhere. Ten nights, eight people, and the view never got old.",
+    good: ["Private pool with the bay below it", "Pergola shade from mid-morning", "Cooler up here than in town", "The dog"],
+    bad: ["Narrow road up, worse after dark", "A car is essential", "Nearest shop is down in Nydri"] },
+
   { slug: "plaka-beach-rooms", name: "Plaka Beach Rooms", place: "naxos",
     kind: "Guesthouse", types: ["beach", "hotel"], sleeps: 3, price: 95, rating: 4,
     stayed: "June 2024", nights: 6,

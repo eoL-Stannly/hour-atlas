@@ -7,15 +7,16 @@ eleventyComputed:
   description: "{{ e.kicker }}"
   ogType: article
 ---
-{% from "plate.njk" import img, card, stamp %}
+{% from "plate.njk" import img, card, gallery, note %}
 {% set p = atlas.places | findBySlug(e.placeSlug) %}
+{% set hero = e.plate or (p.plate if p) %}
 
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/journal/">Journal</a><span aria-current="page">{{ e.place }}</span></nav>
 
 <section class="hero">
-  {{ img(p.plate, "wide", true) }}
+  {{ img(hero, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(hero) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ e.dates }} · {{ e.region }}, {{ e.country }}{% if e.placeholder %} · <span class="flag">Placeholder</span>{% endif %}</p>
     <h1 class="hero__title">{{ e.place }}</h1>
@@ -28,7 +29,7 @@ eleventyComputed:
     <div><dt>Score</dt><dd>{{ e.rating }} out of 5</dd></div>
     <div><dt>Went</dt><dd>{{ e.dates }}</dd></div>
     <div><dt>Again?</dt><dd>{{ e.again }}</dd></div>
-    <div><dt>Where</dt><dd><a href="{{ p.url }}">{{ p.name }}</a>, {{ p.countryName }}</dd></div>
+    <div><dt>Where</dt><dd>{% if p %}<a href="{{ p.url }}">{{ p.name }}</a>, {{ p.countryName }}{% else %}{{ e.region }}, {{ e.country }}{% endif %}</dd></div>
   </dl>
 </section>
 
@@ -42,8 +43,18 @@ eleventyComputed:
   </div>
 </section>
 
-{%- if p.stays.length %}
+{%- if e.gallery.length %}
 <section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">{{ e.gallery.length }} photographs</p>
+    <h2 class="sec__title">The <em>whole set</em></h2>
+  </div>
+  <div class="wrap">{{ gallery(e.gallery) }}</div>
+</section>
+{%- endif %}
+
+{%- if p and p.stays.length %}
+<section class="sec">
   <div class="sec__head sec__head--center">
     <p class="kicker">While you are there</p>
     <h2 class="sec__title">Where to <em>stay</em> in {{ p.name }}</h2>

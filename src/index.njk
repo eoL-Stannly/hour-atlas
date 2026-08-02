@@ -1,14 +1,14 @@
 ---
 layout: base.njk
 ---
-{% from "plate.njk" import img, card, tile, stamp %}
+{% from "plate.njk" import img, card, tile, stamp, note, gallery %}
 {% set best = atlas.stays | sortByRating %}
 {% set opener = atlas.places | findBySlug("cornwall") %}
 
 <section class="hero">
   {{ img(opener.plate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(opener.plate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">Ali Cook's travel journal</p>
     <h1 class="hero__title">Places worth <em>going to</em>, and places worth sleeping in.</h1>

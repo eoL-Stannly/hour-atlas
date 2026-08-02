@@ -6,7 +6,7 @@ eleventyComputed:
   title: "{{ p.name }}, {{ p.countryName }}"
   description: "{{ p.blurb }}"
 ---
-{% from "plate.njk" import img, card, tile %}
+{% from "plate.njk" import img, card, tile, note, gallery %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
   <a href="/destinations/">Destinations</a>
@@ -18,7 +18,7 @@ eleventyComputed:
 <section class="hero">
   {{ img(p.plate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(p.plate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ p.kind }} · {{ p.countryName }}</p>
     <h1 class="hero__title">{{ p.name }}</h1>
@@ -34,8 +34,18 @@ eleventyComputed:
   </dl>
 </section>
 
-{%- if p.stays.length %}
+{%- if p.gallery.length %}
 <section class="sec sec--tint">
+  <div class="sec__head sec__head--center">
+    <p class="kicker">{{ p.gallery.length }} photographs</p>
+    <h2 class="sec__title">{{ p.name }} <em>as it looks</em></h2>
+  </div>
+  <div class="wrap">{{ gallery(p.gallery) }}</div>
+</section>
+{%- endif %}
+
+{%- if p.stays.length %}
+<section class="sec">
   <div class="sec__head sec__head--center">
     <p class="kicker">Reviewed</p>
     <h2 class="sec__title">Where to <em>stay</em> in {{ p.name }}</h2>

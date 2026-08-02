@@ -4,12 +4,13 @@ permalink: /stays/
 title: Stays
 description: "Every place I have slept, browsable by what you want from it. Camping, hotels, rural boltholes, hot tubs, saunas, forest cabins, beaches and pools."
 ---
-{% from "plate.njk" import img, card, tile %}
+{% from "plate.njk" import img, card, tile, note %}
+{% set heroPlate = atlas.types | findBySlug("hot-tub") | attr("plate") %}
 
 <section class="hero hero--short">
-  {{ img(atlas.types | findBySlug("hot-tub") | attr("plate"), "wide", true) }}
+  {{ img(heroPlate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(heroPlate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ atlas.totals.stays | pl("stay") }} · {{ atlas.totals.types | pl("type") }}</p>
     <h1 class="hero__title">Where to <em>sleep</em></h1>

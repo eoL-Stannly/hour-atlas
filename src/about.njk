@@ -4,12 +4,13 @@ permalink: /about/
 title: About
 description: Who writes this, how the scoring works, and why the pictures are drawn rather than photographed.
 ---
-{% from "plate.njk" import img %}
+{% from "plate.njk" import img, note %}
+{% set heroPlate = atlas.places | findBySlug("fiordland") | attr("plate") %}
 
 <section class="hero hero--short">
-  {{ img(atlas.places | findBySlug("fiordland") | attr("plate"), "wide", true) }}
+  {{ img(heroPlate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(heroPlate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">About</p>
     <h1 class="hero__title">Hi, I'm <em>Ali</em></h1>
@@ -44,11 +45,12 @@ description: Who writes this, how the scoring works, and why the pictures are dr
 
     <h2>About the pictures</h2>
     <p>
-      Every image here is a <span class="flag">Plate</span>: a drawn
-      placeholder, generated rather than photographed, standing in for a
-      picture that has not been taken yet. None of them show the place they sit
-      beside and none of them pretend to. They are labelled on every page they
-      appear on, and each is replaced the moment there is a real frame for it.
+      Some pages carry real photographs, all of them mine, all taken where
+      they say they were. The rest still carry a <span class="flag">Plate</span>:
+      a drawn placeholder standing in for a picture that has not been taken
+      yet. Plates are captioned as such wherever they appear, so if an image
+      has no caption on it, it is a photograph. Each plate comes down the
+      moment there is a real frame to put in its place.
     </p>
 
     <h2>Placeholders</h2>

@@ -11,6 +11,15 @@ export default [
     gettingThere: "Ferry from Piraeus or Santorini. Small airport with Athens connections.",
     bestTime: "June and September." },
 
+  { slug: "nydri", country: "greece", name: "Nydri", kind: "Resort town",
+    image: "nydri-harbour",
+    gallery: ["nydri-harbour", "lefkada-cove", "lefkada-beach-above", "lefkada-boat",
+              "lefkada-taverna", "lefkada-beachclub", "lefkada-sunset-sea",
+              "lefkada-terrace-sun", "lefkada-terrace-night", "lefkada-dinner"],
+    blurb: "The east coast of Lefkada, sheltered by a string of small islands, with a harbour full of day boats and the best beaches on the island a half hour drive west over the ridge.",
+    gettingThere: "Fly to Preveza, then forty minutes by road. Lefkada is joined to the mainland by a causeway, so no ferry.",
+    bestTime: "June, and September when the meltemi drops." },
+
   { slug: "algarve", country: "portugal", name: "Algarve", kind: "Coast",
     blurb: "Limestone the colour of biscuit dropping straight into deep blue, with a cliff path running east from Praia da Marinha for about four kilometres.",
     gettingThere: "Fly to Faro, then forty minutes by car.",

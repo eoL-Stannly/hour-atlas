@@ -483,3 +483,23 @@ img { display: block; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 @media print { .hero, .tile, .bar__nav, .sec--deep { display: none; } body { background: #fff; } }
+
+/* ------------------------------------------------------------ gallery */
+
+.gal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+.gal__item { margin: 0; }
+.gal__item .pl { width: 100%; height: auto; }
+
+.gal__cap {
+  margin-top: 0.55rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}

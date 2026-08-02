@@ -5,6 +5,28 @@
 
 const entries = [
   {
+    slug: "the-boathouse",
+    place: "The Boathouse",
+    region: "Location to confirm",
+    country: "United Kingdom",
+    dates: "July 2025",
+    month: "Jul 2025",
+    kicker: "A house on brick piers, standing in a lake, with nothing to do but watch the light change.",
+    image: "boathouse-watching",
+    gallery: ["boathouse-exterior", "boathouse-through", "boathouse-living",
+              "boathouse-deck-dusk", "boathouse-watching", "boathouse-lake"],
+    body: [
+      "The building is the holiday. It stands on brick piers out over the water, so the deck runs straight along the lake and there is no garden, no path and no gap between being indoors and being over the water. You notice it first when you arrive and then again every time somebody walks across the boards and the whole floor sounds different.",
+      "Inside is darker than the photographs suggest, and deliberately so. The roof is open all the way to the ridge with the trusses exposed, the windows are small, and the doorway out to the deck becomes the brightest thing in the room by a wide margin. It makes every picture taken from the sofa look like it was composed by somebody competent.",
+      "There is very little to do, which is the point and also the risk. We had books, a stove, and a lake covered in lily pads that nobody is allowed to swim in. Two nights was right. Four would have been one too many for the adults and about three too few for the children.",
+      "The evenings are what you are paying for. The sun goes down behind the treeline at the far end of the water, the whole lake turns pink for about fifteen minutes, and the timber arch across the front of the deck frames it whether you want it framed or not.",
+    ],
+    verdict: "Go for two nights, take food, and do not expect to fill the days. The hour before dark justifies the whole trip.",
+    rating: 5,
+    again: "Yes, out of season",
+    stayed: "The Boathouse",
+  },
+  {
     slug: "orlando",
     placeSlug: "orlando",
     place: "Orlando",
@@ -179,7 +201,11 @@ const entries = [
 ];
 
 // Attach the resolved frame objects and a running entry number.
+import media from "./media.js";
+
 export default entries.map((e, i) => ({
   ...e,
   number: String(entries.length - i).padStart(2, "0"),
+  plate: e.image ? media[e.image] : null,
+  gallery: (e.gallery || []).map((k) => media[k]).filter(Boolean),
 }));

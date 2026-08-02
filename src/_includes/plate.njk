@@ -36,3 +36,20 @@
   </span>
 </a>
 {% endmacro %}
+
+{% macro note(p) %}
+{%- if p and not p.photo %}<span class="hero__note">Drawn plate, not a photograph</span>{% endif %}
+{% endmacro %}
+
+{% macro gallery(items, shape = "sq", sizes = "(min-width:64rem) 30vw, 46vw") %}
+{%- if items and items.length %}
+<div class="gal">
+  {%- for g in items %}
+  <figure class="gal__item">
+    {{ img(g, shape, false, sizes) }}
+    {%- if g.caption %}<figcaption class="gal__cap">{{ g.caption }}</figcaption>{% endif %}
+  </figure>
+  {%- endfor %}
+</div>
+{%- endif %}
+{% endmacro %}

@@ -4,12 +4,13 @@ permalink: /destinations/
 title: Destinations
 description: Every country and place on the site, filed by continent, with population, currency, flight times and when to go.
 ---
-{% from "plate.njk" import img, card, tile %}
+{% from "plate.njk" import img, card, tile, note %}
+{% set heroPlate = atlas.places | findBySlug("santorini") | attr("plate") %}
 
 <section class="hero hero--short">
-  {{ img(atlas.places | findBySlug("santorini") | attr("plate"), "wide", true) }}
+  {{ img(heroPlate, "wide", true) }}
   <span class="hero__scrim"></span>
-  <span class="hero__note">Drawn plate, not a photograph</span>
+  {{ note(heroPlate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">{{ atlas.totals.countries | pl("country","countries") }} · {{ atlas.totals.places | pl("place") }}</p>
     <h1 class="hero__title">Where to <em>go</em></h1>
