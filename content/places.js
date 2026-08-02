@@ -15,6 +15,7 @@ export default [
     image: "nydri-harbour",
     gallery: ["nydri-harbour", "lefkada-cove", "lefkada-beach-above", "lefkada-boat",
               "lefkada-taverna", "lefkada-beachclub", "lefkada-sunset-sea",
+              "lefkada-rings-close", "lefkada-beach-portrait",
               "lefkada-terrace-sun", "lefkada-terrace-night", "lefkada-dinner"],
     blurb: "The east coast of Lefkada, sheltered by a string of small islands, with a harbour full of day boats and the best beaches on the island a half hour drive west over the ridge.",
     gettingThere: "Fly to Preveza, then forty minutes by road. Lefkada is joined to the mainland by a causeway, so no ferry.",
@@ -29,6 +30,14 @@ export default [
     blurb: "Granite peaks going straight into the sea, fishing cabins on stilts over the water, and six weeks in summer when the sun never fully sets.",
     gettingThere: "Fly to Bodø, then the ferry, or drive the E10 from Narvik.",
     bestTime: "Late May to mid July." },
+
+  { slug: "norfolk", country: "united-kingdom", name: "Norfolk", kind: "Broads and coast",
+    image: "boathouse-lake",
+    gallery: ["boathouse-exterior", "boathouse-through", "boathouse-living",
+              "boathouse-deck-dusk", "boathouse-watching", "boathouse-lake"],
+    blurb: "Flat, watery, and easy to underestimate. The Broads are the reason: a network of rivers and shallow lakes threaded through reed beds, with the kind of open sky you only get where nothing is tall enough to interrupt it.",
+    gettingThere: "Two and a half hours from London by car, or train to Norwich.",
+    bestTime: "Late spring and September, when the water traffic thins out." },
 
   { slug: "cornwall", country: "united-kingdom", name: "Cornwall", kind: "Coast",
     blurb: "Three hundred miles of coast path, an Atlantic swell on the north side and calm water on the south, and the only part of England that reliably gets light worth waiting for.",
@@ -51,6 +60,7 @@ export default [
     bestTime: "Late April and October." },
 
   { slug: "orlando", country: "united-states", name: "Orlando", kind: "City",
+    gallery: ["orlando-carousel"],
     blurb: "Everything worth photographing here was built to be looked at, lit by someone who thought about it harder than you will.",
     gettingThere: "Direct from London in about nine hours.",
     bestTime: "November to April. August is 34 degrees and humid." },

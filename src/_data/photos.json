@@ -457,5 +457,86 @@
    "sw": 420,
    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JZACdLwAVfWjKNsDHmG1XB5QAAP6xk4ZPCy76yOV4dhOyJ/O4nsvHnovBpMkFDfleB/COMhxv77N65tOr/F8BIsU48yNJhJbIUlEhZ5vwxIjVLQHSkyJ6lVe63e//9rqqz6/IlbrvOoeOgYwxBp1W5csFFmtXq4FF7ppNDUOAlQQOeTtx8AAA"
   }
+ },
+ "lefkada-rings-close": {
+  "alt": "Two children sitting in pink inflatable rings in the shallows of a beach at golden hour, waves breaking around them, cliffs in the background.",
+  "caption": "Ten minutes before bath and bed, and nobody wanted to leave the water.",
+  "photo": true,
+  "file": "IMG_2535.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-rings-close-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoUAAsAPu1iqU2ppaOiMAgBMB2JYgC7LwABHY4TXt+3v+i9egAA/t7gHeuoVPH/kcIDeLp1W1q99z/yiNVL6LjdkZuXc0JuV2hzR7B4tCTWAOY0XLt3VArb+g9FnEpxT/BlqIhNrSYJEq5I28JmRMv5AAA="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-rings-close-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACQBQCdASoUABQAPu1irE4ppaSiKA1RMB2JbAC32Mg5/sf/Ibt5YkXoW8499B/J8yRmT4QLgAD+52KHJthBwO03GTc5BWoPGnf7rzCK6P+EZtCIpXaRx6Hpn0v8Ce463qAQaBQ6ouXA+MIu+R1RXEjqCzOxeTddr1WIyIlKNAMjC5BbqTyU7UTRNunVJyhoDD86TDI7mqHNa8zUOQBMvWzFAAA="
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-rings-close-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQAwCdASoPABQAPu1iqU2ppaOiMAgBMB2JbACw7CHEZnCb0iW9TeAA/t9Eja9jVHxwXrkOZFq5xvf0/k3vwZpohPpduSoxbASQl39YCoJMHTpT9rbZU2JsSC0cvydaOJDywEjfb30uRww8vsi8JWgPy2ow0BxocAA="
+  }
+ },
+ "lefkada-beach-portrait": {
+  "alt": "A girl lying on a striped towel on a pebble beach, looking towards the camera, with a sailboat anchored in turquoise water behind her.",
+  "caption": "The kind of afternoon that makes the flight worth it.",
+  "photo": true,
+  "file": "c95a8ddd-983c-4a0f-ba05-6a63bdc3b123.jpeg",
+  "wide": {
+   "src": "/assets/photos/lefkada-beach-portrait-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoUAAsAPu1iqU2ppaQiMAgBMB2JZACdMoR4GClTw932TAXuiAD33bePQFMbcYV3RJhs2PKEOaDXCz4BiWZDgpOWXdz4oirKhYz5S6cKhKR13saL/QmjqiygVLwqj0+JOBYYoaXEYAA="
+  },
+  "sq": {
+   "src": "/assets/photos/lefkada-beach-portrait-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADQBACdASoUABQAPu1oqk+ppiOiKA1RMB2JYgCxHt8BWvgRgSD2D56eWaeokRH6AAD45WWs5lMpbdapOIlo8tBn+AnWzqfQUq/sLBbfpsjYRehrG/9ktCOBiGTCRlPVTLrtpSjaUSpj6tOwEO2hc2dPKkqNFTD0w8rtoDBNsS0D4z9TawwE8Dwh798amSBHJSXZHEYEJYi5JxTbCkiu76EScX0lWZDfHwhIAAAA"
+  },
+  "port": {
+   "src": "/assets/photos/lefkada-beach-portrait-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABwBACdASoPABQAPu1iqU2ppaOiMAgBMB2JaACdMoMYAEPz94inx+ZSxLakEAD+1thGERUdZZsKPvnv3wRS7J9Sk8sRjDFHgypO9Ke4ZBZ2x+DHDd/JaPC2iU2OLrr6ieQBpQB3kntz1jdFWXnkWv4hPyZ5sye+GgP50N7k9bvd1lYz2Y1ayXaebNRy4etvRrT8AuqlnDkivtaHgAA="
+  }
+ },
+ "orlando-carousel": {
+  "alt": "Mickey Mouse riding a carousel horse at Disneyland, flanked by two children in princess costumes on horses of their own.",
+  "caption": "King Arthur Carrousel. He gets on with you, which the girls had not expected.",
+  "photo": true,
+  "file": "IMG_2634.jpeg",
+  "wide": {
+   "src": "/assets/photos/orlando-carousel-wide",
+   "w": 1500,
+   "h": 844,
+   "sw": 750,
+   "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JZgCdIMgBrBtOuCNLYIAAAMyh0QX6/mPaCyc2lCI1vhoQK/mvqbMyaxm2XGZeqCBAMIIcVL++3ddG9gKYNkyhJ7tqZ8SXKAW7FLCALkPZ/wzsXGwddb/pEXDhRNP8q7/7vMKsJv+vMDziPYsWIT5EexuiW0LqAAA="
+  },
+  "sq": {
+   "src": "/assets/photos/orlando-carousel-sq",
+   "w": 1000,
+   "h": 1000,
+   "sw": 500,
+   "lqip": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAADwBACdASoUABQAPu1srlKppaQiqAgBMB2JZACdMyGluAnMPJhjjT/GbYcgMQ69MAAA/p71mHAeognJAgTv+tg6Yy801OYPLnSqlCRwgdTjJgRekUfIIGZx2IMWH4mQWh721zwA2xcScQkps+zurJRyj9TOPPuRmLPfgd1Ol/9lsNykQD+9813mAbUny7XzmoSY/VvV0jf/coOgUxMM4WHuYDCS2vRrIQy62uBF4t4QVCyjdKlW2PBju2pE+EFE+selclhfMkh392TgKUAAAA=="
+  },
+  "port": {
+   "src": "/assets/photos/orlando-carousel-port",
+   "w": 840,
+   "h": 1120,
+   "sw": 420,
+   "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAACQBACdASoPABQAPu1iqU2ppaOiMAgBMB2JbACdMkCsAA2877uTNBIFipg/yQAA/p71hdTmjMBYB0QOaLZFoPlbkYbaw67tYMcUCegwVTS35JfMgyw2Niq4gka0utK6UuiRwt1gAbrc2oA2V5usIzd/JhjRlxw3+/Djr+FEovUCRq6h/jmiMdBJUiq2f5hs7spq5cqXfHnLXkXOguAAAA=="
+  }
  }
 }

@@ -81,6 +81,17 @@ PHOTOS = {
     "lefkada-dinner": ("IMG_1791.jpeg",
         "A steak on a white plate with basil and burrata, lit warm by a table lamp, with a hazy sunset over the sea behind.",
         "Thirty euros, and the view is free."),
+    "lefkada-rings-close": ("IMG_2535.jpeg",
+        "Two children sitting in pink inflatable rings in the shallows of a beach at golden hour, waves breaking around them, cliffs in the background.",
+        "Ten minutes before bath and bed, and nobody wanted to leave the water."),
+    "lefkada-beach-portrait": ("c95a8ddd-983c-4a0f-ba05-6a63bdc3b123.jpeg",
+        "A girl lying on a striped towel on a pebble beach, looking towards the camera, with a sailboat anchored in turquoise water behind her.",
+        "The kind of afternoon that makes the flight worth it."),
+
+    # --- Orlando, United States ----------------------------------------
+    "orlando-carousel": ("IMG_2634.jpeg",
+        "Mickey Mouse riding a carousel horse at Disneyland, flanked by two children in princess costumes on horses of their own.",
+        "King Arthur Carrousel. He gets on with you, which the girls had not expected."),
 }
 
 

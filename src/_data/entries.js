@@ -6,8 +6,9 @@
 const entries = [
   {
     slug: "the-boathouse",
+    placeSlug: "norfolk",
     place: "The Boathouse",
-    region: "Location to confirm",
+    region: "Norfolk",
     country: "United Kingdom",
     dates: "July 2025",
     month: "Jul 2025",

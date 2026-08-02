@@ -5,6 +5,23 @@
 
    */
 export default [
+  { slug: "the-boathouse-norfolk", name: "The Boathouse", place: "norfolk",
+    kind: "Boathouse", types: ["rural", "beach"], sleeps: 6, price: 260, rating: 5,
+    stayed: "July 2025", nights: 2,
+    image: "boathouse-watching",
+    gallery: ["boathouse-exterior", "boathouse-through", "boathouse-living",
+              "boathouse-deck-dusk", "boathouse-watching", "boathouse-lake"],
+    summary: "Standing on brick piers out over a lily-covered lake, with a deck that runs the full width of the water and nothing else nearby.",
+    review: [
+      "The building is the holiday. It stands on brick piers out over the water, so the deck runs straight along the lake and there is no garden, no path and no gap between being indoors and being over the water. You notice it first when you arrive and then again every time somebody crosses the boards and the whole floor sounds different underfoot.",
+      "Inside is darker than the photographs suggest, and deliberately so. The roof runs open to the ridge with the trusses exposed, the windows are small, and the doorway out to the deck becomes the brightest thing in the room by a wide margin, which does most of the work for anyone taking a photograph from the sofa.",
+      "There is very little to do, which is the appeal and also the risk. We had books, a wood stove, and a lake covered in lily pads that nobody is allowed to swim in. Two nights was right. Four would have tested the children and probably the adults too.",
+      "The evenings are what you are paying for. The sun goes down behind the treeline at the far end of the water, the whole lake turns pink for about fifteen minutes, and the timber arch across the front of the deck frames it whether you want it framed or not.",
+    ],
+    verdict: "Go for two nights and take food with you. The hour before dark justifies the whole trip on its own.",
+    good: ["Stands directly over the water", "The sunset framed by the deck arch", "Genuinely nothing to do, if that is what you want"],
+    bad: ["Very little to do, if that is not what you want", "No shop for miles", "Dark indoors, which will not suit everyone"] },
+
   { slug: "cave-house-imerovigli", name: "Cave House, Imerovigli", place: "santorini",
     kind: "Airbnb", types: ["pool", "beach"], sleeps: 4, price: 290, rating: 4,
     stayed: "September 2024", nights: 5,
