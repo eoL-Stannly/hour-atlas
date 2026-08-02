@@ -134,12 +134,43 @@ img { display: block; max-width: 100%; }
   gap: 0.6rem 2rem;
 }
 .bar__mark {
+  display: inline-flex;
+  align-items: baseline;
   font-family: var(--serif);
-  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
-  letter-spacing: 0.01em;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 1.95rem);
+  letter-spacing: -0.015em;
   text-decoration: none;
 }
-.bar__mark em { font-style: italic; color: var(--sea); }
+.bar__mark::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.4em;
+  border-radius: 50%;
+  background: var(--sea);
+  align-self: center;
+}
+.bar__mark em {
+  position: relative;
+  font-style: italic;
+  font-weight: 800;
+  color: var(--sea);
+  margin-left: 0.28em;
+}
+.bar__mark em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -0.05em;
+  bottom: -0.05em;
+  height: 2px;
+  background: var(--sea);
+  transform: scaleX(0.72);
+  transform-origin: left;
+  opacity: 0.55;
+}
 
 .bar__nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; }
 .bar__nav a {
@@ -455,8 +486,44 @@ img { display: block; max-width: 100%; }
   grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr));
   gap: clamp(1.6rem, 4vw, 3rem);
 }
-.foot__mark { font-family: var(--serif); font-size: 1.6rem; color: #fff; }
-.foot__mark em { font-style: italic; color: #7fd0d8; }
+.foot__mark {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+.foot__mark::before {
+  content: "";
+  display: inline-block;
+  width: 0.48em;
+  height: 0.48em;
+  margin-right: 0.38em;
+  border-radius: 50%;
+  background: #7fd0d8;
+  align-self: center;
+}
+.foot__mark em {
+  position: relative;
+  font-style: italic;
+  font-weight: 800;
+  color: #7fd0d8;
+  margin-left: 0.26em;
+}
+.foot__mark em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: -0.05em;
+  bottom: -0.05em;
+  height: 2px;
+  background: #7fd0d8;
+  transform: scaleX(0.72);
+  transform-origin: left;
+  opacity: 0.6;
+}
 .foot__line { margin-top: 0.4rem; max-width: 18rem; font-size: 0.95rem; }
 .foot h2 {
   font-family: var(--sans);
