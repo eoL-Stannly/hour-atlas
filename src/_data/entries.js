@@ -1,5 +1,3 @@
-import framesByRef from "./frames.js";
-
 /* Every entry is a place I have been, the frames I kept, and what I actually
    thought of it. Entries flagged `placeholder: true` are filler: the writing
    is invented and the pictures are drawn, not shot. Replace the frames, drop
@@ -15,8 +13,6 @@ const entries = [
     dates: "19 August 2025",
     month: "Aug 2025",
     kicker: "Four days photographing places built entirely to be looked at.",
-    lead: "310A8215",
-    frames: ["310A8215", "310A8058", "310A8067", "310A8169"],
     body: [
       "I did not go to Orlando to take pictures. I went because other people were going, and the camera came along the way it always does. Four days later I had eleven hundred frames and a much better opinion of theme parks than I arrived with.",
       "The thing nobody tells you is that these places are already composed. Every sightline is deliberate. Every building has an angle it was designed to be seen from, and there is usually a paving pattern quietly steering you towards it. You are not hunting for a shot so much as accepting the one you have been handed. That felt like cheating for about a day, and then it stopped mattering.",
@@ -40,8 +36,6 @@ const entries = [
     dates: "March 2025",
     month: "Mar 2025",
     kicker: "Water so clear the boat looks like it is hovering.",
-    lead: "plate-lagoon",
-    frames: ["plate-lagoon", "plate-overwater"],
     placeholder: true,
     body: [
       "Placeholder entry. The lagoon runs from almost colourless at the sand to a hard turquoise about thirty metres out, and the line between the two moves with the tide, so the same frame taken an hour apart is a different picture.",
@@ -67,8 +61,6 @@ const entries = [
     dates: "January 2025",
     month: "Jan 2025",
     kicker: "The sunset does the work and everyone knows it.",
-    lead: "plate-sunset-beach",
-    frames: ["plate-sunset-beach"],
     placeholder: true,
     body: [
       "Placeholder entry. Sunset Beach faces exactly where you would want it to, which means by six every evening there are forty people standing in a line along the sand, all making the same picture. I made it too.",
@@ -94,8 +86,6 @@ const entries = [
     dates: "October 2024",
     month: "Oct 2024",
     kicker: "Limestone the colour of biscuit, dropping straight into deep blue.",
-    lead: "plate-headland",
-    frames: ["plate-headland"],
     placeholder: true,
     body: [
       "Placeholder entry. The cliff path east of the car park is the whole reason to come. It runs for about four kilometres along the top of the headland and you get a new arch or stack every few hundred metres.",
@@ -121,8 +111,6 @@ const entries = [
     dates: "February 2024",
     month: "Feb 2024",
     kicker: "Cloud sits in the valley until the sun burns it off, usually around ten.",
-    lead: "plate-alpine-lake",
-    frames: ["plate-alpine-lake"],
     placeholder: true,
     body: [
       "Placeholder entry. Four metres of rain a year is what makes the waterfalls, so the weather is not something to work around, it is the subject. The two days it did not rain were the two least interesting days.",
@@ -148,8 +136,6 @@ const entries = [
     dates: "November 2023",
     month: "Nov 2023",
     kicker: "One ridge, three hundred metres high, and nothing else for an hour in any direction.",
-    lead: "plate-dune",
-    frames: ["plate-dune"],
     placeholder: true,
     body: [
       "Placeholder entry. The dunes only look like the pictures for about forty minutes either side of sunrise and sunset. In between they are flat, hazy and the colour of cardboard.",
@@ -175,8 +161,6 @@ const entries = [
     dates: "June 2023",
     month: "Jun 2023",
     kicker: "Coffee, cloud forest, and a waterfall at the end of every path.",
-    lead: "plate-jungle",
-    frames: ["plate-jungle"],
     placeholder: true,
     body: [
       "Placeholder entry. Up in the hills the light stays flat and soft most of the day because the cloud never fully clears, which is miserable for landscapes and excellent for anything green.",
@@ -198,6 +182,4 @@ const entries = [
 export default entries.map((e, i) => ({
   ...e,
   number: String(entries.length - i).padStart(2, "0"),
-  leadFrame: framesByRef[e.lead],
-  frameObjects: e.frames.map((ref) => framesByRef[ref]).filter(Boolean),
 }));

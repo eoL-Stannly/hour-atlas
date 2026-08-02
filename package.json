@@ -1,7 +1,7 @@
 {
   "name": "stannly",
   "version": "1.0.0",
-  "description": "A travel journal built around photographs.",
+  "description": "A gazetteer of places worth going to.",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve"

@@ -3,12 +3,11 @@
    anywhere on the site, so a stay tagged with four types still has a single
    canonical address. Order `types` with the defining feature first.
 
-   `frames` is a list of frame refs; leave it empty and the page renders
-   pending slots instead. */
+   */
 export default [
   { slug: "cave-house-imerovigli", name: "Cave House, Imerovigli", place: "santorini",
     kind: "Airbnb", types: ["pool", "beach"], sleeps: 4, price: 290, rating: 4,
-    stayed: "September 2024", nights: 5, frames: [],
+    stayed: "September 2024", nights: 5,
     summary: "Cut back into the cliff, with a plunge pool on the terrace and 300 steps down to the water.",
     review: [
       "The terrace is the room. Everything indoors is a windowless barrel vault carved into volcanic rock, which sounds grim and is actually the coolest place on the island at four in the afternoon. You will spend daylight hours outside and be grateful for the cave at night.",
@@ -21,7 +20,7 @@ export default [
 
   { slug: "canaves-epitome", name: "Canaves Epitome", place: "santorini",
     kind: "Hotel suite", types: ["hotel", "pool"], sleeps: 2, price: 980, rating: 4,
-    stayed: "September 2024", nights: 2, frames: [],
+    stayed: "September 2024", nights: 2,
     summary: "Private pool on the caldera edge, dinner laid out on the terrace at sundown.",
     review: [
       "Two nights here as a splurge at the end of a cheaper week, which I would recommend as a structure. The room is enormous and the private pool is heated, which matters more in late September than it sounds.",
@@ -34,7 +33,7 @@ export default [
 
   { slug: "plaka-beach-rooms", name: "Plaka Beach Rooms", place: "naxos",
     kind: "Guesthouse", types: ["beach", "hotel"], sleeps: 3, price: 95, rating: 4,
-    stayed: "June 2024", nights: 6, frames: [],
+    stayed: "June 2024", nights: 6,
     summary: "Simple rooms behind the dunes on a beach that runs for four kilometres.",
     review: [
       "A family runs it and it shows in the small things. Fresh bread appears at eight, the bikes are free, and somebody moves the sun loungers to follow the shade without being asked.",
@@ -47,7 +46,7 @@ export default [
 
   { slug: "casa-do-carrasco", name: "Casa do Carrasco, Carvoeiro", place: "algarve",
     kind: "Airbnb", types: ["pool", "beach"], sleeps: 6, price: 180, rating: 5,
-    stayed: "October 2024", nights: 7, frames: [],
+    stayed: "October 2024", nights: 7,
     summary: "Whitewashed house with a roof terrace, ten minutes from the cliff path.",
     review: [
       "Three bedrooms, a shaded courtyard and a roof terrace that gets sun from about ten until it goes down. In October that meant every meal outside for a week.",
@@ -60,7 +59,7 @@ export default [
 
   { slug: "rorbu-14-reine", name: "Rorbu 14, Reine", place: "lofoten",
     kind: "Airbnb", types: ["sauna", "rural"], sleeps: 4, price: 210, rating: 5,
-    stayed: "June 2024", nights: 4, frames: [],
+    stayed: "June 2024", nights: 4,
     summary: "Restored 1940s fishing cabin in red pine, with a ladder into the fjord.",
     review: [
       "A working rorbu that somebody has quietly modernised without stripping out what made it worth keeping. Original pine, a stove that actually heats the place, and a ladder off the deck straight into the water.",
@@ -73,7 +72,7 @@ export default [
 
   { slug: "hattvika-lodge", name: "Hattvika Lodge", place: "lofoten",
     kind: "Lodge", types: ["hotel", "sauna", "rural"], sleeps: 6, price: 640, rating: 4,
-    stayed: "June 2024", nights: 2, frames: [],
+    stayed: "June 2024", nights: 2,
     summary: "Glass gable facing Vestfjorden, sauna cut into the rock behind.",
     review: [
       "The architecture is the draw. A wall of glass facing west down the fjord, and a sauna dug into the hillside so you look out at the water from inside it.",
@@ -86,7 +85,7 @@ export default [
 
   { slug: "shepherds-hut-trevose", name: "The Shepherd's Hut, Trevose Head", place: "cornwall",
     kind: "Shepherd's hut", types: ["hot-tub", "rural"], sleeps: 2, price: 145, rating: 4,
-    stayed: "May 2025", nights: 3, frames: [],
+    stayed: "May 2025", nights: 3,
     summary: "One field back from the coast path, wood-fired tub facing the sea.",
     review: [
       "Small in the way these always are, and well enough built that it does not matter. A double at one end, a stove in the middle, and a compost loo in its own shed twenty steps away.",
@@ -99,7 +98,7 @@ export default [
 
   { slug: "bedruthan-hotel", name: "Bedruthan Hotel", place: "cornwall",
     kind: "Hotel", types: ["hotel", "pool", "beach"], sleeps: 4, price: 220, rating: 3,
-    stayed: "May 2025", nights: 2, frames: [],
+    stayed: "May 2025", nights: 2,
     summary: "Clifftop hotel above Mawgan Porth, built for families and honest about it.",
     review: [
       "Set up entirely around children, with supervised clubs, three pools and a lot of noise. If that is what you need it is very good at it, and the sea view rooms are worth the upgrade.",
@@ -112,7 +111,7 @@ export default [
 
   { slug: "coed-y-nant", name: "Coed y Nant Cabin", place: "eryri", kind: "Cabin",
     types: ["forest", "hot-tub", "rural"], sleeps: 4, price: 165, rating: 5,
-    stayed: "September 2024", nights: 4, frames: [],
+    stayed: "September 2024", nights: 4,
     summary: "Timber cabin under oak canopy, with a tub on the deck and a river below.",
     review: [
       "Under trees the whole way round, which means it is dark by seven and very quiet. The river is loud enough at night to sleep to and low enough in September to swim in.",
@@ -125,7 +124,7 @@ export default [
 
   { slug: "llyn-gwynant", name: "Llyn Gwynant Campsite", place: "eryri", kind: "Campsite",
     types: ["camping", "rural"], sleeps: 6, price: 28, rating: 4,
-    stayed: "June 2024", nights: 3, frames: [],
+    stayed: "June 2024", nights: 3,
     summary: "Pitch on the lake shore in the Nant Gwynant valley, under Yr Wyddfa.",
     review: [
       "One of the few campsites where the position alone justifies the trip. Pitches run down to the water and the Watkin Path starts a mile up the road.",
@@ -138,7 +137,7 @@ export default [
 
   { slug: "bothy-glen-feshie", name: "The Bothy at Glen Feshie", place: "cairngorms",
     kind: "Bothy", types: ["rural", "sauna", "forest"], sleeps: 2, price: 190, rating: 5,
-    stayed: "May 2025", nights: 3, frames: [],
+    stayed: "May 2025", nights: 3,
     summary: "Stone bothy in old Caledonian pine, with a barrel sauna and a burn to cool off in.",
     review: [
       "Restored rather than rebuilt, so the walls are still two feet of stone and the windows are still small. Warm in about an hour with the stove going.",
@@ -151,7 +150,7 @@ export default [
 
   { slug: "bark-house-grizedale", name: "Bark House, Grizedale", place: "lake-district",
     kind: "Cabin", types: ["forest", "hot-tub"], sleeps: 4, price: 210, rating: 4,
-    stayed: "October 2024", nights: 3, frames: [],
+    stayed: "October 2024", nights: 3,
     summary: "Cabin in the middle of Grizedale Forest, twenty minutes from Coniston Water.",
     review: [
       "Deep enough into the forest that you drive the last mile on a track and see nobody. Two bedrooms, a wood burner and a wall of glass facing a clearing where deer turn up most mornings.",
@@ -164,7 +163,7 @@ export default [
 
   { slug: "kissimmee-vacation-home", name: "Vacation home, Kissimmee", place: "orlando",
     kind: "Airbnb", types: ["pool"], sleeps: 8, price: 180, rating: 3,
-    stayed: "August 2025", nights: 6, frames: [],
+    stayed: "August 2025", nights: 6,
     summary: "Four bedrooms and a screened private pool, fifteen minutes from the parks.",
     review: [
       "Exactly what everyone in Kissimmee rents and priced accordingly. Four bedrooms, two bathrooms, a garage converted into a games room and a screened pool at the back.",
@@ -177,7 +176,7 @@ export default [
 
   { slug: "bundhaya-beachfront", name: "Bundhaya Beachfront", place: "koh-lipe",
     kind: "Guesthouse", types: ["beach", "hotel"], sleeps: 2, price: 55, rating: 3,
-    stayed: "January 2025", nights: 5, frames: [],
+    stayed: "January 2025", nights: 5,
     summary: "Fan room thirty seconds from Pattaya Beach, no view and no need for one.",
     review: [
       "A basic room in a good position, which on an island this small is the correct trade. Thirty seconds to the sand and two minutes to Walking Street.",
@@ -190,7 +189,7 @@ export default [
 
   { slug: "munduk-ridge-villa", name: "Munduk Ridge Villa", place: "munduk",
     kind: "Airbnb", types: ["rural", "forest", "pool"], sleeps: 4, price: 75, rating: 5,
-    stayed: "June 2023", nights: 5, frames: [],
+    stayed: "June 2023", nights: 5,
     summary: "Open-sided living room facing the valley, with no glass and no need for it.",
     review: [
       "The front of the house is simply missing, which at 800 metres up is comfortable all day and cold enough at night for a blanket. Cloud comes through the room in the mornings.",
@@ -203,7 +202,7 @@ export default [
 
   { slug: "fehendhoo-beach-house", name: "Fehendhoo Beach House", place: "baa-atoll",
     kind: "Airbnb", types: ["beach"], sleeps: 5, price: 110, rating: 4,
-    stayed: "March 2025", nights: 6, frames: [],
+    stayed: "March 2025", nights: 6,
     summary: "A local island rather than a resort, with two bicycles and reef fifty metres out.",
     review: [
       "Fehendhoo has about two hundred residents and one guesthouse strip, and staying here costs roughly a tenth of what the resort across the water charges for the same reef.",
@@ -216,7 +215,7 @@ export default [
 
   { slug: "erg-chebbi-camp", name: "Desert camp, Erg Chebbi", place: "erg-chebbi",
     kind: "Tented camp", types: ["camping", "rural"], sleeps: 2, price: 70, rating: 4,
-    stayed: "November 2023", nights: 1, frames: [],
+    stayed: "November 2023", nights: 1,
     summary: "Rugs, no power after eleven, and the best sky I have stood under.",
     review: [
       "Camel in at sunset, which is a tourist thing to do and also the only sensible way to arrive. The tents are proper canvas with real beds and a shared washblock.",
@@ -229,7 +228,7 @@ export default [
 
   { slug: "hut-at-hollyford", name: "The Hut at Hollyford", place: "fiordland",
     kind: "Cabin", types: ["rural", "forest"], sleeps: 2, price: 240, rating: 4,
-    stayed: "February 2024", nights: 2, frames: [],
+    stayed: "February 2024", nights: 2,
     summary: "Off grid, wood stove, and the last kilometre on foot.",
     review: [
       "Solar and a wood stove, a water butt off the roof, and a track that stops a kilometre short so you carry everything in. That filter is the entire appeal.",

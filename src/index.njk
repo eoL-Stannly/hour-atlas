@@ -1,102 +1,68 @@
 ---
 layout: base.njk
-bodyClass: home
 ---
-{% from "frame.njk" import frame %}
-{% set newest = entries[0] %}
+{% from "rec.njk" import rec %}
 
-<section class="opening">
-  <div class="opening__photo">
-    {{ frame(newest.leadFrame, "100vw", "frame--bleed", true, false) }}
-  </div>
-  <div class="opening__text">
-    <p class="opening__eyebrow"><span class="rebate__ref">{{ newest.leadFrame.ref }}</span> {{ newest.place }}, {{ newest.country }}</p>
-    <h1 class="opening__title"><span class="line"><span>Photographs</span></span><span class="line"><span>from the road,</span></span><span class="line"><span>and what I</span></span><span class="line"><span>actually thought.</span></span></h1>
-    <p class="opening__cue">Scroll</p>
-  </div>
-</section>
-
-<section class="intro">
-  <p class="intro__lede" data-reveal>
-    I take a camera everywhere and I am not a good enough photographer to
-    pretend the pictures are the whole story. So each entry here is a set of
-    frames from one place, and an honest account of whether it was worth going.
-    Some of it is not flattering.
+<section class="thesis">
+  <h1 class="thesis__title">A gazetteer of<br>places worth<br><em>going to.</em></h1>
+  <p class="thesis__lede">
+    {{ atlas.totals.countries }} countries, {{ atlas.totals.places }} places and
+    {{ atlas.totals.stays }} places to sleep, each one written up by somebody who
+    paid for the night and has no reason to be polite about it.
   </p>
-  <dl class="intro__meta" data-reveal>
-    <div><dt>Kit</dt><dd>{{ site.gear }}</dd></div>
-    <div><dt>Entries</dt><dd>{{ entries | length }}</dd></div>
-    <div><dt>Frames published</dt><dd>{{ frames | length }}</dd></div>
+  <dl class="tally">
+    <div><dt>Regions</dt><dd>{{ atlas.totals.regions }}</dd></div>
+    <div><dt>Countries</dt><dd>{{ atlas.totals.countries }}</dd></div>
+    <div><dt>Places</dt><dd>{{ atlas.totals.places }}</dd></div>
+    <div><dt>Stays</dt><dd>{{ atlas.totals.stays }}</dd></div>
+    <div><dt>Written up</dt><dd>{{ entries | length }}</dd></div>
   </dl>
 </section>
 
-{%- for e in entries %}
-<article class="card" id="{{ e.slug }}">
-  <header class="card__head">
-    <p class="card__index">
-      <span class="rebate__ref">{{ e.number }}</span>
-      <span>{{ e.month }}</span>
-      {%- if e.placeholder %}<span class="tag">Placeholder</span>{% endif %}
-    </p>
-    <h2 class="card__title"><a href="/journal/{{ e.slug }}/">{{ e.place }}</a></h2>
-    <p class="card__where">{{ e.region }}, {{ e.country }}</p>
-  </header>
-
-  <div class="card__lead">
-    {{ frame(e.leadFrame, "(min-width: 60rem) 62vw, 100vw", "frame--lead") }}
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">Best of the file</h2>
+    <p class="band__note">Everything scored five out of five.</p>
   </div>
-
-  <div class="card__aside">
-    <p class="card__kicker">{{ e.kicker }}</p>
-    <p class="card__verdict">{{ e.verdict }}</p>
-    <dl class="score">
-      <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ e.rating }}" aria-hidden="true"></span> <span class="mono">{{ e.rating }}/5</span></dd></div>
-      <div><dt>Again?</dt><dd>{{ e.again }}</dd></div>
-      {%- if e.stayed %}<div><dt>Stayed</dt><dd>{{ e.stayed.name }}, {{ e.stayed.type | lower }}</dd></div>{% endif %}
-    </dl>
-    <a class="more" href="/journal/{{ e.slug }}/">
-      <span>Read the entry</span>
-      <span class="mono">{{ e.frameObjects | length }} frames</span>
-    </a>
-  </div>
-
-  {%- if e.frameObjects | length > 1 %}
-  <div class="card__strip" data-reveal-group>
-    {%- for f in e.frameObjects %}
-      {%- if f.ref != e.lead %}
-      {{ frame(f, "(min-width: 60rem) 30vw, 45vw", "frame--strip") }}
-      {%- endif %}
-    {%- endfor %}
-  </div>
-  {%- endif %}
-</article>
-{%- endfor %}
-
-<section class="listing">
-  <p class="label" data-reveal>Or browse by where it is</p>
-  <div class="typegrid typegrid--two" data-reveal-group>
-    <a class="type" href="/destinations/">
-      <span class="type__name">Destinations</span>
-      <span class="type__blurb">{{ atlas.totals.countries }} countries and {{ atlas.totals.places }} places, filed by region. Population, currency, flight times and when to go for each.</span>
-      <span class="type__meta mono">{{ atlas.totals.regions }} regions</span>
-    </a>
-    <a class="type" href="/stays/">
-      <span class="type__name">Stays</span>
-      <span class="type__blurb">Every place I have actually slept, reviewed and scored. Browse by camping, hotels, rural, hot tubs, saunas, forest, beaches or pools.</span>
-      <span class="type__meta mono">{{ atlas.totals.stays }} stays · {{ atlas.totals.types }} types</span>
-    </a>
-    <a class="type" href="/contact-sheet/">
-      <span class="type__name">Contact sheet</span>
-      <span class="type__blurb">Every published frame in one grid, numbered the way the camera numbered it.</span>
-      <span class="type__meta mono">{{ frames | length }} frames</span>
-    </a>
+  <div class="recs">
+    {%- for s in atlas.stays %}{% if s.rating == 5 %}
+    {{ rec(s.name, s.url, s.primaryTypeName ~ " · " ~ s.placeName, s.price | money, "", s.rating ~ "/5") }}
+    {%- endif %}{% endfor %}
   </div>
 </section>
 
-<section class="closing">
-  <p class="label" data-reveal>Everything at once</p>
-  <a class="closing__link" href="/contact-sheet/" data-reveal>
-    <span class="closing__name">The contact sheet</span>
-    <span class="mono">{{ frames | length }} frames</span>
-  </a>
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">By where it is</h2>
+    <p class="band__note"><a class="tlink" href="/destinations/">All destinations</a></p>
+  </div>
+  <div class="recs">
+    {%- for r in atlas.regions %}
+    {{ rec(r.name, r.url, r.countryCount | pl("country","countries"), r.stayCount | pl("stay")) }}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">By what you want from it</h2>
+    <p class="band__note"><a class="tlink" href="/stays/">All stays</a></p>
+  </div>
+  <div class="recs">
+    {%- for t in atlas.types %}
+    {{ rec(t.name, t.url, t.stayCount | pl("stay"), "from " ~ (t.fromPrice | money)) }}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">Written up at length</h2>
+    <p class="band__note"><a class="tlink" href="/journal/">All journal entries</a></p>
+  </div>
+  <div class="recs">
+    {%- for e in entries %}
+    {{ rec(e.place, "/journal/" ~ e.slug ~ "/", e.country, e.month, "", "Placeholder" if e.placeholder else "") }}
+    {%- endfor %}
+  </div>
 </section>

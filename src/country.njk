@@ -1,29 +1,28 @@
 ---
 layout: base.njk
-pagination:
-  data: atlas.countries
-  size: 1
-  alias: c
+pagination: { data: atlas.countries, size: 1, alias: c }
 permalink: "/destinations/{{ c.region }}/{{ c.slug }}/"
 eleventyComputed:
   title: "{{ c.name }}"
   description: "{{ c.blurb }}"
 ---
-{% from "frame.njk" import pending %}
-<nav class="crumbs">
-  <a href="/destinations/">Destinations</a> <span>/</span>
-  <a href="/destinations/{{ c.regionSlug }}/">{{ c.regionName }}</a> <span>/</span>
+{% from "rec.njk" import rec %}
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/destinations/">Destinations</a>
+  <a href="/destinations/{{ c.regionSlug }}/">{{ c.regionName }}</a>
   <span aria-current="page">{{ c.name }}</span>
 </nav>
 
-<section class="pagehead">
-  <p class="label">{{ c.regionName }}</p>
-  <h1 class="pagehead__title">{{ c.name }}</h1>
-  <p class="pagehead__lede">{{ c.blurb }}</p>
-</section>
+<header class="head">
+  <p class="mini">{{ c.regionName }}</p>
+  <h1 class="head__title">{{ c.name }}</h1>
+  <p class="head__lede">{{ c.blurb }}</p>
+</header>
 
-<section class="factsband">
-  <dl class="factsband__grid">
+<section class="band">
+  <div class="band__head"><h2 class="band__title">The country in eight lines</h2></div>
+  <dl class="facts facts--wide">
     <div><dt>Population</dt><dd>{{ c.population }}</dd></div>
     <div><dt>Capital</dt><dd>{{ c.capital }}</dd></div>
     <div><dt>Currency</dt><dd>{{ c.currency }}</dd></div>
@@ -31,24 +30,19 @@ eleventyComputed:
     <div><dt>Time zone</dt><dd>{{ c.timezone }}</dd></div>
     <div><dt>Getting there</dt><dd>{{ c.flight }}</dd></div>
     <div><dt>When to go</dt><dd>{{ c.whenToGo }}</dd></div>
-    <div><dt>Places</dt><dd>{{ c.placeCount }}, with {{ c.stayCount }} stays</dd></div>
+    <div><dt>On file</dt><dd>{{ c.placeCount | pl("place") }}, {{ c.stayCount | pl("stay") }}</dd></div>
   </dl>
-  <p class="factsband__note">Population is a rounded 2024 estimate.</p>
+  <p class="footnote">Population is a rounded 2024 estimate, kept for scale rather than precision.</p>
 </section>
 
-<section class="listing">
-  <p class="label" data-reveal>Places in {{ c.name }}</p>
-  {%- for p in c.places %}
-  <article class="row" data-reveal>
-    <div class="row__main">
-      <p class="row__kind mono">{{ p.kind }}</p>
-      <h2 class="row__title"><a href="{{ p.url }}">{{ p.name }}</a></h2>
-      <p class="row__blurb">{{ p.blurb }}</p>
-    </div>
-    <dl class="row__facts">
-      <div><dt>Best time</dt><dd>{{ p.bestTime }}</dd></div>
-      <div><dt>Stays</dt><dd>{% if p.fromPrice %}{{ p.stayCount }}, from {{ p.fromPrice | money }} a night{% else %}None yet{% endif %}</dd></div>
-    </dl>
-  </article>
-  {%- endfor %}
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">Places in {{ c.name }}</h2>
+    <p class="band__note">{{ c.placeCount | pl("place") }} on file</p>
+  </div>
+  <div class="recs">
+    {%- for p in c.places %}
+    {{ rec(p.name, p.url, p.kind, (p.stayCount | pl("stay")) if p.stayCount else "No stays yet", p.blurb) }}
+    {%- endfor %}
+  </div>
 </section>

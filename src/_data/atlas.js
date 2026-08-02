@@ -45,7 +45,6 @@ const stays = rawStays.map((s) => {
       .map((t) => typesBySlug[t])
       .filter(Boolean)
       .map((t) => ({ slug: t.slug, name: t.name, url: `/stays/${t.slug}/` })),
-    frameCount: (s.frames || []).length,
   };
 });
 

@@ -2,30 +2,26 @@
 layout: base.njk
 permalink: /destinations/
 title: Destinations
-description: Every place on the site, filed by region and country, with the stays in each.
+description: Every country and place on the site, filed by region, with population, currency, flight times and when to go.
 ---
-<section class="pagehead">
-  <p class="label">{{ atlas.totals.countries }} countries · {{ atlas.totals.places }} places · {{ atlas.totals.stays }} stays</p>
-  <h1 class="pagehead__title">Destinations</h1>
-  <p class="pagehead__lede">
-    Everything sorted by where it is rather than when I went. Pick a region,
-    then a country, then a place. Every stay in it has its own review.
-  </p>
-</section>
+{% from "rec.njk" import rec %}
 
-<section class="dir">
-  {%- for r in atlas.regions %}
-  <article class="dir__region" data-reveal>
-    <header class="dir__head">
-      <h2 class="dir__title"><a href="{{ r.url }}">{{ r.name }}</a></h2>
-      <p class="dir__count mono">{{ r.countryCount }} countries · {{ r.placeCount }} places · {{ r.stayCount }} stays</p>
-    </header>
-    <p class="dir__blurb">{{ r.blurb }}</p>
-    <ul class="chiplist">
-      {%- for c in r.countries %}
-      <li><a class="chip" href="{{ c.url }}">{{ c.name }} <span class="mono">{{ c.placeCount }}</span></a></li>
-      {%- endfor %}
-    </ul>
-  </article>
-  {%- endfor %}
+<header class="head">
+  <p class="mini">{{ atlas.totals.regions | pl("region") }} · {{ atlas.totals.countries | pl("country","countries") }} · {{ atlas.totals.places | pl("place") }}</p>
+  <h1 class="head__title">Destinations</h1>
+  <p class="head__lede">Sorted by where things are rather than when I went. Pick a region, then a country, then a place.</p>
+</header>
+
+{%- for r in atlas.regions %}
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title"><a class="tlink" href="{{ r.url }}">{{ r.name }}</a></h2>
+    <p class="band__note">{{ r.blurb }}</p>
+  </div>
+  <div class="recs">
+    {%- for c in r.countries %}
+    {{ rec(c.name, c.url, c.population ~ " people", c.placeCount | pl("place")) }}
+    {%- endfor %}
+  </div>
 </section>
+{%- endfor %}

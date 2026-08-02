@@ -1,7 +1,6 @@
 {
   "name": "Stannly",
-  "tagline": "Photographs from the road, and what I actually thought.",
-  "description": "A travel journal in photographs. One person, one camera, and an honest review of every place the pictures came from.",
-  "gear": "Canon EOS R7, RF-S 18-150mm. Everything handheld.",
+  "tagline": "A gazetteer of places worth going to.",
+  "description": "A plainly written directory of destinations and places to stay, scored out of five by one person who paid for every night and takes no sponsorship.",
   "url": "https://fuiyoh.netlify.app"
 }

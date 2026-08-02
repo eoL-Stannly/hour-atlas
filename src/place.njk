@@ -1,61 +1,51 @@
 ---
 layout: base.njk
-pagination:
-  data: atlas.places
-  size: 1
-  alias: p
+pagination: { data: atlas.places, size: 1, alias: p }
 permalink: "/destinations/{{ p.regionSlug }}/{{ p.country }}/{{ p.slug }}/"
 eleventyComputed:
   title: "{{ p.name }}, {{ p.countryName }}"
   description: "{{ p.blurb }}"
 ---
-{% from "frame.njk" import pending %}
-<nav class="crumbs">
-  <a href="/destinations/">Destinations</a> <span>/</span>
-  <a href="/destinations/{{ p.regionSlug }}/">{{ p.regionName }}</a> <span>/</span>
-  <a href="{{ p.countryUrl }}">{{ p.countryName }}</a> <span>/</span>
+{% from "rec.njk" import rec %}
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/destinations/">Destinations</a>
+  <a href="/destinations/{{ p.regionSlug }}/">{{ p.regionName }}</a>
+  <a href="{{ p.countryUrl }}">{{ p.countryName }}</a>
   <span aria-current="page">{{ p.name }}</span>
 </nav>
 
-<section class="pagehead">
-  <p class="label">{{ p.kind }} · {{ p.countryName }}</p>
-  <h1 class="pagehead__title">{{ p.name }}</h1>
-  <p class="pagehead__lede">{{ p.blurb }}</p>
-</section>
+<header class="head">
+  <p class="mini">{{ p.kind }} · {{ p.countryName }}</p>
+  <h1 class="head__title">{{ p.name }}</h1>
+  <p class="head__lede">{{ p.blurb }}</p>
+</header>
 
-<section class="factsband">
-  <dl class="factsband__grid">
+<section class="band">
+  <dl class="facts facts--wide">
     <div><dt>Getting there</dt><dd>{{ p.gettingThere }}</dd></div>
     <div><dt>Best time</dt><dd>{{ p.bestTime }}</dd></div>
-    <div><dt>Stays</dt><dd>{% if p.fromPrice %}{{ p.stayCount }}, from {{ p.fromPrice | money }} a night{% else %}None yet{% endif %}</dd></div>
+    <div><dt>Stays</dt><dd>{% if p.fromPrice %}{{ p.stayCount }}, from {{ p.fromPrice | money }} a night{% else %}None on file yet{% endif %}</dd></div>
   </dl>
 </section>
 
 {%- if p.entries.length %}
-<section class="section">
-  <p class="label" data-reveal>Written up in the journal</p>
-  {%- for e in p.entries %}
-  <a class="more" href="{{ e.url }}" data-reveal><span>{{ e.title }}</span> <span class="mono">{{ e.month }}</span></a>
-  {%- endfor %}
+<section class="band">
+  <div class="band__head"><h2 class="band__title">Written up</h2></div>
+  <div class="recs">
+    {%- for e in p.entries %}{{ rec(e.title, e.url, "Journal entry", e.month) }}{% endfor %}
+  </div>
 </section>
 {%- endif %}
 
-<section class="listing">
-  <p class="label" data-reveal>Where to stay in {{ p.name }}</p>
-  {%- for s in p.stays %}
-  <article class="row row--stay" data-reveal>
-    <div class="row__main">
-      <p class="row__kind mono">{{ s.kind }} · Sleeps {{ s.sleeps }}</p>
-      <h2 class="row__title"><a href="{{ s.url }}">{{ s.name }}</a></h2>
-      <p class="row__blurb">{{ s.summary }}</p>
-      <ul class="chiplist chiplist--tight">
-        {%- for t in s.typeObjects %}<li><a class="chip chip--quiet" href="{{ t.url }}">{{ t.name }}</a></li>{% endfor %}
-      </ul>
-    </div>
-    <dl class="row__facts">
-      <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ s.rating }}" aria-hidden="true"></span> <span class="mono">{{ s.rating }}/5</span></dd></div>
-      <div><dt>From</dt><dd class="mono">{{ s.price | money }} a night</dd></div>
-    </dl>
-  </article>
-  {%- endfor %}
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">Where to stay in {{ p.name }}</h2>
+    <p class="band__note">{{ p.stayCount | pl("stay") }} reviewed</p>
+  </div>
+  <div class="recs">
+    {%- for s in p.stays %}
+    {{ rec(s.name, s.url, s.kind ~ " · sleeps " ~ s.sleeps, s.price | money, s.summary, s.rating ~ "/5") }}
+    {%- endfor %}
+  </div>
 </section>

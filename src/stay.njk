@@ -1,115 +1,75 @@
 ---
 layout: base.njk
-pagination:
-  data: atlas.stays
-  size: 1
-  alias: s
+pagination: { data: atlas.stays, size: 1, alias: s }
 permalink: "/stays/{{ s.types[0] }}/{{ s.slug }}/"
-bodyClass: stay
 eleventyComputed:
   title: "{{ s.name }}"
   description: "{{ s.summary }}"
+  ogType: article
 ---
-{% from "frame.njk" import frame, pending %}
+{% from "rec.njk" import rec %}
 
 <nav class="crumbs" aria-label="Breadcrumb">
-  <a href="/stays/">Stays</a> <span>/</span>
-  <a href="/stays/{{ s.primaryType }}/">{{ s.primaryTypeName }}</a> <span>/</span>
+  <a href="/stays/">Stays</a>
+  <a href="/stays/{{ s.primaryType }}/">{{ s.primaryTypeName }}</a>
   <span aria-current="page">{{ s.name }}</span>
 </nav>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Stays", "item": "{{ site.url }}/stays/" },
-    { "@type": "ListItem", "position": 2, "name": "{{ s.primaryTypeName }}", "item": "{{ site.url }}/stays/{{ s.primaryType }}/" },
-    { "@type": "ListItem", "position": 3, "name": "{{ s.name }}", "item": "{{ site.url }}{{ s.url }}" }
-  ]
-}
-</script>
+<header class="head">
+  <p class="mini">{{ s.kind }} · <a class="tlink" href="{{ s.placeUrl }}">{{ s.placeName }}</a>, <a class="tlink" href="{{ s.countryUrl }}">{{ s.countryName }}</a></p>
+  <h1 class="head__title">{{ s.name }}</h1>
+  <p class="head__lede">{{ s.summary }}</p>
+</header>
 
-<section class="stayhead">
-  <p class="label">{{ s.kind }} · {{ s.placeName }}, {{ s.countryName }}</p>
-  <h1 class="pagehead__title">{{ s.name }}</h1>
-  <p class="pagehead__lede">{{ s.summary }}</p>
-  <ul class="chiplist">
+<section class="band">
+  <div class="card">
+    <p class="card__score"><span class="card__num">{{ s.rating }}</span><span class="card__den">/5</span></p>
+    <dl class="card__facts">
+      <div><dt>Stayed</dt><dd>{{ s.stayed }}, {{ s.nights }} {{ "night" if s.nights == 1 else "nights" }}</dd></div>
+      <div><dt>Sleeps</dt><dd>{{ s.sleeps }}</dd></div>
+      <div><dt>From</dt><dd>{{ s.price | money }} a night</dd></div>
+      <div><dt>Filed under</dt><dd>{{ s.primaryTypeName }}</dd></div>
+    </dl>
+  </div>
+  <ul class="tags">
     {%- for t in s.typeObjects %}
-    <li><a class="chip{% if t.slug == s.primaryType %} chip--on{% endif %}" href="{{ t.url }}">{{ t.name }}</a></li>
+    <li><a class="tag{% if t.slug == s.primaryType %} tag--on{% endif %}" href="{{ t.url }}">{{ t.name }}</a></li>
     {%- endfor %}
   </ul>
-  <p class="stayhead__note mono">Filed under {{ s.primaryTypeName | lower }}. It appears on every type above, always at this address.</p>
 </section>
 
-<div class="stay__hero">
-  {%- if s.frames.length %}
-    {{ frame(frames[s.frames[0]], "100vw", "frame--bleed", true) }}
-  {%- else %}
-    {{ pending("No photograph yet", 1.9, true) }}
-  {%- endif %}
-</div>
+<section class="band">
+  <div class="prose">
+    {%- for para in s.review %}<p>{{ para }}</p>{% endfor %}
+  </div>
+</section>
 
-<div class="post__body">
-  <aside class="post__meta">
-    <dl class="score score--stack">
-      <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ s.rating }}" aria-hidden="true"></span> <span class="mono">{{ s.rating }}/5</span></dd></div>
-      <div><dt>Stayed</dt><dd>{{ s.stayed }}, {{ s.nights }} nights</dd></div>
-      <div><dt>Sleeps</dt><dd>{{ s.sleeps }}</dd></div>
-      <div><dt>From</dt><dd class="mono">{{ s.price | money }} a night</dd></div>
-      <div><dt>Where</dt><dd><a href="{{ s.placeUrl }}">{{ s.placeName }}</a>, <a href="{{ s.countryUrl }}">{{ s.countryName }}</a></dd></div>
-    </dl>
-  </aside>
-
-  <div class="post__prose">
-    {%- for para in s.review %}
-    <p data-reveal>{{ para }}</p>
-    {%- endfor %}
-
-    <div class="pros" data-reveal>
-      <div class="pros__col">
-        <p class="label">What works</p>
-        <ul class="ticks">{% for g in s.good %}<li>{{ g }}</li>{% endfor %}</ul>
-      </div>
-      <div class="pros__col pros__col--bad">
-        <p class="label">What does not</p>
-        <ul class="ticks">{% for b in s.bad %}<li>{{ b }}</li>{% endfor %}</ul>
-      </div>
+<section class="band">
+  <div class="split">
+    <div>
+      <h2 class="mini">What works</h2>
+      <ul class="pts pts--good">{% for g in s.good %}<li>{{ g }}</li>{% endfor %}</ul>
     </div>
-
-    <div class="post__verdict" data-reveal>
-      <p class="label">The verdict</p>
-      <p>{{ s.verdict }}</p>
+    <div>
+      <h2 class="mini">What does not</h2>
+      <ul class="pts pts--bad">{% for b in s.bad %}<li>{{ b }}</li>{% endfor %}</ul>
     </div>
   </div>
-</div>
-
-<section class="post__frames">
-  <p class="label" data-reveal>Gallery</p>
-  {%- if s.frames.length > 1 %}
-    <div class="gallery">
-    {%- for ref in s.frames %}{% if not loop.first %}{{ frame(frames[ref], "(min-width: 60rem) 40vw, 100vw") }}{% endif %}{% endfor %}
-    </div>
-  {%- else %}
-    <div class="gallery" data-reveal-group>
-      {{ pending("Awaiting frame 01", 1.5) }}
-      {{ pending("Awaiting frame 02", 0.75) }}
-      {{ pending("Awaiting frame 03", 1.5) }}
-    </div>
-    <p class="gallery__note">
-      Photographs for this stay have not been published yet. Add frame
-      references to this entry and the slots fill in.
-    </p>
-  {%- endif %}
 </section>
 
-<nav class="post__nav">
-  <a class="post__nav-link" href="{{ s.placeUrl }}">
-    <span class="label">More in</span>
-    <span class="post__nav-name">{{ s.placeName }}</span>
-  </a>
-  <a class="post__nav-link post__nav-link--next" href="/stays/">
-    <span class="label">Browse</span>
-    <span class="post__nav-name">All stays</span>
-  </a>
-</nav>
+<section class="band">
+  <blockquote class="verdict">
+    <p class="mini">The verdict</p>
+    <p>{{ s.verdict }}</p>
+  </blockquote>
+</section>
+
+<section class="band">
+  <div class="band__head"><h2 class="band__title">Elsewhere in {{ s.placeName }}</h2></div>
+  <div class="recs">
+    {{ rec("All stays in " ~ s.placeName, s.placeUrl, s.countryName, "") }}
+    {{ rec("More " ~ (s.primaryTypeName | lower), "/stays/" ~ s.primaryType ~ "/", "By type", "") }}
+  </div>
+</section>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Stays","item":"{{ site.url }}/stays/"},{"@type":"ListItem","position":2,"name":"{{ s.primaryTypeName }}","item":"{{ site.url }}/stays/{{ s.primaryType }}/"},{"@type":"ListItem","position":3,"name":"{{ s.name }}","item":"{{ site.url }}{{ s.url }}"}]}</script>

@@ -2,38 +2,33 @@
 layout: base.njk
 permalink: /stays/
 title: Stays
-description: "Every place I have stayed, browsable by type. Camping, hotels, rural boltholes, hot tubs, saunas, forest cabins, beaches and pools."
+description: "Every place I have slept, browsable by what you want from it. Camping, hotels, rural boltholes, hot tubs, saunas, forest cabins, beaches and pools."
 ---
-<section class="pagehead">
-  <p class="label">{{ atlas.totals.stays }} stays · {{ atlas.totals.types }} types</p>
-  <h1 class="pagehead__title">Stays</h1>
-  <p class="pagehead__lede">
-    Every place I have actually slept, with an honest review of each. Browse by
-    what you want out of it rather than by country.
-  </p>
+{% from "rec.njk" import rec %}
+
+<header class="head">
+  <p class="mini">{{ atlas.totals.stays | pl("stay") }} · {{ atlas.totals.types | pl("type") }}</p>
+  <h1 class="head__title">Stays</h1>
+  <p class="head__lede">Browse by what you actually want out of a place rather than by which country it happens to be in.</p>
+</header>
+
+<section class="band">
+  <div class="band__head"><h2 class="band__title">By type</h2></div>
+  <div class="recs">
+    {%- for t in atlas.types %}
+    {{ rec(t.name, t.url, t.stayCount | pl("stay"), "from " ~ (t.fromPrice | money), t.blurb) }}
+    {%- endfor %}
+  </div>
 </section>
 
-<section class="typegrid">
-  {%- for t in atlas.types %}
-  <a class="type" href="{{ t.url }}" data-reveal>
-    <span class="type__name">{{ t.name }}</span>
-    <span class="type__blurb">{{ t.blurb }}</span>
-    <span class="type__meta mono">{{ t.stayCount }} stays{% if t.fromPrice %} · from {{ t.fromPrice | money }}{% endif %}</span>
-  </a>
-  {%- endfor %}
-</section>
-
-<section class="listing">
-  <p class="label" data-reveal>All stays</p>
-  <div class="index-table" data-reveal>
-    {%- for s in atlas.stays %}
-    <a class="index-row" href="{{ s.url }}">
-      <span class="index-row__time mono">{{ s.rating }}/5</span>
-      <span class="index-row__name">{{ s.name }}</span>
-      <span class="index-row__place">{{ s.placeName }}, {{ s.countryName }}</span>
-      <span class="index-row__type">{{ s.kind }}</span>
-      <span class="index-row__price">{{ s.price | money }}</span>
-    </a>
+<section class="band">
+  <div class="band__head">
+    <h2 class="band__title">Everything, best first</h2>
+    <p class="band__note">Scored out of five on one question: would I tell someone else to go?</p>
+  </div>
+  <div class="recs">
+    {%- for s in atlas.stays | sortByRating %}
+    {{ rec(s.name, s.url, s.placeName ~ ", " ~ s.countryName, s.price | money, "", s.rating ~ "/5") }}
     {%- endfor %}
   </div>
 </section>

@@ -1,92 +1,85 @@
 # Stannly
 
-A travel journal built around photographs. Each entry is a set of frames from
-one place, an honest review of whether it was worth going, and the exposure
-details under every picture.
+A gazetteer of places worth going to. Countries, places within them, and
+places to stay, each scored out of five on one question: would I tell someone
+else to go?
 
 Live: https://fuiyoh.netlify.app
 
-## How it is put together
+## Why it looks like this
 
-- **Eleventy 3** static site. One entry file drives the home feed, the entry
-  pages, the contact sheet, the footer and the sitemap.
-- **GSAP + ScrollTrigger** for the opening sequence, the clip-path wipes and
-  the in-frame parallax. **Lenis** for smooth scrolling.
-- Photographs are resized at build prep time into 900px and 2000px versions
-  and served with `srcset`. Every frame carries a 24px base64 blur-up so the
-  layout never shifts while an image loads.
-- No framework, no CSS build step, no client-side routing.
+It is set like the index of a printed guide. Every country, place and stay is
+a record line, name on the left, verdict on the right, leader dots running
+between them. Colour comes from British mapping: a pale sage paper and the
+magenta used for roads on an Ordnance Survey sheet, spent only on the score,
+the current nav item and the leader dots as they fill on hover.
+
+There are no photographs. There were, and most of them were filler, so the
+site now carries none until there are real ones worth publishing.
+
+## Performance
+
+The site is static HTML with **one 13 KB stylesheet and no JavaScript at
+all**. No web fonts, no CDN, no analytics, no third-party requests. Pages are
+6 to 10 KB of HTML and are fully readable the instant they arrive.
+
+An earlier version hid most of the page behind `opacity: 0` and only revealed
+it once GSAP had loaded from a CDN, which meant that if the CDN was blocked or
+slow the page rendered as headings and empty space. Nothing on this site is
+hidden by default. That is a rule, not a preference.
+
+Typography uses the system stack: the platform UI face for display, Georgia
+for reading copy, the platform monospace for data. Nothing is downloaded.
+
+The stylesheet URL carries a content hash so it can be cached for a year and
+still update the moment it changes.
 
 ## Structure
 
-    /                                   journal feed
-    /journal/{entry}/                   a written entry with its frames
-    /destinations/                      all regions
-    /destinations/{region}/             countries in a region
-    /destinations/{region}/{country}/   country facts, places within it
+    /                                    front page
+    /destinations/                       all regions
+    /destinations/{region}/              countries in a region
+    /destinations/{region}/{country}/    country record, places within it
     /destinations/{region}/{country}/{place}/
-    /stays/                             all stay types
-    /stays/{type}/                      camping, hotel, rural, hot-tub,
-                                        sauna, forest, beach, pool
-    /stays/{type}/{stay}/               one stay, reviewed
-    /contact-sheet/                     every frame
+    /stays/                              all stay types
+    /stays/{type}/                       camping, hotel, rural, hot-tub,
+                                         sauna, forest, beach, pool
+    /stays/{type}/{stay}/                one stay, reviewed
+    /journal/                            longer write-ups
+    /journal/{entry}/
+    /about/
 
 A stay is nested under the **first** entry in its `types` list, and that is
-the only URL it ever has. A stay tagged `["forest", "hot-tub", "rural"]`
-lives at `/stays/forest/{slug}/` and is listed on all three type pages and
-on its place page, every one of them linking to that same address. Nothing
-is duplicated across facets, so there is one canonical per stay and no
-parameter or cross-listing variants to manage.
+the only URL it ever has. A stay tagged `["forest", "hot-tub", "rural"]` lives
+at `/stays/forest/{slug}/` and is listed on all three type pages and on its
+place page, every one of them linking to that same address. One canonical per
+stay, no faceted duplicates. To refile a stay, reorder its `types` array and
+add the old address to the redirect list.
 
-To move a stay, reorder its `types` array. Old addresses are redirected
-from the generated `_redirects` file.
-
-The directory graph is assembled in `src/_data/atlas.js` from the plain
-content files in `content/`. Children carry their parents' names as strings
-rather than object references, so nothing in the graph is circular.
+`sitemap.xml` and `robots.txt` are both generated. robots disallows nothing
+and points at the sitemap. Every page declares `hreflang` for `en-gb` and
+`x-default`, in the head and in the sitemap.
 
 ## Content
 
-Journal entries and frames live in two data files.
+Plain data modules in `content/`, assembled into a cross-linked graph by
+`src/_data/atlas.js`:
 
-`src/_data/entries.js` holds the journal. Each entry carries its place, dates,
-prose, verdict, score out of five, where I stayed, and the list of frame
-references it uses.
+- `regions.js`, `countries.js`, `places.js` — the geography
+- `stay-types.js` — the eight browsable types
+- `stays.js` — one reviewed stay per entry
 
-`src/_data/frames.js` merges two sources into one shape:
+Journal entries are separate, in `src/_data/entries.js`, and link to a place
+by `placeSlug`. Anything flagged `placeholder: true` is unfinished and is
+tagged as such in the interface.
 
-- `photos.json`, generated from real camera JPEGs, carrying real EXIF
-- `plates.json`, generated placeholder artwork for entries that have no
-  photographs yet
-
-Alt text and captions are written by hand in `frames.js`, one per frame.
-
-### Placeholders
-
-Entries flagged `placeholder: true` are filler. Their pictures are drawn
-rather than photographed and their words are invented. To replace one:
-
-1. Add the JPEGs to `tools/` input and re-run the photo script
-2. Swap the `plate-*` references in the entry for the new frame refs
-3. Delete the `placeholder: true` flag and write the real entry
-
-## Tools
-
-Run both from the repo root. `tools/process_photos.py` resizes camera JPEGs, pulls EXIF and writes
-`photos.json`. `tools/make_plates.py` draws the placeholder plates and writes
-`plates.json`. Both are deterministic and only need re-running when the
-pictures change, so their output is committed.
+Original photographs are preserved in `photos-archive/` and are not deployed.
+`tools/` holds the scripts that resized them, kept for when they come back.
 
 ## Running it
 
 ```bash
 npm install
-npm start          # dev server on localhost:8080
+npm start          # localhost:8080
 npm run build      # writes to _site/
 ```
-
-## Accessibility
-
-`prefers-reduced-motion` disables Lenis, the parallax, the wipes and every
-reveal. The lightbox is keyboard driven, with arrow keys and escape, and
-returns focus to whatever opened it. Every frame has written alt text.

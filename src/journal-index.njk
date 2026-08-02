@@ -1,0 +1,21 @@
+---
+layout: base.njk
+permalink: /journal/
+title: Journal
+description: Longer write-ups of individual trips, in the order they happened.
+---
+{% from "rec.njk" import rec %}
+
+<header class="head">
+  <p class="mini">{{ entries | length | pl("entry","entries") }}</p>
+  <h1 class="head__title">Journal</h1>
+  <p class="head__lede">Longer pieces about single trips, where the directory entries only get a paragraph.</p>
+</header>
+
+<section class="band">
+  <div class="recs">
+    {%- for e in entries %}
+    {{ rec(e.place, "/journal/" ~ e.slug ~ "/", e.country, e.month, e.kicker, "Placeholder" if e.placeholder else "") }}
+    {%- endfor %}
+  </div>
+</section>
