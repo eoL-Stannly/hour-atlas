@@ -6,6 +6,16 @@ export default function (eleventyConfig) {
     "£" + Number(n).toLocaleString("en-GB")
   );
 
+  // The lightbox only needs the metadata, not the blur-up thumbnails.
+  eleventyConfig.addFilter("lightboxData", (frames) =>
+    Object.fromEntries(
+      Object.entries(frames).map(([ref, f]) => [
+        ref,
+        { ref: f.ref, fallback: f.fallback, alt: f.alt, caption: f.caption, exif: f.exif },
+      ])
+    )
+  );
+
   eleventyConfig.addFilter("slug", (s) =>
     String(s)
       .toLowerCase()

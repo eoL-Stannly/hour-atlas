@@ -2,96 +2,80 @@
 layout: base.njk
 bodyClass: home
 ---
+{% from "frame.njk" import frame %}
+{% set newest = entries[0] %}
 
-<section class="hero">
-  <p class="hero__eyebrow">An atlas arranged by the clock, not the map</p>
-  <h1 class="hero__title">
-    <span class="line"><span>Six places,</span></span>
-    <span class="line"><span>one day</span></span>
-    <span class="line"><span><em>of light.</em></span></span>
-  </h1>
-  <div class="hero__foot">
-    <p class="hero__lede">
-      Every destination here is filed under the hour it is worth being there,
-      running from a Lofoten midnight to a Santorini sunset. Keep scrolling and
-      the sky above you keeps the same time.
-    </p>
-    <p class="hero__cue">Scroll</p>
+<section class="opening">
+  <div class="opening__photo">
+    {{ frame(newest.leadFrame, "100vw", "frame--bleed", true, false) }}
+  </div>
+  <div class="opening__text">
+    <p class="opening__eyebrow"><span class="rebate__ref">{{ newest.leadFrame.ref }}</span> {{ newest.place }}, {{ newest.country }}</p>
+    <h1 class="opening__title"><span class="line"><span>Photographs</span></span><span class="line"><span>from the road,</span></span><span class="line"><span>and what I</span></span><span class="line"><span>actually thought.</span></span></h1>
+    <p class="opening__cue">Scroll</p>
   </div>
 </section>
 
-<section class="ledger" aria-label="Contents">
-  <div class="ledger__rail">
-    {%- for d in destinations %}
-    <a class="ledger__cell" href="#{{ d.slug }}">
-      <span class="ledger__time">{{ d.time }}</span>
-      <span class="ledger__tick" aria-hidden="true"></span>
-      <span class="ledger__name">{{ d.name }}</span>
-      <span class="ledger__light">{{ d.light }}</span>
+<section class="intro">
+  <p class="intro__lede" data-reveal>
+    I take a camera everywhere and I am not a good enough photographer to
+    pretend the pictures are the whole story. So each entry here is a set of
+    frames from one place, and an honest account of whether it was worth going.
+    Some of it is not flattering.
+  </p>
+  <dl class="intro__meta" data-reveal>
+    <div><dt>Kit</dt><dd>{{ site.gear }}</dd></div>
+    <div><dt>Entries</dt><dd>{{ entries | length }}</dd></div>
+    <div><dt>Frames published</dt><dd>{{ frames | length }}</dd></div>
+  </dl>
+</section>
+
+{%- for e in entries %}
+<article class="card" id="{{ e.slug }}">
+  <header class="card__head">
+    <p class="card__index">
+      <span class="rebate__ref">{{ e.number }}</span>
+      <span>{{ e.month }}</span>
+      {%- if e.placeholder %}<span class="tag">Placeholder</span>{% endif %}
+    </p>
+    <h2 class="card__title"><a href="/journal/{{ e.slug }}/">{{ e.place }}</a></h2>
+    <p class="card__where">{{ e.region }}, {{ e.country }}</p>
+  </header>
+
+  <div class="card__lead">
+    {{ frame(e.leadFrame, "(min-width: 60rem) 62vw, 100vw", "frame--lead") }}
+  </div>
+
+  <div class="card__aside">
+    <p class="card__kicker">{{ e.kicker }}</p>
+    <p class="card__verdict">{{ e.verdict }}</p>
+    <dl class="score">
+      <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ e.rating }}" aria-hidden="true"></span> <span class="mono">{{ e.rating }}/5</span></dd></div>
+      <div><dt>Again?</dt><dd>{{ e.again }}</dd></div>
+      {%- if e.stayed %}<div><dt>Stayed</dt><dd>{{ e.stayed.name }}, {{ e.stayed.type | lower }}</dd></div>{% endif %}
+    </dl>
+    <a class="more" href="/journal/{{ e.slug }}/">
+      <span>Read the entry</span>
+      <span class="mono">{{ e.frameObjects | length }} frames</span>
     </a>
+  </div>
+
+  {%- if e.frameObjects | length > 1 %}
+  <div class="card__strip" data-reveal-group>
+    {%- for f in e.frameObjects %}
+      {%- if f.ref != e.lead %}
+      {{ frame(f, "(min-width: 60rem) 30vw, 45vw", "frame--strip") }}
+      {%- endif %}
     {%- endfor %}
   </div>
-</section>
-
-{%- for d in destinations %}
-<section class="place" id="{{ d.slug }}">
-
-  <div class="place__stage" data-stage="{{ d.slug }}">
-    <p class="place__meta">
-      <strong>{{ d.time }}</strong>
-      <span>{{ d.light }}</span>
-      <span class="mono">{{ d.coords }}</span>
-    </p>
-    <h2 class="place__name">
-      <a href="/destinations/{{ d.slug }}/">{{ d.name }}</a>
-      <span class="place__country">{{ d.country }}</span>
-    </h2>
-    <p class="place__kicker">{{ d.kicker }}</p>
-
-    <div class="horizon" aria-hidden="true">
-      <svg class="horizon__far" viewBox="0 0 1440 400" preserveAspectRatio="none">
-        <path d="{{ d.horizon.far }}"/>
-      </svg>
-      <svg class="horizon__near" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice">
-        {{ d.horizon.near | safe }}
-      </svg>
-    </div>
-  </div>
-
-  <div class="place__detail">
-    <div data-reveal>
-      <p class="place__body">{{ d.body }}</p>
-      <dl class="facts">
-        <div class="facts__row"><dt>Go</dt><dd>{{ d.season }}</dd></div>
-        <div class="facts__row"><dt>Getting there</dt><dd>{{ d.flight }}</dd></div>
-        <div class="facts__row"><dt>Position</dt><dd class="mono">{{ d.coords }}</dd></div>
-      </dl>
-    </div>
-
-    <div>
-      <p class="label">Where to stay</p>
-      <div class="stays" data-reveal-group>
-        {%- for s in d.stays %}
-        <a class="stay" href="/destinations/{{ d.slug }}/#{{ s.name | slug }}">
-          <span class="stay__head">
-            <span class="stay__type">{{ s.type }}</span>
-            <span>Sleeps {{ s.sleeps }}</span>
-          </span>
-          <h3 class="stay__name">{{ s.name }}</h3>
-          <p class="stay__note">{{ s.note }}</p>
-          <span class="stay__price"><b>{{ s.price | money }}</b> <span>per night</span></span>
-        </a>
-        {%- endfor %}
-      </div>
-    </div>
-  </div>
-
-</section>
+  {%- endif %}
+</article>
 {%- endfor %}
 
-<section class="nextup">
-  <p class="label" data-reveal>The whole list</p>
-  <a href="/stays/" data-reveal>
-    <span class="nextup__name">Twelve places to sleep</span>
+<section class="closing">
+  <p class="label" data-reveal>Everything at once</p>
+  <a class="closing__link" href="/contact-sheet/" data-reveal>
+    <span class="closing__name">The contact sheet</span>
+    <span class="mono">{{ frames | length }} frames</span>
   </a>
 </section>

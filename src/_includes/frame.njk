@@ -1,0 +1,30 @@
+{% macro frame(f, sizes = "100vw", cls = "", eager = false, showCaption = true) %}
+{%- if f %}
+<figure class="frame {{ cls }}">
+  <div class="frame__box" style="--ratio: {{ f.ratio }}; background-image: url('{{ f.lqip }}')">
+    <img
+      class="frame__img"
+      src="{{ f.fallback }}"
+      srcset="{{ f.srcset }}"
+      sizes="{{ sizes }}"
+      width="{{ f.w }}"
+      height="{{ f.h }}"
+      alt="{{ f.alt }}"
+      data-ref="{{ f.ref }}"
+      {% if eager %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+      decoding="async">
+  </div>
+  {%- if showCaption %}
+  <figcaption class="rebate">
+    <span class="rebate__ref">{{ f.ref }}</span>
+    {%- if f.exif %}
+    <span class="rebate__exif">{{ f.exif.focal }} · {{ f.exif.aperture }} · {{ f.exif.shutter }} · ISO {{ f.exif.iso }}</span>
+    {%- else %}
+    <span class="rebate__exif rebate__exif--none">Plate</span>
+    {%- endif %}
+    <span class="rebate__note">{{ f.caption }}</span>
+  </figcaption>
+  {%- endif %}
+</figure>
+{%- endif %}
+{% endmacro %}

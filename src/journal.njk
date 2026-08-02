@@ -1,0 +1,85 @@
+---
+layout: base.njk
+pagination:
+  data: entries
+  size: 1
+  alias: e
+permalink: "/journal/{{ e.slug }}/"
+bodyClass: entry
+eleventyComputed:
+  title: "{{ e.place }}, {{ e.country }}"
+  description: "{{ e.kicker }}"
+  ogImage: "{{ e.leadFrame.fallback }}"
+  ogType: article
+---
+{% from "frame.njk" import frame %}
+
+<article class="post">
+
+  <header class="post__head">
+    <p class="post__index">
+      <span class="rebate__ref">{{ e.number }}</span>
+      <span>{{ e.dates }}</span>
+      {%- if e.placeholder %}<span class="tag">Placeholder entry</span>{% endif %}
+    </p>
+    <h1 class="post__title">{{ e.place }}</h1>
+    <p class="post__where">{{ e.region }}, {{ e.country }}</p>
+    <p class="post__kicker">{{ e.kicker }}</p>
+  </header>
+
+  <div class="post__lead">
+    {{ frame(e.leadFrame, "100vw", "frame--bleed", true) }}
+  </div>
+
+  <div class="post__body">
+    <aside class="post__meta">
+      <dl class="score score--stack">
+        <div><dt>Verdict</dt><dd><span class="score__bar" data-score="{{ e.rating }}" aria-hidden="true"></span> <span class="mono">{{ e.rating }}/5</span></dd></div>
+        <div><dt>Went</dt><dd>{{ e.dates }}</dd></div>
+        <div><dt>Again?</dt><dd>{{ e.again }}</dd></div>
+        {%- if e.stayed %}
+        <div><dt>Stayed</dt><dd><strong>{{ e.stayed.name }}</strong><br>{{ e.stayed.type }}. {{ e.stayed.note }}</dd></div>
+        {%- else %}
+        <div><dt>Stayed</dt><dd class="dim">Not recorded</dd></div>
+        {%- endif %}
+        <div><dt>Kit</dt><dd>{{ site.gear }}</dd></div>
+      </dl>
+    </aside>
+
+    <div class="post__prose">
+      {%- for para in e.body %}
+      <p data-reveal>{{ para }}</p>
+      {%- endfor %}
+
+      <div class="post__verdict" data-reveal>
+        <p class="label">The verdict</p>
+        <p>{{ e.verdict }}</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="post__frames">
+    <p class="label" data-reveal>Frames kept</p>
+    {%- for f in e.frameObjects %}
+      {%- if f.ref != e.lead %}
+      {{ frame(f, "(min-width: 60rem) 78vw, 100vw", "frame--full") }}
+      {%- endif %}
+    {%- endfor %}
+  </section>
+
+  <nav class="post__nav">
+    {%- if pagination.href.previous %}
+    <a class="post__nav-link" href="{{ pagination.href.previous }}">
+      <span class="label">Newer entry</span>
+      <span class="post__nav-name">{{ entries[pagination.pageNumber - 1].place }}</span>
+    </a>
+    {%- else %}<span></span>{% endif %}
+    {%- if pagination.href.next %}
+    <a class="post__nav-link post__nav-link--next" href="{{ pagination.href.next }}">
+      <span class="label">Older entry</span>
+      <span class="post__nav-name">{{ entries[pagination.pageNumber + 1].place }}</span>
+    </a>
+    {%- else %}<span></span>{% endif %}
+  </nav>
+
+</article>

@@ -7,36 +7,29 @@
 <meta name="description" content="{{ description or site.description }}">
 <meta property="og:title" content="{% if title %}{{ title }} · {{ site.name }}{% else %}{{ site.name }}{% endif %}">
 <meta property="og:description" content="{{ description or site.description }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{% if ogType %}{{ ogType }}{% else %}website{% endif %}">
+{%- if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Archivo:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
-<noscript><style>[data-reveal],[data-reveal-group]>*{opacity:1 !important}</style></noscript>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='9' fill='%23E8A05C'/></svg>">
+<noscript><style>[data-reveal],[data-reveal-group]>*{opacity:1 !important;transform:none !important}.frame__img{opacity:1 !important}</style></noscript>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='3' fill='%23100F0E'/><rect x='7' y='10' width='18' height='12' rx='1' fill='%23E2482B'/></svg>">
 </head>
-<body class="{{ bodyClass }}" {% if d %}data-slug="{{ d.slug }}"{% endif %}>
+<body class="{{ bodyClass }}">
 
-<div class="sky" aria-hidden="true">
-  <div class="sky__field"></div>
-  <div class="sky__sun"></div>
-  <div class="sky__grain"></div>
-</div>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="masthead">
-  <a class="masthead__mark" href="/">
-    <span class="masthead__disc" aria-hidden="true"></span>
-    {{ site.name }}
-  </a>
-  <p class="masthead__clock" aria-live="off">
-    <span class="clock__time" data-clock>00:14</span>
-    <span class="clock__place" data-clock-place>Lofoten</span>
-  </p>
+  <a class="masthead__mark" href="/">{{ site.name }}</a>
   <nav class="masthead__nav">
-    <a href="/stays/">Stays</a>
-    <a href="/about/">About</a>
+    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Journal</a>
+    <a href="/contact-sheet/" {% if page.url == "/contact-sheet/" %}aria-current="page"{% endif %}>Contact sheet</a>
+    <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
   </nav>
+  <p class="masthead__count"><span class="rebate__ref">{{ frames | length }}</span> frames</p>
 </header>
 
 <main id="main">
@@ -48,32 +41,41 @@
     <div>
       <p class="foot__wordmark">{{ site.name }}</p>
       <p class="foot__line">{{ site.tagline }}</p>
+      <p class="foot__note">{{ site.gear }}</p>
     </div>
     <div>
-      <p class="label">Destinations</p>
+      <p class="label">Entries</p>
       <ul class="foot__list">
-        {%- for d in destinations %}
-        <li><a href="/destinations/{{ d.slug }}/">{{ d.name }} <span class="mono">{{ d.time }}</span></a></li>
+        {%- for e in entries %}
+        <li><a href="/journal/{{ e.slug }}/">{{ e.place }} <span class="mono">{{ e.month }}</span></a></li>
         {%- endfor %}
       </ul>
     </div>
     <div>
       <p class="label">Elsewhere</p>
       <ul class="foot__list">
-        <li><a href="/stays/">Every stay</a></li>
-        <li><a href="/about/">How this works</a></li>
+        <li><a href="/contact-sheet/">Every frame</a></li>
+        <li><a href="/about/">About this site</a></li>
       </ul>
-      <p class="foot__note">A concept site. Places are real, listings are illustrative and not bookable.</p>
+      <p class="foot__note">All photographs are mine. Entries marked as placeholders are filler and will be replaced.</p>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script>
-  window.ATLAS = {{ skyframes | dump | safe }};
-</script>
-<script src="/assets/js/main.js"></script>
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" type="button" aria-label="Close">Close</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous frame">&#8592;</button>
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next frame">&#8594;</button>
+  <figure class="lightbox__stage">
+    <img class="lightbox__img" alt="">
+    <figcaption class="lightbox__cap rebate"></figcaption>
+  </figure>
+</div>
+
+<script>window.FRAMES = {{ frames | lightboxData | dump | safe }};</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>

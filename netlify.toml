@@ -5,6 +5,17 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# The site began life as a destination guide. Keep the old URLs alive.
+[[redirects]]
+  from = "/destinations/*"
+  to = "/journal/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/stays"
+  to = "/contact-sheet/"
+  status = 301
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

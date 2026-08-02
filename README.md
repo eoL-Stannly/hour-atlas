@@ -1,31 +1,53 @@
-# Hour Atlas
+# Stannly
 
-Six holiday destinations arranged by the hour their light is best, with the
-cabins, riads, ryokan and villas worth booking in each. A concept site: the
-places, seasons and flight times are real, the properties are illustrative.
+A travel journal built around photographs. Each entry is a set of frames from
+one place, an honest review of whether it was worth going, and the exposure
+details under every picture.
 
-Live: https://hour-atlas.netlify.app
+Live: https://fuiyoh.netlify.app
 
-## The idea
+## How it is put together
 
-Most travel sites sort by country or by price. This one sorts by time of day.
-The six destinations run from Lofoten at 00:14 under the midnight sun to
-Santorini at 19:42, and the page background is a sky that keeps pace with the
-list: the gradient, the sun's position and the clock in the masthead are all
-interpolated between destinations on scroll.
+- **Eleventy 3** static site. One entry file drives the home feed, the entry
+  pages, the contact sheet, the footer and the sitemap.
+- **GSAP + ScrollTrigger** for the opening sequence, the clip-path wipes and
+  the in-frame parallax. **Lenis** for smooth scrolling.
+- Photographs are resized at build prep time into 900px and 2000px versions
+  and served with `srcset`. Every frame carries a 24px base64 blur-up so the
+  layout never shifts while an image loads.
+- No framework, no CSS build step, no client-side routing.
 
-There are no photographs. Skylines are hand-drawn SVG silhouettes and every
-colour on the page comes from the sky layer, so the palette is a single
-monochrome frame of ink and chalk with all hue supplied by the hour.
+## Content
 
-## Stack
+Everything lives in two data files.
 
-- [Eleventy 3](https://www.11ty.dev/) for static generation, with destination
-  pages built by pagination from one data file
-- [GSAP](https://gsap.com/) + ScrollTrigger for the reveal and parallax work
-- [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
-- No build step for CSS or JS, no framework, no client-side routing
-- Netlify for hosting
+`src/_data/entries.js` holds the journal. Each entry carries its place, dates,
+prose, verdict, score out of five, where I stayed, and the list of frame
+references it uses.
+
+`src/_data/frames.js` merges two sources into one shape:
+
+- `photos.json`, generated from real camera JPEGs, carrying real EXIF
+- `plates.json`, generated placeholder artwork for entries that have no
+  photographs yet
+
+Alt text and captions are written by hand in `frames.js`, one per frame.
+
+### Placeholders
+
+Entries flagged `placeholder: true` are filler. Their pictures are drawn
+rather than photographed and their words are invented. To replace one:
+
+1. Add the JPEGs to `tools/` input and re-run the photo script
+2. Swap the `plate-*` references in the entry for the new frame refs
+3. Delete the `placeholder: true` flag and write the real entry
+
+## Tools
+
+Run both from the repo root. `tools/process_photos.py` resizes camera JPEGs, pulls EXIF and writes
+`photos.json`. `tools/make_plates.py` draws the placeholder plates and writes
+`plates.json`. Both are deterministic and only need re-running when the
+pictures change, so their output is committed.
 
 ## Running it
 
@@ -35,16 +57,8 @@ npm start          # dev server on localhost:8080
 npm run build      # writes to _site/
 ```
 
-## Editing content
-
-Everything lives in `src/_data/destinations.js`. Each entry carries its copy,
-its stays, its palette (`sky`, `ink`, `sun`) and its two SVG horizon layers.
-Add an entry and the home page section, the detail page, the stays index, the
-sitemap and the sky keyframes all follow. Keep `minutes` in step with `time`,
-and keep the array ordered by `minutes` so the day still runs forwards.
-
 ## Accessibility
 
-`prefers-reduced-motion` disables Lenis, the parallax, the grain and every
-reveal, and the page renders in full. Focus states are visible throughout, and
-the layout is readable without JavaScript.
+`prefers-reduced-motion` disables Lenis, the parallax, the wipes and every
+reveal. The lightbox is keyboard driven, with arrow keys and escape, and
+returns focus to whatever opened it. Every frame has written alt text.

@@ -1,7 +1,7 @@
 {
-  "name": "hour-atlas",
+  "name": "stannly",
   "version": "1.0.0",
-  "description": "Six holiday destinations arranged by the hour their light is best.",
+  "description": "A travel journal built around photographs.",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve"
