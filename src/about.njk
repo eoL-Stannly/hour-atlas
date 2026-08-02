@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /about/
 title: About
-description: Who writes this, how the scoring works, and why the pictures are drawn rather than photographed.
+description: Who writes this, and how the scoring works.
 ---
 {% from "plate.njk" import img, note %}
 {% set heroPlate = atlas.places | findBySlug("fiordland") | attr("plate") %}
@@ -42,29 +42,6 @@ description: Who writes this, how the scoring works, and why the pictures are dr
       score three because it is crowded, overpriced, or better a hundred miles
       further on.
     </p>
-
-    <h2>About the pictures</h2>
-    <p>
-      Some pages carry real photographs, all of them mine, all taken where
-      they say they were. The rest still carry a <span class="flag">Plate</span>:
-      a drawn placeholder standing in for a picture that has not been taken
-      yet. Plates are captioned as such wherever they appear, so if an image
-      has no caption on it, it is a photograph. Each plate comes down the
-      moment there is a real frame to put in its place.
-    </p>
-
-    <h2>Placeholders</h2>
-    <p>
-      Anything tagged <span class="flag">Placeholder</span> is unfinished. The
-      writing on those entries is a draft standing in for a real account, and
-      they are marked so nobody mistakes them for something I did.
-    </p>
-
-    <h2>How it is built</h2>
-    <p>
-      Static HTML, one stylesheet, and no JavaScript at all. No web fonts, no
-      analytics, no third-party requests of any kind. Every page is readable
-      the moment the HTML arrives.
-    </p>
   </div>
 </section>
+

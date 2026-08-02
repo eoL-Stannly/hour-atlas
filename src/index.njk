@@ -1,14 +1,17 @@
 ---
 layout: base.njk
 ---
-{% from "plate.njk" import img, card, tile, stamp, note, gallery %}
-{% set best = atlas.stays | sortByRating %}
-{% set opener = atlas.places | findBySlug("cornwall") %}
+{% from "plate.njk" import img, card %}
+{% set heroPhoto = media["boathouse-deck-dusk"] %}
+{% set stayA = atlas.stays | findBySlug("villa-helidona") %}
+{% set stayB = atlas.stays | findBySlug("the-boathouse-norfolk") %}
+{% set placeA = atlas.places | findBySlug("nydri") %}
+{% set duoPhoto = media["lefkada-cove"] %}
+{% set latest = entries | findBySlug("the-boathouse") %}
 
 <section class="hero">
-  {{ img(opener.plate, "wide", true) }}
+  {{ img(heroPhoto, "wide", true) }}
   <span class="hero__scrim"></span>
-  {{ note(opener.plate) }}
   <div class="hero__body">
     <p class="kicker hero__kicker">Ali Cook's travel journal</p>
     <h1 class="hero__title">Places worth <em>going to</em>, and places worth sleeping in.</h1>
@@ -26,14 +29,13 @@ layout: base.njk
 
 <section class="sec">
   <div class="sec__head sec__head--center">
-    <p class="kicker">Featured</p>
-    <h2 class="sec__title">The <em>very best</em> of the file</h2>
-    <p class="sec__sub">Three places I would send anyone to without a second thought.</p>
+    <p class="kicker">Just added</p>
+    <h2 class="sec__title">Two places I have <em>actually stayed</em></h2>
+    <p class="sec__sub">The two newest reviews on the site, photographed rather than illustrated.</p>
   </div>
-  <div class="cards">
-    {%- for s in best | limit(3) %}
-    {{ card(s.plate, s.url, s.placeName ~ ", " ~ s.countryName, s.name, s.summary, "Read the review", s.rating) }}
-    {%- endfor %}
+  <div class="cards cards--two">
+    {{ card(stayB.plate, stayB.url, stayB.placeName ~ ", " ~ stayB.countryName ~ " · " ~ (stayB.price | money), stayB.name, stayB.summary, "Read the review", stayB.rating) }}
+    {{ card(stayA.plate, stayA.url, stayA.placeName ~ ", " ~ stayA.countryName ~ " · " ~ (stayA.price | money), stayA.name, stayA.summary, "Read the review", stayA.rating) }}
   </div>
 </section>
 
@@ -43,16 +45,16 @@ layout: base.njk
     <h2 class="sec__title">What do you want <em>out of it?</em></h2>
     <p class="sec__sub">A hot tub in the rain and a tent on a lake shore are not the same holiday.</p>
   </div>
-  <div class="tiles">
+  <ul class="linkrow">
     {%- for t in atlas.types %}
-    {{ tile(t.plate, t.url, t.name, t.stayCount | pl("stay") ~ " · from " ~ (t.fromPrice | money)) }}
+    <li><a href="{{ t.url }}">{{ t.name }} <span class="mono">{{ t.stayCount }}</span></a></li>
     {%- endfor %}
-  </div>
+  </ul>
 </section>
 
 <section class="sec">
   <div class="duo">
-    <div>{{ img(atlas.places | findBySlug("lofoten") | attr("plate"), "port", false, "(min-width:64rem) 38vw, 92vw") }}</div>
+    <div>{{ img(duoPhoto, "port", false, "(min-width:64rem) 38vw, 92vw") }}</div>
     <div class="duo__text">
       <p class="kicker">About</p>
       <h2 class="sec__title">Hi, I'm <em>Ali</em></h2>
@@ -71,24 +73,21 @@ layout: base.njk
     <p class="kicker">Where to</p>
     <h2 class="sec__title">Browse by <em>continent</em></h2>
   </div>
-  <div class="tiles">
+  <ul class="linkrow">
     {%- for r in atlas.regions %}
-    {{ tile(r.countries[0].plate, r.url, r.name, r.countryCount | pl("country", "countries") ~ " · " ~ (r.placeCount | pl("place"))) }}
+    <li><a href="{{ r.url }}">{{ r.name }} <span class="mono">{{ r.countryCount }}</span></a></li>
     {%- endfor %}
-  </div>
+  </ul>
 </section>
 
 <section class="sec">
   <div class="sec__head sec__head--center">
     <p class="kicker">From the journal</p>
-    <h2 class="sec__title">Longer <em>write-ups</em></h2>
+    <h2 class="sec__title">The <em>latest</em> write-up</h2>
     <p class="sec__sub">Single trips, at length, where a directory entry only gets a paragraph.</p>
   </div>
-  <div class="cards">
-    {%- for e in entries | limit(3) %}
-    {%- set p = atlas.places | findBySlug(e.placeSlug) %}
-    {{ card(p.plate, "/journal/" ~ e.slug ~ "/", e.month ~ " · " ~ e.country, e.place, e.kicker, "Read the entry") }}
-    {%- endfor %}
+  <div class="cards cards--one">
+    {{ card(latest.plate, "/journal/" ~ latest.slug ~ "/", latest.month ~ " · " ~ latest.country, latest.place, latest.kicker, "Read the entry", latest.rating) }}
   </div>
   <p class="notice"><a class="cta" href="/journal/">All {{ entries | length }} entries</a></p>
 </section>
@@ -111,12 +110,12 @@ layout: base.njk
 
 <section class="sec">
   <div class="sec__head sec__head--center">
-    <p class="kicker">Recently added</p>
-    <h2 class="sec__title">The <em>latest</em> places on file</h2>
-  </div>
-  <div class="tiles">
-    {%- for p in atlas.places | limit(8) %}
-    {{ tile(p.plate, p.url, p.name, p.countryName) }}
-    {%- endfor %}
+    <p class="kicker">Everywhere on file</p>
+    <h2 class="sec__title">Or see <em>the whole map</em></h2>
+    <p class="sec__sub">Everything else on the site, drawn plates included, lives one click further in.</p>
+    <p class="hero__cta" style="justify-content:center;margin-top:1.4rem">
+      <a class="btn" href="/destinations/">All destinations</a>
+      <a class="btn btn--ghost" style="border-color:var(--sea);color:var(--sea)" href="/stays/">All stays</a>
+    </p>
   </div>
 </section>

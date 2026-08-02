@@ -503,3 +503,43 @@ img { display: block; max-width: 100%; }
   line-height: 1.5;
   color: var(--ink-2);
 }
+
+/* -------------------------------------------------------- text browsing */
+/* Used where no real photograph exists yet for every item in a set, so a
+   row of half-plates never appears on the homepage. */
+
+.linkrow {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.linkrow a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--line);
+  background: var(--shell);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: border-color 0.3s, color 0.3s;
+}
+.linkrow a:hover { border-color: var(--sea); color: var(--sea); }
+.linkrow a .mono {
+  font-size: 0.68rem;
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
+.cards--one {
+  grid-template-columns: minmax(0, 34rem);
+  justify-content: center;
+}

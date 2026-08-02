@@ -6,6 +6,19 @@ else to go?
 
 Live: https://fuiyoh.netlify.app
 
+## The homepage rule
+
+The homepage only ever shows real photographs, never a drawn plate. It pulls
+directly from the handful of places, stays and journal entries that carry a
+real `image`, rather than from "top rated" or "recently added" queries that
+could silently surface a plate as soon as content changes. Sections with
+nothing real to show yet (browse by type, browse by continent) are plain text
+link rows instead of image tiles, so there is never a partial grid of some
+photographs and some illustrations sitting side by side.
+
+Everywhere else on the site, plates still fill in for places without a
+photograph yet, captioned as such.
+
 ## Why it looks like this
 
 An image-led magazine layout, in the family of Oneika the Traveller and The
